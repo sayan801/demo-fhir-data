@@ -5,7 +5,7 @@
  * from your /input/fsh files. It parses each FSH file to find Instance definitions
  * and creates a bundle containing references to each of them.
  * 
- * Usage: node bundle-generator.js
+ * Usage: node bundle-generator.js or ./fhir-tools.sh bundle
  */
 
 const fs = require('fs');

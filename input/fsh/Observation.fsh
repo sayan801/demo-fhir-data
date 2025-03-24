@@ -53,7 +53,7 @@ Usage: #example
 * code.text = "Mapple Screening - PHQ-9 depression assessment"
 * subject.reference = "Patient/CarlFrederickson"
 * effectiveDateTime = "2023-07-20T10:30:00Z"
-* performer.reference = "Practitioner/ex-author"
+* performer.display = "Dr. Sarah Johnson, Psychiatrist"
 * valueInteger = 15
 * interpretation = http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation#H "High"
 * note.text = "Score indicates moderate to severe depression. Follow-up appointment scheduled with psychiatrist for medication review."
