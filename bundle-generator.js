@@ -2,7 +2,7 @@
  * Bundle Generator for FHIR FSH Files
  * 
  * This script automatically generates a bundle FSH file that includes all resources
- * from your /input/fsh files. It parses each FSH file to find Instance definitions
+ * from the standard /input/fsh/ directory. It parses each FSH file to find Instance definitions
  * and creates a bundle containing references to each of them.
  * 
  * Usage: node bundle-generator.js or ./fhir-tools.sh bundle
@@ -19,8 +19,112 @@ const BUNDLE_TITLE = 'Automatically Compiled Bundle';
 const BUNDLE_DESCRIPTION = 'Bundle containing all resources automatically compiled from FSH files';
 const BUNDLE_TYPE = 'transaction';
 
-// Initialize bundle FSH content
-let bundleFsh = `// Auto-generated Bundle - DO NOT EDIT MANUALLY
+/**
+ * Extracts instance from the FSH content
+ */
+function findInstances(content, fileName) {
+  const results = [];
+
+  // Use regex to find Instance definitions
+  const instanceMatches = content.matchAll(/Instance:\s+([A-Za-z0-9_-]+)[\s\S]*?InstanceOf:\s+([A-Za-z0-9_.-]+)/g);
+
+  for (const match of instanceMatches) {
+    const instanceName = match[1].trim();
+    const resourceType = match[2].trim();
+
+    // Skip adding the bundle we're creating to avoid circular references
+    if (instanceName === BUNDLE_ID) {
+      continue;
+    }
+
+    results.push({ instanceName, resourceType });
+  }
+
+  return results;
+}
+
+/**
+ * Processes FSH files in a directory
+ */
+function processDirectory(dirPath, instances, resourceTypes) {
+  let processedFiles = 0;
+  let totalInstances = 0;
+
+  try {
+    // Get all FSH files in the directory, excluding the auto-bundle file
+    const files = fs.readdirSync(dirPath)
+      .filter(f => f.endsWith('.fsh'))
+      .filter(f => f !== 'auto-bundle.fsh');
+
+    files.forEach(file => {
+      try {
+        const filePath = path.join(dirPath, file);
+        const content = fs.readFileSync(filePath, 'utf8');
+
+        // Find instances in the file content
+        const fileInstances = findInstances(content, file);
+
+        // Add found instances to our maps
+        fileInstances.forEach(({ instanceName, resourceType }) => {
+          instances.set(instanceName, path.relative(FSH_DIR, filePath));
+          resourceTypes.set(instanceName, resourceType);
+          totalInstances++;
+        });
+
+        processedFiles++;
+      } catch (error) {
+        console.error(`Error processing file ${file}:`, error);
+      }
+    });
+  } catch (error) {
+    console.error(`Error reading directory ${dirPath}:`, error);
+  }
+
+  return { processedFiles, totalInstances };
+}
+
+/**
+ * Finds all FSH files and extracts instance definitions
+ */
+function collectInstances() {
+  const instances = new Map();
+  const resourceTypes = new Map();
+  let totalProcessedFiles = 0;
+  let totalFoundInstances = 0;
+
+  if (!fs.existsSync(FSH_DIR)) {
+    console.error(`Error: Directory ${FSH_DIR} does not exist.`);
+    process.exit(1);
+  }
+
+  // Process the main FSH directory
+  const mainResult = processDirectory(FSH_DIR, instances, resourceTypes);
+  totalProcessedFiles += mainResult.processedFiles;
+  totalFoundInstances += mainResult.totalInstances;
+
+  // Get all subdirectories inside input/fsh/
+  const subDirs = fs.readdirSync(FSH_DIR, { withFileTypes: true })
+    .filter(dirent => dirent.isDirectory())
+    .map(dirent => path.join(FSH_DIR, dirent.name));
+
+  // Process each subdirectory
+  subDirs.forEach(subDir => {
+    const subResult = processDirectory(subDir, instances, resourceTypes);
+    totalProcessedFiles += subResult.processedFiles;
+    totalFoundInstances += subResult.totalInstances;
+  });
+
+  console.log(`Processed ${totalProcessedFiles} files and found ${totalFoundInstances} instances`);
+  return { instances, resourceTypes, totalInstances: totalFoundInstances };
+}
+
+/**
+ * Generates bundle FSH file content
+ */
+function createBundleFsh(instances, resourceTypes) {
+
+  // Initialize bundle FSH content with header
+  let bundleFsh = `// Auto-generated Bundle - DO NOT EDIT MANUALLY
 // Generated on ${new Date().toISOString()} by bundle-generator.js
 
 Instance: ${BUNDLE_ID}
@@ -34,79 +138,52 @@ Usage: #example
 
 `;
 
-// Maps to track instances and their resource types
-const instances = new Map();
-const resourceTypes = new Map();
+  // Add entries to bundle for each instance
+  const sortedInstances = [...instances.keys()].sort();
+  sortedInstances.forEach(instanceName => {
+    const resourceType = resourceTypes.get(instanceName);
+    const sourceFile = instances.get(instanceName);
 
-console.log('Bundle Generator - Starting...');
-
-// Check if FSH directory exists
-if (!fs.existsSync(FSH_DIR)) {
-  console.error(`Error: Directory ${FSH_DIR} does not exist.`);
-  process.exit(1);
-}
-
-// Get all FSH files
-const files = fs.readdirSync(FSH_DIR).filter(f => f.endsWith('.fsh'));
-console.log(`Found ${files.length} FSH files`);
-
-let processedFiles = 0;
-let totalInstances = 0;
-
-files.forEach(file => {
-  try {
-    const filePath = path.join(FSH_DIR, file);
-    const content = fs.readFileSync(filePath, 'utf8');
-    
-    // Use regex to find Instance definitions
-    const instanceMatches = content.matchAll(/Instance:\s+([A-Za-z0-9_-]+)[\s\S]*?InstanceOf:\s+([A-Za-z0-9_.-]+)/g);
-    
-    for (const match of instanceMatches) {
-      const instanceName = match[1].trim();
-      const resourceType = match[2].trim();
-      
-      // Skip adding the bundle we're creating to avoid circular references
-      if (instanceName === BUNDLE_ID) {
-        continue;
-      }
-      
-      // Store instance & resource type
-      instances.set(instanceName, file);
-      resourceTypes.set(instanceName, resourceType);
-      totalInstances++;
-    }
-    
-    processedFiles++;
-    
-  } catch (error) {
-    console.error(`Error processing file ${file}:`, error);
-  }
-});
-
-console.log(`Processed ${processedFiles} files and found ${totalInstances} instances`);
-
-// Add entries to bundle for each instance
-const sortedInstances = [...instances.keys()].sort();
-sortedInstances.forEach(instanceName => {
-  const resourceType = resourceTypes.get(instanceName);
-  const sourceFile = instances.get(instanceName);
-  
-  bundleFsh += `
+    bundleFsh += `
 // Include ${instanceName} from ${sourceFile}
 * entry[+].resource = ${instanceName}
 * entry[=].fullUrl = "urn:uuid:${instanceName}"
 * entry[=].request.method = #PUT
 * entry[=].request.url = "${resourceType}/${instanceName}"
 `;
-});
+  });
 
-// Write the bundle to file
-try {
-  fs.writeFileSync(OUTPUT_FILE, bundleFsh);
-  console.log(`Successfully generated bundle at ${OUTPUT_FILE} with ${totalInstances} resources`);
-} catch (error) {
-  console.error('Error writing output file:', error);
-  process.exit(1);
+  return bundleFsh;
 }
 
-console.log('Bundle Generator - Completed'); 
+/**
+ * Main function to run the bundle generator
+ */
+function main() {
+  console.log('Bundle Generator - Starting...');
+
+
+  if (!fs.existsSync(FSH_DIR)) {
+    console.error(`Error: Directory ${FSH_DIR} does not exist.`);
+    process.exit(1);
+  }
+
+  // Collect instances from all FSH files
+  const { instances, resourceTypes, totalInstances } = collectInstances();
+
+  // create the auto bundle FSH content
+  const bundleFsh = createBundleFsh(instances, resourceTypes);
+
+  // save the bundle FSH file
+  try {
+    fs.writeFileSync(OUTPUT_FILE, bundleFsh);
+    console.log(`Successfully generated bundle at ${OUTPUT_FILE} with ${totalInstances} resources`);
+  } catch (error) {
+    console.error('Error writing output file:', error);
+    process.exit(1);
+  }
+
+  console.log('Bundle Generator - Completed');
+}
+
+main();

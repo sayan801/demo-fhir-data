@@ -1,5 +1,3 @@
-// Imaging Resources for Carl Frederickson
-
 // X-Ray Bilateral Feet DiagnosticReport
 Instance: CarlFredericksonXrayFeet
 InstanceOf: DiagnosticReport

@@ -6,4 +6,4 @@ Description: "Related person information for Ellie Frederickson, spouse and port
 * patient.reference = "Patient/CarlFrederickson"
 * relationship = http://terminology.hl7.org/CodeSystem/v3-RoleCode#WIFE "wife"
 * name.family = "Frederickson"
-* name.given = "Ellie"
+* name.given = "Ellie" 

@@ -1,6 +1,3 @@
-// Care Team Resources for Carl Frederickson
-// This file contains CareTeam and Practitioner resources 
-
 // Main Care Team for Carl Frederickson
 Instance: CarlFredericksonCareTeam
 InstanceOf: CareTeam

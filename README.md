@@ -10,82 +10,94 @@ This project contains FHIR resources in FSH format for a demo patient record.
    cd demo-fhir-data
    ```
 
-2. Make the tools script executable:
+2. Make the scripts executable:
    ```bash
-   chmod +x fhir-tools.sh
+   chmod +x fhir-tools.sh hapi-server.sh
    ```
 
 ## Working with FHIR Resources
 
 ### Quick Start
 
-For a complete workflow that compiles and uploads resources to a local HAPI FHIR server:
+For working with a local HAPI FHIR server instance:
 
-```bash
-# Start the HAPI FHIR server on local Docker
-./fhir-tools.sh hapi-up
+1. **Start the local HAPI FHIR server**:
+   ```bash
+   ./hapi-server.sh start
+   ```
 
-# Generate bundle, compile FSH files, and post to local HAPI server
-./fhir-tools.sh deploy
-```
+2. **Generate bundle and post to local server** (all-in-one command):
+   ```bash
+   ./hapi-server.sh post
+   ```
+   
+   This is equivalent to running:
+   ```bash
+   ./fhir-tools.sh deploy http://localhost:8080/fhir
+   ```
 
-Then visit http://localhost:8080/fhir to see your resources in the HAPI FHIR server.
+3. Visit http://localhost:8080 to see your resources in the HAPI FHIR server.
 
-### Step-by-Step Process
+4. **Stop the HAPI FHIR server** when done:
+   ```bash
+   ./hapi-server.sh stop
+   ```
 
-If you prefer to run commands individually:
+### Using FHIR Servers
 
-1. **Generate a FSH bundle file** from all FSH files:
+For deploying to a FHIR server:
+
+1. **Generate bundle and post to a FHIR server** (all-in-one command):
+   ```bash
+   ./fhir-tools.sh deploy http://example.com/fhir
+   ```
+
+2. **Or perform steps individually**:
+   
+   a. Generate a bundle from all FSH files:
    ```bash
    ./fhir-tools.sh bundle
    ```
 
-2. **Compile your FSH files** to FHIR JSON resources:
+   b. Compile your FSH files to FHIR JSON resources:
    ```bash
    ./fhir-tools.sh sushi
    ```
 
-3. **Start the HAPI FHIR server** (if not already running):
+   c. Post the bundle to your FHIR server:
    ```bash
-   ./fhir-tools.sh hapi-up
+   ./fhir-tools.sh post http://example.com/fhir
    ```
 
-4. **Post the bundle** to the HAPI FHIR server:
-   ```bash
-   ./fhir-tools.sh post
-   ```
+### Verification of POST Requests
 
-### Working with Your Server
+When posting resources to any FHIR server, the script automatically verifies the HTTP status code:
+- Success (2xx status codes) is clearly indicated with a success message
+- Failures are reported with the status code for troubleshooting
 
-To post to a specified FHIR server:
+### Cleaning Up
 
+To clean all generated files:
 ```bash
-./fhir-tools.sh post http://example.com/fhir
-```
-
-Or for a complete deployment to an external server:
-
-```bash
-./fhir-tools.sh deploy http://example.com/fhir
+./fhir-tools.sh clean
 ```
 
 ## Available Commands
 
+### FHIR Resources Management
+
 Run `./fhir-tools.sh help` to see all available commands:
 
-- `bundle` - Generate the auto-bundle.fsh file
-- `sushi` - Run sushi to compile all FSH files
-- `post [SERVER_URL]` - Post the bundle to a FHIR server
-- `hapi-up` - Start HAPI FHIR server on Docker
-- `hapi-stop` - Stop the HAPI FHIR server on Docker
-- `clean` - Remove generated files
-- `deploy [SERVER_URL]` - Full deployment process
-- `help` - Show help message
+### Local HAPI Server Management
+
+Run `./hapi-server.sh help` to see all available commands:
+
 
 ## Project Structure
 
-- `input/fsh/` - Defualt FSH files
+- `input/fsh/` - Default FSH files
 - `fsh-generated/` - Compiled FHIR resources (created by sushi)
-- `bundle-generator.js` - Script to generate the bundle in FHIR format by retrieving all FSH resources in the input/fsh folder
-- `fhir-tools.sh` - Utility script for common tasks
-
+- `bundle-generator.js` - Script to generate the bundle in FSH format
+- `fhir-tools.sh` - Utility script for managing FHIR resources
+- `hapi-server.sh` - Utility script for managing local HAPI FHIR server
+- `sushi-config.yaml` - Configuration for SUSHI compiler
