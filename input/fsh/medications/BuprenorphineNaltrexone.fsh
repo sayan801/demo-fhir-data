@@ -26,12 +26,10 @@ Description: "Buprenorphine/Naltrexone 16mg/4mg (2x 8mg/2mg SL tablets) SL daily
 * dosageInstruction.timing.repeat.frequency = 1
 * dosageInstruction.timing.repeat.period = 1
 * dosageInstruction.timing.repeat.periodUnit = #d
-* dosageInstruction.route.coding.system = "http://snomed.info/sct"
-* dosageInstruction.route.coding.code = #37839007
-* dosageInstruction.route.coding.display = "Sublingual route"
+* dosageInstruction.route = http://snomed.info/sct#37839007 "Sublingual route"
 * dosageInstruction.doseAndRate.doseQuantity.value = 2
-* dosageInstruction.doseAndRate.doseQuantity.unit = "tablet"
-* dosageInstruction.doseAndRate.doseQuantity.system = "http://unitsofmeasure.org"
-* dosageInstruction.doseAndRate.doseQuantity.code = #tablet
+* dosageInstruction.doseAndRate.doseQuantity.unit = "tablet/day"
+* dosageInstruction.doseAndRate.doseQuantity.system = "http://snomed.info/sct"
+* dosageInstruction.doseAndRate.doseQuantity.code = #428673006
 * category = http://terminology.hl7.org/CodeSystem/medicationrequest-category#community "Community"
 * meta.security = http://terminology.hl7.org/CodeSystem/v3-ActCode#42CFRPart2 "42 CFR Part 2 restrictions apply" 
