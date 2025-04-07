@@ -20,6 +20,13 @@ Description: "Fluoxetine 20mg daily prescription for Carl Frederickson"
 * intent = #order
 * subject.reference = "Patient/CarlFrederickson"
 * medicationReference.reference = "Medication/MedicationFluoxetine"
+
+// Adding security category for the medication
+// Behavioral Health sensitivity category
+* category[0].coding.system = "http://terminology.hl7.org/CodeSystem/v3-ActCode"
+* category[0].coding.code = #BH
+* category[0].coding.display = "Behavioral Health"
+
 * dosageInstruction.text = "20mg daily"
 * dosageInstruction.timing.repeat.frequency = 1
 * dosageInstruction.timing.repeat.period = 1
@@ -31,4 +38,3 @@ Description: "Fluoxetine 20mg daily prescription for Carl Frederickson"
 * dosageInstruction.doseAndRate.doseQuantity.unit = "mg"
 * dosageInstruction.doseAndRate.doseQuantity.system = "http://unitsofmeasure.org"
 * dosageInstruction.doseAndRate.doseQuantity.code = #mg
-* category = http://terminology.hl7.org/CodeSystem/medicationrequest-category#community "Community" 
