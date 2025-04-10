@@ -23,17 +23,6 @@ Description: "Buprenorphine/Naltrexone 16mg/4mg (2x 8mg/2mg SL tablets) SL daily
 * subject.reference = "Patient/CarlFrederickson"
 * medicationReference.reference = "Medication/MedicationBuprenorphineNaltrexone"
 
-// Adding security categories for the medication
-// Substance Use Disorder sensitivity category
-* category[0].coding.system = "http://terminology.hl7.org/CodeSystem/v3-ActCode"
-* category[0].coding.code = #SUD
-* category[0].coding.display = "Substance Use Disorder"
-
-// Behavioral Health sensitivity category
-* category[1].coding.system = "http://terminology.hl7.org/CodeSystem/v3-ActCode"
-* category[1].coding.code = #BH
-* category[1].coding.display = "Behavioral Health"
-
 * dosageInstruction.text = "16mg/4mg (2x 8mg/2mg SL tablets) SL daily"
 * dosageInstruction.timing.repeat.frequency = 1
 * dosageInstruction.timing.repeat.period = 1
