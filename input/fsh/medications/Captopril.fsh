@@ -30,4 +30,3 @@ Description: "Captopril 12.5mg PO BID prescription for Carl Frederickson"
 * dosageInstruction.doseAndRate.doseQuantity.unit = "mg"
 * dosageInstruction.doseAndRate.doseQuantity.system = "http://unitsofmeasure.org"
 * dosageInstruction.doseAndRate.doseQuantity.code = #mg
-* category = http://terminology.hl7.org/CodeSystem/medicationrequest-category#community "Community" 
