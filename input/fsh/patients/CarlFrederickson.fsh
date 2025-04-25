@@ -1,4 +1,5 @@
 // Demo Patient: Carl Frederickson
+// NOTE: No ID is provided here to allow MedPlum to generate it
 Instance: CarlFrederickson
 InstanceOf: Patient
 Title: "Patient Carl Frederickson"

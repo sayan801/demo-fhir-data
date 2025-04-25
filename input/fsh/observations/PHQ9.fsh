@@ -13,7 +13,7 @@ Usage: #example
 * code.coding[0].display = "Patient Health Questionnaire 9 item (assessment scale)"
 * code.text = "Mapple Screening - PHQ-9 depression assessment"
 
-* subject.reference = "Patient/CarlFrederickson"
+* subject.reference = "urn:uuid:CarlFrederickson"
 
 
 // CPT code reference 

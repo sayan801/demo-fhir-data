@@ -17,7 +17,7 @@ Title: "MedicationRequest - Captopril"
 Description: "Captopril 12.5mg PO BID prescription for Carl Frederickson"
 * status = #active
 * intent = #order
-* subject.reference = "Patient/CarlFrederickson"
+* subject.reference = "urn:uuid:CarlFrederickson"
 * medicationReference.reference = "Medication/MedicationCaptopril"
 * dosageInstruction.text = "12.5mg PO BID"
 * dosageInstruction.timing.repeat.frequency = 2

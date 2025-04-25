@@ -10,7 +10,7 @@ Description: "X-ray, bilateral feet, weightbearing, 2 views: dorsoplantar (DP) a
 * code.coding[0].code = #73620
 * code.coding[0].display = "Radiologic examination, foot; 2 views"
 * code.text = "X-ray, bilateral feet, weightbearing, 2 views: dorsoplantar (DP) and axial"
-* subject.reference = "Patient/CarlFrederickson"
+* subject.reference = "urn:uuid:CarlFrederickson"
 * effectiveDateTime = "2022-11-15T10:30:00Z"
 * issued = "2022-11-15T14:45:00Z"
 * performer.display = "Dr. Robert Smith, Radiologist"

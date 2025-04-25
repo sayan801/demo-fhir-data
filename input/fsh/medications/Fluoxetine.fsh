@@ -18,7 +18,7 @@ Title: "MedicationRequest - Fluoxetine"
 Description: "Fluoxetine 20mg daily prescription for Carl Frederickson"
 * status = #active
 * intent = #order
-* subject.reference = "Patient/CarlFrederickson"
+* subject.reference = "urn:uuid:CarlFrederickson"
 * medicationReference.reference = "Medication/MedicationFluoxetine"
 
 * dosageInstruction.text = "20mg daily"

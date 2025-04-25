@@ -4,7 +4,7 @@ InstanceOf: Condition
 Usage: #example
 Title: "Condition - Essential Hypertension"
 Description: "Essential hypertension diagnosis for Carl Frederickson"
-* subject.reference = "Patient/CarlFrederickson"
+* subject.reference = "urn:uuid:CarlFrederickson"
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active
 * category = http://terminology.hl7.org/CodeSystem/condition-category#problem-list-item
 * code.coding[0].system = "http://hl7.org/fhir/sid/icd-10"
