@@ -19,7 +19,7 @@ Description: "Fluoxetine 20mg daily prescription for Carl Frederickson"
 * status = #active
 * intent = #order
 * subject.reference = "urn:uuid:CarlFrederickson"
-* medicationReference.reference = "Medication/MedicationFluoxetine"
+* medicationReference.reference = "urn:uuid:MedicationFluoxetine"
 
 * dosageInstruction.text = "20mg daily"
 * dosageInstruction.timing.repeat.frequency = 1
