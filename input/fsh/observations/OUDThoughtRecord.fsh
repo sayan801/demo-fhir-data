@@ -13,6 +13,6 @@ Usage: #example
 * code.coding[0].display = "Cognitive behavioral therapy intervention (procedure)"
 * code.text = "Mapple CBT Tool - OUD self-help thought record"
 
-* subject.reference = "Patient/CarlFrederickson"
+* subject.reference = "urn:uuid:CarlFrederickson"
 * effectiveDateTime = "2023-08-05T14:45:00Z"
-* performer.reference = "Patient/CarlFrederickson"
+* performer.reference = "urn:uuid:CarlFrederickson"

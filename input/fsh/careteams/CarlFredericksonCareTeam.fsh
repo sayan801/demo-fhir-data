@@ -7,7 +7,7 @@ Usage: #example
 
 * status = #active
 * name = "Carl Frederickson's Care Team"
-* subject.reference = "Patient/CarlFrederickson"
+* subject.reference = "urn:uuid:CarlFrederickson"
 * period.start = "2023-01-15"
 * category = http://loinc.org#LA27976-2 "Interdisciplinary team"
 

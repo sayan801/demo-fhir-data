@@ -148,8 +148,8 @@ Usage: #example
 // Include ${instanceName} from ${sourceFile}
 * entry[+].resource = ${instanceName}
 * entry[=].fullUrl = "urn:uuid:${instanceName}"
-* entry[=].request.method = #PUT
-* entry[=].request.url = "${resourceType}/${instanceName}"
+* entry[=].request.method = #POST
+* entry[=].request.url = "${resourceType}"
 `;
   });
 

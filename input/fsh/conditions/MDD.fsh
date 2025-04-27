@@ -4,7 +4,7 @@ InstanceOf: Condition
 Usage: #example
 Title: "Condition - Major Depressive Disorder"
 Description: "Major depressive disorder, recurrent, moderate for Carl Frederickson"
-* subject.reference = "Patient/CarlFrederickson"
+* subject.reference = "urn:uuid:CarlFrederickson"
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active
 * category[0] = http://terminology.hl7.org/CodeSystem/condition-category#problem-list-item
 * category[1] = http://terminology.hl7.org/CodeSystem/condition-category#behavioral

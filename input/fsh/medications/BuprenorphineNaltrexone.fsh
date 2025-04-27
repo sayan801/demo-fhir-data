@@ -20,8 +20,8 @@ Title: "MedicationRequest - Buprenorphine/Naltrexone"
 Description: "Buprenorphine/Naltrexone 16mg/4mg (2x 8mg/2mg SL tablets) SL daily prescription for Carl Frederickson"
 * status = #active
 * intent = #order
-* subject.reference = "Patient/CarlFrederickson"
-* medicationReference.reference = "Medication/MedicationBuprenorphineNaltrexone"
+* subject.reference = "urn:uuid:CarlFrederickson"
+* medicationReference.reference = "urn:uuid:MedicationBuprenorphineNaltrexone"
 
 * dosageInstruction.text = "16mg/4mg (2x 8mg/2mg SL tablets) SL daily"
 * dosageInstruction.timing.repeat.frequency = 1

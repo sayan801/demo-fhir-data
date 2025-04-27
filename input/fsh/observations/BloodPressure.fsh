@@ -5,8 +5,6 @@ Title: "Mapple Vitals - Blood Pressure Measurement"
 Description: "Mapple vitals blood pressure reading for Carl Frederickson"
 Usage: #example
 
-// This uses the standard FHIR profile for blood pressure observations
-* meta.profile = "http://hl7.org/fhir/StructureDefinition/bp"
 * status = #final
 
 // Category "Vital Signs"
@@ -19,5 +17,5 @@ Usage: #example
 * code.coding[0].code = #75367002
 * code.coding[0].display = "Blood pressure (observable entity)"
 * code.text = "Mapple Vitals - Blood pressure"
-* subject.reference = "Patient/CarlFrederickson"
+* subject.reference = "urn:uuid:CarlFrederickson"
 * effectiveDateTime = "2023-08-15T09:30:00Z"
