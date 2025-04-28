@@ -3,6 +3,7 @@
 
 # File paths and constants
 BUNDLE_GENERATOR="bundle-generator.js"
+MEDPLUM_SCRIPT="medplum.js"
 INPUT_DIR="input"
 FSH_DIR="${INPUT_DIR}/fsh"
 BUNDLE_FSH="${FSH_DIR}/auto-bundle.fsh"
@@ -14,6 +15,7 @@ SUSHI_CMD="sushi ."
 # Usage messages
 USAGE_POST="Usage: ./fhir-tools.sh post SERVER_URL"
 USAGE_DEPLOY="Usage: ./fhir-tools.sh deploy SERVER_URL"
+USAGE_MEDPLUM="Usage: ./fhir-tools.sh medplum [BUNDLE_ID]"
 USAGE_HELP="Run './fhir-tools.sh help' for usage information"
 
 # Script name for error messages
@@ -64,13 +66,15 @@ show_help() {
   echo "  post SERVER_URL          Post the bundle to a FHIR server (SERVER_URL is required)"
   echo "  clean                    Remove generated files (compiled JSON files)"
   echo "  deploy SERVER_URL        Compile and post resources to a FHIR server (SERVER_URL is required)"
+  echo "  medplum [BUNDLE_ID]      Modify a bundle for Medplum compatibility (defaults to auto-compiled-bundle)"
   echo "  help                     Show this help message"
   echo ""
   echo "Examples:"
   echo "  ./${SCRIPT_NAME} bundle                          # Generate bundle file"
   echo "  ./${SCRIPT_NAME} sushi                           # Compile FSH files with SUSHI"
   echo "  ./${SCRIPT_NAME} post http://example.com/fhir    # Post to a FHIR server"
-  echo "  ./${SCRIPT_NAME} deploy http://example.com/fhir  # Full deployment to a FHIRserver"
+  echo "  ./${SCRIPT_NAME} deploy http://example.com/fhir  # Full deployment to a FHIR server"
+  echo "  ./${SCRIPT_NAME} medplum                         # Modify bundle for Medplum compatibility"
   echo ""
 }
 
@@ -190,6 +194,56 @@ deploy() {
   success "Full deployment completed successfully!"
 }
 
+# Run medplum script to modify a bundle for medplum compatibility
+run_medplum() {
+  local bundle_id=$1
+  
+  # Default to auto-compiled-bundle if no bundle ID provided
+  if [ -z "$bundle_id" ]; then
+    bundle_id="auto-compiled-bundle"
+    info "No bundle ID provided, using default: $bundle_id"
+  fi
+  
+  section "Modifying Bundle for Medplum Compatibility"
+  
+  # Check if the medplum script exists
+  if [ ! -f "${MEDPLUM_SCRIPT}" ]; then
+    error "Medplum script not found at ${MEDPLUM_SCRIPT}"
+    exit 1
+  fi
+  
+  # Check if the bundle file exists
+  bundle_path="${FSH_GENERATED_DIR}/resources/Bundle-${bundle_id}.json"
+  if [ ! -f "$bundle_path" ]; then
+    warning "Bundle file not found at $bundle_path"
+    info "Attempting to generate bundle first..."
+    
+    # Run bundle generation
+    generate_bundle
+    
+    # Check again if the file exists after generation
+    if [ ! -f "$bundle_path" ]; then
+      error "Failed to generate bundle. Bundle file still not found at $bundle_path"
+      exit 1
+    else
+      success "Bundle successfully generated"
+    fi
+  fi
+  
+  output_path="${FSH_GENERATED_DIR}/resources/Bundle-${bundle_id}-medplum.json"
+  info "Creating Medplum compatible bundle at: $output_path"
+  
+  # Run the medplum script on the specified bundle
+  node ${MEDPLUM_SCRIPT} "$bundle_id"
+  
+  if [ $? -eq 0 ]; then
+    success "Bundle successfully modified for Medplum compatibility"
+  else
+    error "Failed to modify bundle for Medplum compatibility"
+    exit 1
+  fi
+}
+
 # Commands
 case "$1" in
   bundle)
@@ -207,6 +261,9 @@ case "$1" in
   deploy)
     deploy "$2"
     ;;
+  medplum)
+    run_medplum "$2"
+    ;;
   help|--help|-h)
     show_help
     ;;
@@ -222,4 +279,4 @@ case "$1" in
     ;;
 esac
 
-exit 0 
+exit 0
