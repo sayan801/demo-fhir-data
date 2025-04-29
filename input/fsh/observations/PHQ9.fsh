@@ -7,6 +7,9 @@ Usage: #example
 
 * status = #final
 
+* identifier[0].system = "http://example.org/fhir/observation-identifier"
+* identifier[0].value = "PHQ9-56781"
+
 // Code for PHQ-9 
 * code.coding[0].system = "http://snomed.info/sct"
 * code.coding[0].code = #720433000
@@ -21,4 +24,4 @@ Usage: #example
 * extension[0].valueCodeableConcept.coding.system = "http://www.ama-assn.org/go/cpt"
 * extension[0].valueCodeableConcept.coding.code = #96127
 * extension[0].valueCodeableConcept.coding.display = "Brief emotional/behavioral assessment"
-* extension[0].valueCodeableConcept.text = "CPT 96127 (not billed)" 
+* extension[0].valueCodeableConcept.text = "CPT 96127 (not billed)"

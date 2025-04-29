@@ -7,6 +7,9 @@ Usage: #example
 
 * status = #final
 
+* identifier[0].system = "http://example.org/fhir/observation-identifier"
+* identifier[0].value = "OUDTR-56782"
+
 // CBT code
 * code.coding[0].system = "http://snomed.info/sct"
 * code.coding[0].code = #444175001
