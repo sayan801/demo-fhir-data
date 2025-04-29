@@ -7,6 +7,9 @@ Usage: #example
 
 * status = #final
 
+* identifier[0].system = "http://example.org/fhir/observation-identifier"
+* identifier[0].value = "BP-56783"
+
 // Category "Vital Signs"
 * category[0].coding[0].system = "http://terminology.hl7.org/CodeSystem/observation-category"
 * category[0].coding[0].code = #vital-signs

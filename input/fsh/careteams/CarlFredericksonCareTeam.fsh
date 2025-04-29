@@ -5,6 +5,9 @@ Title: "Carl Frederickson's Multi-Disciplinary Care Team"
 Description: "Comprehensive care team covering primary care, behavioral health, specialty care, and care coordination"
 Usage: #example
 
+* identifier[0].system = "http://example.org/fhir/careteam-identifier"
+* identifier[0].value = "CT-34567"
+
 * status = #active
 * name = "Carl Frederickson's Care Team"
 * subject.reference = "urn:uuid:CarlFrederickson"

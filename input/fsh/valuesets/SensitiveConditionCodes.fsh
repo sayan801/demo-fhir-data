@@ -5,6 +5,9 @@ Usage: #definition
 Title: "ValueSet - Sensitive Condition Codes"
 Description: "Codes representing sensitive conditions requiring special privacy protections"
 
+* identifier[0].system = "http://example.org/fhir/valueset-identifier"
+* identifier[0].value = "VS-89012"
+
 * status = #active
 * experimental = false
 * purpose = "Identify clinical codes that require security labeling for privacy protection"
@@ -90,4 +93,4 @@ Description: "Codes representing sensitive conditions requiring special privacy 
 
 // LOINC SEX Lab/Assessment Codes
 * compose.include[10].system = "http://loinc.org"
-// ADD LOINC SEXUALITY/REPRODUCTIVE HEALTH CODES HERE 
+// ADD LOINC SEXUALITY/REPRODUCTIVE HEALTH CODES HERE

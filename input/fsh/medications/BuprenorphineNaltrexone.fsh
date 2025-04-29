@@ -3,6 +3,10 @@ Instance: MedicationBuprenorphineNaltrexone
 InstanceOf: Medication
 Title: "Medication - Buprenorphine/Naltrexone"
 Description: "Buprenorphine/Naltrexone 8mg/2mg SL tablet"
+
+* identifier[0].system = "http://example.org/fhir/medication-identifier"
+* identifier[0].value = "BUPR-NAL-78901"
+
 * code.coding[0].system = "http://www.nlm.nih.gov/research/umls/rxnorm"
 * code.coding[0].code = #352364
 * code.coding[0].display = "Buprenorphine / Naltrexone"
@@ -18,6 +22,10 @@ Instance: CarlFredericksonBuprenorphineNaltrexone
 InstanceOf: MedicationRequest
 Title: "MedicationRequest - Buprenorphine/Naltrexone"
 Description: "Buprenorphine/Naltrexone 16mg/4mg (2x 8mg/2mg SL tablets) SL daily prescription for Carl Frederickson"
+
+* identifier[0].system = "http://example.org/fhir/medicationrequest-identifier"
+* identifier[0].value = "RX-BUPR-NAL-45601"
+
 * status = #active
 * intent = #order
 * subject.reference = "urn:uuid:CarlFrederickson"

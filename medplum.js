@@ -1,15 +1,3 @@
-/**
- * Medplum Bundle Modifier
- *
- * This script modifies a generated FHIR bundle JSON file to:
- * 1. Set all request methods to "POST"
- * 2. Set all request URLs to just the resourceType (without ID)
- * 3. Convert all fullUrl instance IDs to consistent UUIDs
- *
- * Usage: node medplum.js [bundle-id]
- * Example: node medplum.js auto-compiled-bundle
- */
-
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
@@ -79,29 +67,46 @@ function processBundleFile(bundleId) {
         entry.request.method = "POST";
       }
 
-      // 2. Change request URL to just resourceType
+      // 2. Change request URL to just resourceType and add conditional create logic
       if (entry.request && entry.resource && entry.resource.resourceType) {
         entry.request.url = entry.resource.resourceType;
+
+        if (
+          entry.resource.identifier &&
+          Array.isArray(entry.resource.identifier)
+        ) {
+          // Find an identifier with both system and value
+          const validIdentifier = entry.resource.identifier.find(
+            (id) =>
+              id.system &&
+              id.value &&
+              typeof id.system === "string" &&
+              typeof id.value === "string"
+          );
+
+          if (validIdentifier) {
+            // Add ifNoneExist parameter for conditional create
+            entry.request.ifNoneExist = `identifier=${validIdentifier.system}|${validIdentifier.value}`;
+          }
+        }
       }
 
       // 3. Change fullUrl to use UUID
-      if (entry.fullUrl && entry.fullUrl.startsWith("urn:uuid:")) {
-        const instanceId = entry.fullUrl.substring(9); // Remove 'urn:uuid:' prefix
-
-        // Get or generate UUID for this instance ID
+      if (entry.fullUrl) {
+        let originalFullUrl = entry.fullUrl;
         let uuid;
-        if (uuidCache.has(instanceId)) {
-          uuid = uuidCache.get(instanceId);
+        if (uuidCache.has(originalFullUrl)) {
+          uuid = uuidCache.get(originalFullUrl);
         } else {
-          uuid = generateUUID(instanceId);
-          uuidCache.set(instanceId, uuid);
+          uuid = generateUUID(originalFullUrl);
+          uuidCache.set(originalFullUrl, uuid);
         }
 
         // Update the fullUrl
         entry.fullUrl = `urn:uuid:${uuid}`;
 
         // Store the reference mapping for updating references later
-        referenceUpdates.set(`urn:uuid:${instanceId}`, `urn:uuid:${uuid}`);
+        referenceUpdates.set(originalFullUrl, `urn:uuid:${uuid}`);
       }
     });
   }
@@ -110,14 +115,10 @@ function processBundleFile(bundleId) {
   JSONPath({
     path: "$..reference",
     json: bundle,
-    resultType: "pointer",
-    callback: (pointer) => {
-      const refValue = _.get(bundle, pointer.substring(1));
-
-      // Check if this reference needs to be updated
-      if (typeof refValue === "string" && referenceUpdates.has(refValue)) {
-        // Update reference using lodash and the pointer
-        _.set(bundle, pointer.substring(1), referenceUpdates.get(refValue));
+    resultType: "value",
+    callback: (value, _type, { parent }) => {
+      if (typeof value === "string" && referenceUpdates.has(value)) {
+        parent.reference = referenceUpdates.get(value);
       }
     },
   });

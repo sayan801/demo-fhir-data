@@ -4,6 +4,10 @@ Instance: MedicationFluoxetine
 InstanceOf: Medication
 Title: "Medication - Fluoxetine"
 Description: "Fluoxetine 20mg medication"
+
+* identifier[0].system = "http://example.org/fhir/medication-identifier"
+* identifier[0].value = "FLUOX-78902"
+
 * code.coding[0].system = "http://www.nlm.nih.gov/research/umls/rxnorm"
 * code.coding[0].code = #315952
 * code.coding[0].display = "Fluoxetine 20 MG Oral Capsule"
@@ -16,6 +20,10 @@ Instance: CarlFredericksonFluoxetine
 InstanceOf: MedicationRequest
 Title: "MedicationRequest - Fluoxetine"
 Description: "Fluoxetine 20mg daily prescription for Carl Frederickson"
+
+* identifier[0].system = "http://example.org/fhir/medicationrequest-identifier"
+* identifier[0].value = "RX-FLUOX-45602"
+
 * status = #active
 * intent = #order
 * subject.reference = "urn:uuid:CarlFrederickson"
