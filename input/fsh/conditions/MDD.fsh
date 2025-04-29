@@ -1,6 +1,6 @@
 // Major Depressive Disorder
 Instance: CarlFredericksonMDD
-InstanceOf: Condition
+InstanceOf: SensitiveConditionProfile
 Usage: #example
 Title: "Condition - Major Depressive Disorder"
 Description: "Major depressive disorder, recurrent, moderate for Carl Frederickson"

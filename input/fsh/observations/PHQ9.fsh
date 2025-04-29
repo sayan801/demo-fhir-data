@@ -1,9 +1,9 @@
 // PHQ-9 Depression Screening
 Instance: CarlFredericksonPHQ9
-InstanceOf: Observation
-Title: "Mapple Screening - PHQ-9 Depression Assessment"
-Description: "Patient Health Questionnaire-9 (PHQ-9) assessment for depression screening"
+InstanceOf: SensitiveObservationProfile
 Usage: #example
+Title: "Observation - PHQ-9 Depression Screening"
+Description: "PHQ-9 Depression screening questionnaire for Carl Frederickson"
 
 * status = #final
 

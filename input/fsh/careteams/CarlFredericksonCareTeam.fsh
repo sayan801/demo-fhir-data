@@ -1,6 +1,6 @@
 // Main Care Team for Carl Frederickson
 Instance: CarlFredericksonCareTeam
-InstanceOf: CareTeam
+InstanceOf: SensitiveCareTeamProfile
 Title: "Carl Frederickson's Multi-Disciplinary Care Team"
 Description: "Comprehensive care team covering primary care, behavioral health, specialty care, and care coordination"
 Usage: #example
@@ -72,4 +72,4 @@ Usage: #example
 
 // Care Team Coordinator role is assigned to PCP
 * managingOrganization.display = "Springfield Medical Center"
-* reasonCode = http://snomed.info/sct#386661006 "Multidisciplinary care" 
+* reasonCode = http://snomed.info/sct#386661006 "Multidisciplinary care"

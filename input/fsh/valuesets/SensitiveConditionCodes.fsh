@@ -5,6 +5,7 @@ Usage: #definition
 Title: "ValueSet - Sensitive Condition Codes"
 Description: "Codes representing sensitive conditions requiring special privacy protections"
 
+* url = "http://example.org/fhir/ValueSet/sensitive-condition-codes"
 * identifier[0].system = "http://example.org/fhir/valueset-identifier"
 * identifier[0].value = "VS-89012"
 
@@ -94,3 +95,46 @@ Description: "Codes representing sensitive conditions requiring special privacy 
 // LOINC SEX Lab/Assessment Codes
 * compose.include[10].system = "http://loinc.org"
 // ADD LOINC SEXUALITY/REPRODUCTIVE HEALTH CODES HERE
+
+//------------------------------------------------------------------------------
+// EXPANSION
+//------------------------------------------------------------------------------
+* expansion.timestamp = "2025-04-30T12:00:00Z"
+* expansion.total = 13
+* expansion.offset = 0
+* expansion.contains[0].system = "http://hl7.org/fhir/sid/icd-10"
+* expansion.contains[0].code = #F11.11
+* expansion.contains[0].display = "Opioid abuse, in remission"
+* expansion.contains[1].system = "http://snomed.info/sct"
+* expansion.contains[1].code = #5602001
+* expansion.contains[1].display = "Opioid abuse"
+* expansion.contains[2].system = "http://snomed.info/sct"
+* expansion.contains[2].code = #425741009
+* expansion.contains[2].display = "Buprenorphine/naloxone"
+* expansion.contains[3].system = "http://snomed.info/sct"
+* expansion.contains[3].code = #444175001
+* expansion.contains[3].display = "Cognitive behavioral therapy record"
+* expansion.contains[4].system = "http://www.nlm.nih.gov/research/umls/rxnorm"
+* expansion.contains[4].code = #352364
+* expansion.contains[4].display = "Buprenorphine 8 MG / Naloxone 2 MG Sublingual Tablet"
+* expansion.contains[5].system = "http://hl7.org/fhir/sid/icd-10"
+* expansion.contains[5].code = #F33.1
+* expansion.contains[5].display = "Major depressive disorder, recurrent, moderate"
+* expansion.contains[6].system = "http://hl7.org/fhir/sid/icd-10"
+* expansion.contains[6].code = #F60.5
+* expansion.contains[6].display = "Obsessive-compulsive personality disorder"
+* expansion.contains[7].system = "http://snomed.info/sct"
+* expansion.contains[7].code = #310496002
+* expansion.contains[7].display = "Major depressive disorder, recurrent, moderate"
+* expansion.contains[8].system = "http://snomed.info/sct"
+* expansion.contains[8].code = #1376001
+* expansion.contains[8].display = "Obsessive-compulsive personality disorder"
+* expansion.contains[9].system = "http://snomed.info/sct"
+* expansion.contains[9].code = #720433000
+* expansion.contains[9].display = "PHQ-9 depression screening instrument"
+* expansion.contains[10].system = "http://www.nlm.nih.gov/research/umls/rxnorm"
+* expansion.contains[10].code = #315952
+* expansion.contains[10].display = "Fluoxetine 20 MG Oral Capsule"
+* expansion.contains[11].system = "http://www.ama-assn.org/go/cpt"
+* expansion.contains[11].code = #96127
+* expansion.contains[11].display = "Brief emotional/behavioral assessment"

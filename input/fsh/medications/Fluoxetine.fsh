@@ -1,9 +1,9 @@
-// Fluoxetine Medication and MedicationRequest
 // Fluoxetine Medication
 Instance: MedicationFluoxetine
-InstanceOf: Medication
+InstanceOf: SensitiveMedicationProfile
+Usage: #example
 Title: "Medication - Fluoxetine"
-Description: "Fluoxetine 20mg medication"
+Description: "Fluoxetine for treatment of depression"
 
 * identifier[0].system = "http://example.org/fhir/medication-identifier"
 * identifier[0].value = "FLUOX-78902"
@@ -14,29 +14,3 @@ Description: "Fluoxetine 20mg medication"
 * form.coding.system = "http://snomed.info/sct"
 * form.coding.code = #385055001
 * form.coding.display = "Capsule dose form"
-
-// Fluoxetine MedicationRequest
-Instance: CarlFredericksonFluoxetine
-InstanceOf: MedicationRequest
-Title: "MedicationRequest - Fluoxetine"
-Description: "Fluoxetine 20mg daily prescription for Carl Frederickson"
-
-* identifier[0].system = "http://example.org/fhir/medicationrequest-identifier"
-* identifier[0].value = "RX-FLUOX-45602"
-
-* status = #active
-* intent = #order
-* subject.reference = "urn:uuid:CarlFrederickson"
-* medicationReference.reference = "urn:uuid:MedicationFluoxetine"
-
-* dosageInstruction.text = "20mg daily"
-* dosageInstruction.timing.repeat.frequency = 1
-* dosageInstruction.timing.repeat.period = 1
-* dosageInstruction.timing.repeat.periodUnit = #d
-* dosageInstruction.route.coding.system = "http://snomed.info/sct"
-* dosageInstruction.route.coding.code = #26643006
-* dosageInstruction.route.coding.display = "Oral route"
-* dosageInstruction.doseAndRate.doseQuantity.value = 20
-* dosageInstruction.doseAndRate.doseQuantity.unit = "mg"
-* dosageInstruction.doseAndRate.doseQuantity.system = "http://unitsofmeasure.org"
-* dosageInstruction.doseAndRate.doseQuantity.code = #mg

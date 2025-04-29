@@ -71,17 +71,34 @@ function createDeletionBundle(bundleId) {
   const entries = [...sourceBundle.entry].reverse();
 
   entries.forEach((entry) => {
-    if (entry.resource && entry.resource.resourceType && entry.resource.id) {
+    if (entry.resource && entry.resource.resourceType) {
       // For Medplum compatibility, use conditional delete with identifier if available
       const deleteRequest = {
         method: "DELETE",
         url: entry.resource.resourceType,
       };
 
-      // Find a valid identifier to use for conditional delete in Medplum
-      if (
+      // Handle resources based on their type
+      if (entry.resource.resourceType === "Subscription") {
+        // For Subscription resources, use the endpoint URL as a search parameter
+        if (entry.resource.criteria) {
+          // Fallback to criteria if endpoint is not available
+          deleteRequest.url += `?criteria=${encodeURIComponent(
+            entry.resource.criteria
+          )}`;
+        } else {
+          console.warn(
+            `Warning: Subscription without endpoint or criteria found, may not be deleted properly: ${entry.resource.id}`
+          );
+          // Skip this resource as we can't reliably delete it
+          return;
+        }
+      }
+      // For all other resources, try to use identifiers
+      else if (
         entry.resource.identifier &&
-        Array.isArray(entry.resource.identifier)
+        Array.isArray(entry.resource.identifier) &&
+        entry.resource.identifier.length > 0
       ) {
         const validIdentifier = entry.resource.identifier.find(
           (id) =>
@@ -93,14 +110,22 @@ function createDeletionBundle(bundleId) {
 
         if (validIdentifier) {
           // Use conditional delete with identifier
-          deleteRequest.url += `?identifier=${validIdentifier.system}|${validIdentifier.value}`;
+          deleteRequest.url += `?identifier=${encodeURIComponent(
+            validIdentifier.system
+          )}|${encodeURIComponent(validIdentifier.value)}`;
         } else {
-          // Fallback to resource ID if no proper identifier is found
-          deleteRequest.url += `/${entry.resource.id}`;
+          console.warn(
+            `Warning: Resource without valid identifier found, may not be deleted properly: ${entry.resource.resourceType}/${entry.resource.id}`
+          );
+          // Skip this resource as we can't reliably delete it
+          return;
         }
       } else {
-        // Fallback to resource ID if no identifiers array exists
-        deleteRequest.url += `/${entry.resource.id}`;
+        console.warn(
+          `Warning: Resource without identifier found, may not be deleted properly: ${entry.resource.resourceType}/${entry.resource.id}`
+        );
+        // Skip this resource as we can't reliably delete it
+        return;
       }
 
       // Add the delete entry to the bundle

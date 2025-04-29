@@ -71,6 +71,17 @@ function processBundleFile(bundleId) {
       if (entry.request && entry.resource && entry.resource.resourceType) {
         entry.request.url = entry.resource.resourceType;
 
+        // Remove differential element from StructureDefinition resources
+        if (
+          entry.resource.resourceType === "StructureDefinition" &&
+          entry.resource.differential
+        ) {
+          delete entry.resource.differential;
+          console.log(
+            "Removed differential element from StructureDefinition resource"
+          );
+        }
+
         if (
           entry.resource.identifier &&
           Array.isArray(entry.resource.identifier)

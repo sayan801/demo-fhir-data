@@ -1,9 +1,9 @@
-// OUD Thought Record (CBT tool)
+// OUD Thought Record
 Instance: CarlFredericksonOUDThoughtRecord
-InstanceOf: Observation
-Title: "Mapple CBT Tool - OUD Thought Record"
-Description: "Cognitive Behavioral Therapy thought record for Opiate Use Disorder"
+InstanceOf: SensitiveObservationProfile
 Usage: #example
+Title: "Observation - OUD Thought Record"
+Description: "Substance use cognitive behavioral therapy thought record for Carl Frederickson"
 
 * status = #final
 

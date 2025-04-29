@@ -10,7 +10,7 @@ BUNDLE_FSH="${FSH_DIR}/auto-bundle.fsh"
 BUNDLE_FILE="fsh-generated/resources/Bundle-auto-compiled-bundle.json"
 FSH_GENERATED_DIR="fsh-generated"
 SUSHI_CONFIG="sushi-config.yaml"
-SUSHI_CMD="sushi ."
+SUSHI_CMD="sushi -s ."
 
 # Usage messages
 USAGE_POST="Usage: ./fhir-tools.sh post SERVER_URL"
