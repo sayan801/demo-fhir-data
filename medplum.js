@@ -13,6 +13,8 @@
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
+const { JSONPath } = require("jsonpath-plus");
+const _ = require("lodash");
 
 // Configuration
 const BUNDLE_DIR = "./fsh-generated/resources/";
@@ -66,6 +68,8 @@ function processBundleFile(bundleId) {
 
   // Cache for consistent UUID generation (same ID should get same UUID)
   const uuidCache = new Map();
+  // Track reference updates that need to be made
+  const referenceUpdates = new Map();
 
   // Modify the bundle entries
   if (bundle.entry && Array.isArray(bundle.entry)) {
@@ -96,11 +100,27 @@ function processBundleFile(bundleId) {
         // Update the fullUrl
         entry.fullUrl = `urn:uuid:${uuid}`;
 
-        // Also update all references to this resource within the bundle
-        updateReferences(bundle, `urn:uuid:${instanceId}`, `urn:uuid:${uuid}`);
+        // Store the reference mapping for updating references later
+        referenceUpdates.set(`urn:uuid:${instanceId}`, `urn:uuid:${uuid}`);
       }
     });
   }
+
+  // Use JSONPath to find and update all references in the bundle
+  JSONPath({
+    path: "$..reference",
+    json: bundle,
+    resultType: "pointer",
+    callback: (pointer) => {
+      const refValue = _.get(bundle, pointer.substring(1));
+
+      // Check if this reference needs to be updated
+      if (typeof refValue === "string" && referenceUpdates.has(refValue)) {
+        // Update reference using lodash and the pointer
+        _.set(bundle, pointer.substring(1), referenceUpdates.get(refValue));
+      }
+    },
+  });
 
   // Write the modified bundle to a new file with -medplum suffix
   try {
@@ -109,37 +129,6 @@ function processBundleFile(bundleId) {
   } catch (error) {
     console.error(`Error writing modified bundle file: ${error.message}`);
     process.exit(1);
-  }
-}
-
-/**
- * Update all references in the bundle
- */
-function updateReferences(obj, oldRef, newRef) {
-  if (!obj || typeof obj !== "object") return;
-
-  // Handle arrays
-  if (Array.isArray(obj)) {
-    for (let i = 0; i < obj.length; i++) {
-      updateReferences(obj[i], oldRef, newRef);
-    }
-    return;
-  }
-
-  // Process object keys
-  for (const key in obj) {
-    // Check for reference properties
-    if (
-      key === "reference" &&
-      typeof obj[key] === "string" &&
-      obj[key] === oldRef
-    ) {
-      obj[key] = newRef;
-    }
-    // Recursively process nested objects
-    else if (typeof obj[key] === "object") {
-      updateReferences(obj[key], oldRef, newRef);
-    }
   }
 }
 

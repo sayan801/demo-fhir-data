@@ -13,3 +13,5 @@ www
 /_genonce.sh
 .index.json
 input/fsh/auto-bundle.fsh
+
+node_modules
