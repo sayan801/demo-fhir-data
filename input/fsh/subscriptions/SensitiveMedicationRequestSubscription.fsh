@@ -8,7 +8,8 @@ Description: "Subscription for monitoring changes to medication request resource
 * reason = "Monitor changes to medication requests related to sensitive conditions for privacy protection"
 * criteria = "MedicationRequest"
 * channel.type = #rest-hook
-* channel.endpoint = "https://hearth-batch.fly.dev/fhir-subscription"
+* channel.endpoint = "urn:uuid:ModifyMedicationRequestBot"
 * channel.payload = #application/fhir+json
+* channel.header[0] = "Authorization: Bearer process.env.FHIR_BACKEND_ACCESS_TOKEN"
 
 // Rest of subscription configuration will be added later
