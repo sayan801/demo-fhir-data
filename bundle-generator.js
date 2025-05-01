@@ -8,17 +8,17 @@
  * Usage: node bundle-generator.js or ./fhir-tools.sh bundle
  */
 
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
 // Configuration
-const FSH_DIR = "./input/fsh";
-const OUTPUT_FILE = "./input/fsh/auto-bundle.fsh";
-const BUNDLE_ID = "auto-compiled-bundle";
-const BUNDLE_TITLE = "Automatically Compiled Bundle";
+const FSH_DIR = './input/fsh';
+const OUTPUT_FILE = './input/fsh/auto-bundle.fsh';
+const BUNDLE_ID = 'auto-compiled-bundle';
+const BUNDLE_TITLE = 'Automatically Compiled Bundle';
 const BUNDLE_DESCRIPTION =
-  "Bundle containing all resources automatically compiled from FSH files";
-const BUNDLE_TYPE = "transaction";
+  'Bundle containing all resources automatically compiled from FSH files';
+const BUNDLE_TYPE = 'transaction';
 
 /**
  * Extracts resources from the FSH content based on a pattern
@@ -60,7 +60,7 @@ function findProfiles(content) {
   return findResources(
     content,
     /Profile:\s+([A-Za-z0-9_-]+)[\s\S]*?Parent:\s+([A-Za-z0-9_.-]+)/g,
-    () => "StructureDefinition"
+    () => 'StructureDefinition'
   );
 }
 
@@ -103,12 +103,12 @@ function collectResources(resourceFinders) {
       // Get all FSH files in the directory, excluding the auto-bundle file
       const files = fs
         .readdirSync(dirPath)
-        .filter((f) => f.endsWith(".fsh") && f !== "auto-bundle.fsh");
+        .filter((f) => f.endsWith('.fsh') && f !== 'auto-bundle.fsh');
 
       files.forEach((file) => {
         try {
           const filePath = path.join(dirPath, file);
-          const content = fs.readFileSync(filePath, "utf8");
+          const content = fs.readFileSync(filePath, 'utf8');
 
           // Apply each finder function to the content
           Object.entries(resourceFinders).forEach(
@@ -157,8 +157,8 @@ function collectResources(resourceFinders) {
     }))
     .sort((a, b) => {
       // Sort by type first (profiles before instances) then by name
-      if (a.type === "profiles" && b.type !== "profiles") return -1;
-      if (a.type !== "profiles" && b.type === "profiles") return 1;
+      if (a.type === 'profiles' && b.type !== 'profiles') return -1;
+      if (a.type !== 'profiles' && b.type === 'profiles') return 1;
       return a.name.localeCompare(b.name);
     });
 
@@ -189,7 +189,7 @@ Usage: #example
 
   // Add entries for all resources
   if (resources.length > 0) {
-    bundleFsh += "\n// Adding Resources\n";
+    bundleFsh += '\n// Adding Resources\n';
 
     resources.forEach((resource) => {
       bundleFsh += `
@@ -209,7 +209,7 @@ Usage: #example
  * Main function to run the bundle generator
  */
 function main() {
-  console.log("Bundle Generator - Starting...");
+  console.log('Bundle Generator - Starting...');
 
   if (!fs.existsSync(FSH_DIR)) {
     console.error(`Error: Directory ${FSH_DIR} does not exist.`);
@@ -231,15 +231,15 @@ function main() {
     fs.writeFileSync(OUTPUT_FILE, bundleFsh);
     console.log(
       `Successfully generated bundle at ${OUTPUT_FILE} with ${
-        totalResourcesByType.get("instances") || 0
-      } instances and ${totalResourcesByType.get("profiles") || 0} profiles`
+        totalResourcesByType.get('instances') || 0
+      } instances and ${totalResourcesByType.get('profiles') || 0} profiles`
     );
   } catch (error) {
-    console.error("Error writing output file:", error);
+    console.error('Error writing output file:', error);
     process.exit(1);
   }
 
-  console.log("Bundle Generator - Completed");
+  console.log('Bundle Generator - Completed');
 }
 
 main();

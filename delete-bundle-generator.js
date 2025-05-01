@@ -9,11 +9,11 @@
  * Example: node delete-bundle-generator.js auto-compiled-bundle-medplum
  */
 
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
 // Configuration
-const BUNDLE_DIR = "./fsh-generated/resources/";
+const BUNDLE_DIR = './fsh-generated/resources/';
 
 /**
  * Process the source bundle file and create a deletion bundle
@@ -36,7 +36,7 @@ function createDeletionBundle(bundleId) {
   // Read the source bundle file
   let sourceBundle;
   try {
-    const fileContent = fs.readFileSync(sourceBundlePath, "utf8");
+    const fileContent = fs.readFileSync(sourceBundlePath, 'utf8');
     sourceBundle = JSON.parse(fileContent);
   } catch (error) {
     console.error(
@@ -47,15 +47,15 @@ function createDeletionBundle(bundleId) {
 
   // Validate source bundle
   if (!sourceBundle.entry || !Array.isArray(sourceBundle.entry)) {
-    console.error("Error: Source bundle does not contain entries array");
+    console.error('Error: Source bundle does not contain entries array');
     process.exit(1);
   }
 
   // Create the deletion bundle structure
   const deletionBundle = {
-    resourceType: "Bundle",
+    resourceType: 'Bundle',
     id: `${sourceBundle.id}-delete`,
-    type: "transaction",
+    type: 'transaction',
     entry: [],
   };
 
@@ -74,12 +74,12 @@ function createDeletionBundle(bundleId) {
     if (entry.resource && entry.resource.resourceType) {
       // For Medplum compatibility, use conditional delete with identifier if available
       const deleteRequest = {
-        method: "DELETE",
+        method: 'DELETE',
         url: entry.resource.resourceType,
       };
 
       // Handle resources based on their type
-      if (entry.resource.resourceType === "Subscription") {
+      if (entry.resource.resourceType === 'Subscription') {
         // For Subscription resources, use the endpoint URL as a search parameter
         if (entry.resource.criteria) {
           // Fallback to criteria if endpoint is not available
@@ -104,8 +104,8 @@ function createDeletionBundle(bundleId) {
           (id) =>
             id.system &&
             id.value &&
-            typeof id.system === "string" &&
-            typeof id.value === "string"
+            typeof id.system === 'string' &&
+            typeof id.value === 'string'
         );
 
         if (validIdentifier) {
@@ -156,10 +156,10 @@ function main() {
   const bundleId = process.argv[2];
 
   if (!bundleId) {
-    console.error("Error: No bundle ID provided");
-    console.log("Usage: node delete-bundle-generator.js [bundle-id]");
+    console.error('Error: No bundle ID provided');
+    console.log('Usage: node delete-bundle-generator.js [bundle-id]');
     console.log(
-      "Example: node delete-bundle-generator.js auto-compiled-bundle-medplum"
+      'Example: node delete-bundle-generator.js auto-compiled-bundle-medplum'
     );
     process.exit(1);
   }

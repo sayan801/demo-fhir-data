@@ -1,16 +1,16 @@
-const fs = require("fs");
-const path = require("path");
-const crypto = require("crypto");
-const { JSONPath } = require("jsonpath-plus");
-const _ = require("lodash");
-const dotenv = require("dotenv");
+const fs = require('fs');
+const path = require('path');
+const crypto = require('crypto');
+const { JSONPath } = require('jsonpath-plus');
+const _ = require('lodash');
+const dotenv = require('dotenv');
 
 // Load environment variables from .env file
 dotenv.config();
 
 // Configuration
-const BUNDLE_DIR = "./fsh-generated/resources/";
-const BOTS_HANDLERS_DIR = "./bots_handlers/";
+const BUNDLE_DIR = './fsh-generated/resources/';
+const BOTS_HANDLERS_DIR = './bots_handlers/';
 
 /**
  * Replace environment variable references in a string
@@ -18,7 +18,7 @@ const BOTS_HANDLERS_DIR = "./bots_handlers/";
  * @returns {string} - String with env vars replaced with actual values
  */
 function replaceEnvVars(str) {
-  if (typeof str !== "string") return str;
+  if (typeof str !== 'string') return str;
 
   // Regex to match process.env.VARIABLE_NAME
   const envVarRegex = /process\.env\.([A-Za-z0-9_]+)/g;
@@ -42,7 +42,7 @@ function replaceEnvVars(str) {
  * @param {Map} referenceUpdates - Map of original references to updated ones
  */
 function processObjectEnvVarsAndReferences(obj, referenceUpdates) {
-  if (!obj || typeof obj !== "object") return;
+  if (!obj || typeof obj !== 'object') return;
 
   // First process all Subscription resources
   processSubscriptions(obj, referenceUpdates);
@@ -61,13 +61,13 @@ function processSubscriptions(bundle, referenceUpdates) {
 
   for (const entry of bundle.entry) {
     if (
-      entry.resource?.resourceType === "Subscription" &&
+      entry.resource?.resourceType === 'Subscription' &&
       entry.resource.channel
     ) {
       const channel = entry.resource.channel;
 
       // Clean invalid properties
-      const validChannelProps = ["type", "endpoint", "payload", "header"];
+      const validChannelProps = ['type', 'endpoint', 'payload', 'header'];
       for (const key of Object.keys(channel)) {
         if (!validChannelProps.includes(key)) {
           console.warn(
@@ -78,13 +78,13 @@ function processSubscriptions(bundle, referenceUpdates) {
       }
 
       // Process endpoint - handle both reference updates and environment variables
-      if (channel.endpoint && typeof channel.endpoint === "string") {
+      if (channel.endpoint && typeof channel.endpoint === 'string') {
         if (
-          channel.endpoint.startsWith("urn:uuid:") &&
+          channel.endpoint.startsWith('urn:uuid:') &&
           referenceUpdates.has(channel.endpoint)
         ) {
           channel.endpoint = referenceUpdates.get(channel.endpoint);
-        } else if (channel.endpoint.includes("process.env.")) {
+        } else if (channel.endpoint.includes('process.env.')) {
           channel.endpoint = replaceEnvVars(channel.endpoint);
         }
       }
@@ -92,7 +92,7 @@ function processSubscriptions(bundle, referenceUpdates) {
       // Process headers for environment variables
       if (channel.header && Array.isArray(channel.header)) {
         channel.header = channel.header.map((header) => {
-          if (typeof header === "string" && header.includes("process.env.")) {
+          if (typeof header === 'string' && header.includes('process.env.')) {
             return replaceEnvVars(header);
           }
           return header;
@@ -108,18 +108,18 @@ function processSubscriptions(bundle, referenceUpdates) {
  * @param {Map} referenceUpdates - Map of original references to updated ones
  */
 function processReferences(obj, referenceUpdates) {
-  if (!obj || typeof obj !== "object") return;
+  if (!obj || typeof obj !== 'object') return;
 
   // Process environment variables in string fields
   processEnvVars(obj);
 
   // Use JSONPath to find all reference values in the object in a single pass
   JSONPath({
-    path: "$..reference", // Search for all reference fields
+    path: '$..reference', // Search for all reference fields
     json: obj,
-    resultType: "all",
+    resultType: 'all',
     callback: (result) => {
-      if (result.value === null || typeof result.value !== "string") return;
+      if (result.value === null || typeof result.value !== 'string') return;
 
       const parent = result.parent;
 
@@ -136,26 +136,26 @@ function processReferences(obj, referenceUpdates) {
  * @param {Object} obj - Object to process
  */
 function processEnvVars(obj) {
-  if (!obj || typeof obj !== "object") return;
+  if (!obj || typeof obj !== 'object') return;
 
   // Use Lodash to recursively process all values in the object
   _.forEach(obj, (value, key) => {
-    if (typeof value === "string" && value.includes("process.env.")) {
+    if (typeof value === 'string' && value.includes('process.env.')) {
       // Replace environment variables in strings
       obj[key] = replaceEnvVars(value);
     } else if (_.isArray(value)) {
       // Process arrays with _.map for immutability
       obj[key] = _.map(value, (item) => {
-        if (typeof item === "string" && item.includes("process.env.")) {
+        if (typeof item === 'string' && item.includes('process.env.')) {
           return replaceEnvVars(item);
-        } else if (item && typeof item === "object") {
+        } else if (item && typeof item === 'object') {
           // Recursively process nested objects within arrays
           processEnvVars(item);
           return item;
         }
         return item;
       });
-    } else if (value && typeof value === "object") {
+    } else if (value && typeof value === 'object') {
       // Recursively process nested objects
       processEnvVars(value);
     }
@@ -168,17 +168,17 @@ function processEnvVars(obj) {
  */
 function generateUUID(input) {
   // Use a fixed namespace UUID (this is a random UUID that serves as our namespace)
-  const NAMESPACE = "1b671a64-40d5-491e-99b0-da01ff1f3341";
+  const NAMESPACE = '1b671a64-40d5-491e-99b0-da01ff1f3341';
 
   // Generate a UUID v5 using the input string and our namespace
   return crypto
-    .createHash("sha1")
+    .createHash('sha1')
     .update(NAMESPACE)
     .update(input)
     .digest()
     .slice(0, 16)
-    .toString("hex")
-    .replace(/(.{8})(.{4})(.{4})(.{4})(.{12})/, "$1-$2-$3-$4-$5");
+    .toString('hex')
+    .replace(/(.{8})(.{4})(.{4})(.{4})(.{12})/, '$1-$2-$3-$4-$5');
 }
 
 /**
@@ -207,13 +207,13 @@ function processBotResource(botResource) {
 
   try {
     // Read the handler code
-    let handlerCode = fs.readFileSync(handlerFilePath, "utf8");
+    let handlerCode = fs.readFileSync(handlerFilePath, 'utf8');
 
     // Replace environment variables in the handler code
     handlerCode = replaceEnvVars(handlerCode);
 
     // Convert to base64
-    const base64Code = Buffer.from(handlerCode, "utf8").toString("base64");
+    const base64Code = Buffer.from(handlerCode, 'utf8').toString('base64');
 
     // Add the code to the resource
     botResource.sourceCode.data = base64Code;
@@ -247,7 +247,7 @@ function processBundleFile(bundleId) {
   // Read the bundle file
   let bundle;
   try {
-    const fileContent = fs.readFileSync(originalFilePath, "utf8");
+    const fileContent = fs.readFileSync(originalFilePath, 'utf8');
     bundle = JSON.parse(fileContent);
   } catch (error) {
     console.error(`Error reading or parsing bundle file: ${error.message}`);
@@ -264,7 +264,7 @@ function processBundleFile(bundleId) {
     bundle.entry.forEach((entry) => {
       // 1. Change request method to POST
       if (entry.request) {
-        entry.request.method = "POST";
+        entry.request.method = 'POST';
       }
 
       // 2. Change request URL to just resourceType and add conditional create logic
@@ -273,17 +273,17 @@ function processBundleFile(bundleId) {
 
         // Remove differential element from StructureDefinition resources
         if (
-          entry.resource.resourceType === "StructureDefinition" &&
+          entry.resource.resourceType === 'StructureDefinition' &&
           entry.resource.differential
         ) {
           delete entry.resource.differential;
           console.log(
-            "Removed differential element from StructureDefinition resource"
+            'Removed differential element from StructureDefinition resource'
           );
         }
 
         // Special handling for Bot resources
-        if (entry.resource.resourceType === "Bot") {
+        if (entry.resource.resourceType === 'Bot') {
           entry.resource = processBotResource(entry.resource);
         }
 
@@ -296,8 +296,8 @@ function processBundleFile(bundleId) {
             (id) =>
               id.system &&
               id.value &&
-              typeof id.system === "string" &&
-              typeof id.value === "string"
+              typeof id.system === 'string' &&
+              typeof id.value === 'string'
           );
 
           if (validIdentifier) {
@@ -328,7 +328,7 @@ function processBundleFile(bundleId) {
   }
 
   // Process environment variables and references in a single pass
-  console.log("Processing environment variables and references...");
+  console.log('Processing environment variables and references...');
   processObjectEnvVarsAndReferences(bundle, referenceUpdates);
 
   // Write the modified bundle to a new file with -medplum suffix
@@ -349,9 +349,9 @@ function main() {
   const bundleId = process.argv[2];
 
   if (!bundleId) {
-    console.error("Error: No bundle ID provided");
-    console.log("Usage: node medplum.js [bundle-id]");
-    console.log("Example: node medplum.js auto-compiled-bundle");
+    console.error('Error: No bundle ID provided');
+    console.log('Usage: node medplum.js [bundle-id]');
+    console.log('Example: node medplum.js auto-compiled-bundle');
     process.exit(1);
   }
 
