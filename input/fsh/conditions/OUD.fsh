@@ -1,6 +1,6 @@
 // Opiate Use Disorder
 Instance: CarlFredericksonOUD
-InstanceOf: Condition
+InstanceOf: SensitiveConditionProfile
 Usage: #example
 Title: "Condition - Opiate Use Disorder"
 Description: "Opiate Use Disorder for Carl Frederickson"

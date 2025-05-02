@@ -10,12 +10,12 @@ BUNDLE_FSH="${FSH_DIR}/auto-bundle.fsh"
 BUNDLE_FILE="fsh-generated/resources/Bundle-auto-compiled-bundle.json"
 FSH_GENERATED_DIR="fsh-generated"
 SUSHI_CONFIG="sushi-config.yaml"
-SUSHI_CMD="sushi ."
+SUSHI_CMD="sushi -s ."
 
 # Usage messages
 USAGE_POST="Usage: ./fhir-tools.sh post SERVER_URL"
 USAGE_DEPLOY="Usage: ./fhir-tools.sh deploy SERVER_URL"
-USAGE_MEDPLUM="Usage: ./fhir-tools.sh medplum [BUNDLE_ID]"
+USAGE_MEDPLUM="Usage: ./fhir-tools.sh medplum [BUNDLE_ID] [GENERATE_DELETE]"
 USAGE_HELP="Run './fhir-tools.sh help' for usage information"
 
 # Script name for error messages
@@ -66,7 +66,7 @@ show_help() {
   echo "  post SERVER_URL          Post the bundle to a FHIR server (SERVER_URL is required)"
   echo "  clean                    Remove generated files (compiled JSON files)"
   echo "  deploy SERVER_URL        Compile and post resources to a FHIR server (SERVER_URL is required)"
-  echo "  medplum [BUNDLE_ID]      Modify a bundle for Medplum compatibility (defaults to auto-compiled-bundle)"
+  echo "  medplum [BUNDLE_ID]      Generate both transaction and deletion bundles for Medplum compatibility (defaults to auto-compiled-bundle)"
   echo "  help                     Show this help message"
   echo ""
   echo "Examples:"
@@ -74,7 +74,8 @@ show_help() {
   echo "  ./${SCRIPT_NAME} sushi                           # Compile FSH files with SUSHI"
   echo "  ./${SCRIPT_NAME} post http://example.com/fhir    # Post to a FHIR server"
   echo "  ./${SCRIPT_NAME} deploy http://example.com/fhir  # Full deployment to a FHIR server"
-  echo "  ./${SCRIPT_NAME} medplum                         # Modify bundle for Medplum compatibility"
+  echo "  ./${SCRIPT_NAME} medplum                         # Generate transaction and deletion bundles for Medplum"
+  echo "  ./${SCRIPT_NAME} medplum auto-compiled-bundle false  # Generate only transaction bundle for Medplum (no deletion bundle)"
   echo ""
 }
 
@@ -197,6 +198,7 @@ deploy() {
 # Run medplum script to modify a bundle for medplum compatibility
 run_medplum() {
   local bundle_id=$1
+  local generate_delete=${2:-"true"}  # Add parameter for generating deletion bundle, default to true
   
   # Default to auto-compiled-bundle if no bundle ID provided
   if [ -z "$bundle_id" ]; then
@@ -242,6 +244,39 @@ run_medplum() {
     error "Failed to modify bundle for Medplum compatibility"
     exit 1
   fi
+  
+  # Generate deletion bundle if requested
+  if [ "$generate_delete" = "true" ]; then
+    section "Creating Deletion Bundle for Medplum"
+    
+    # Check if the delete bundle generator script exists
+    if [ ! -f "delete-bundle-generator.js" ]; then
+      error "Delete bundle generator script not found at delete-bundle-generator.js"
+      exit 1
+    fi
+    
+    # The medplum-compatible bundle should now exist
+    medplum_bundle_path="${FSH_GENERATED_DIR}/resources/Bundle-${bundle_id}-medplum.json"
+    if [ ! -f "$medplum_bundle_path" ]; then
+      error "Medplum bundle file not found at $medplum_bundle_path"
+      exit 1
+    fi
+    
+    info "Creating deletion bundle from Medplum bundle"
+    
+    # Run the delete bundle generator on the medplum bundle
+    node delete-bundle-generator.js "${bundle_id}-medplum"
+    
+    if [ $? -eq 0 ]; then
+      success "Deletion bundle successfully created"
+      info "You now have both a transaction bundle and a deletion bundle for Medplum"
+      info "Transaction bundle: ${FSH_GENERATED_DIR}/resources/Bundle-${bundle_id}-medplum.json"
+      info "Deletion bundle: ${FSH_GENERATED_DIR}/resources/Bundle-${bundle_id}-medplum-delete.json"
+    else
+      error "Failed to create deletion bundle"
+      exit 1
+    fi
+  fi
 }
 
 # Commands
@@ -262,7 +297,7 @@ case "$1" in
     deploy "$2"
     ;;
   medplum)
-    run_medplum "$2"
+    run_medplum "$2" "$3"
     ;;
   help|--help|-h)
     show_help

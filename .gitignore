@@ -15,3 +15,4 @@ www
 input/fsh/auto-bundle.fsh
 
 node_modules
+.env
