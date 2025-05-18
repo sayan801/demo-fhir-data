@@ -5,9 +5,6 @@ const { JSONPath } = require('jsonpath-plus');
 const _ = require('lodash');
 const dotenv = require('dotenv');
 
-// Load environment variables from .env file
-dotenv.config();
-
 // Configuration
 const BUNDLE_DIR = './fsh-generated/resources/';
 const BOTS_HANDLERS_DIR = './bots_handlers/';
@@ -229,11 +226,21 @@ function processBotResource(botResource) {
 /**
  * Process the bundle file and modify it according to requirements
  */
-function processBundleFile(bundleId) {
+function processBundleFile(bundleId, suffix, envFilePath) {
+  // Load the specified environment file
+  if (envFilePath && fs.existsSync(envFilePath)) {
+    dotenv.config({ path: envFilePath, override: true });
+    console.log(`Loaded environment variables from: ${envFilePath}`);
+  } else {
+    console.warn(
+      `Environment file not found: ${envFilePath}, proceeding with current environment.`
+    );
+  }
+
   const originalFilePath = path.join(BUNDLE_DIR, `Bundle-${bundleId}.json`);
   const outputFilePath = path.join(
     BUNDLE_DIR,
-    `Bundle-${bundleId}-medplum.json`
+    `Bundle-${bundleId}-medplum${suffix}.json`
   );
 
   console.log(`Processing bundle file: ${originalFilePath}`);
@@ -345,17 +352,18 @@ function processBundleFile(bundleId) {
  * Main function
  */
 function main() {
-  // Get bundle ID from command line args
+  // Get bundle ID, suffix, and env file from command line args
   const bundleId = process.argv[2];
+  const suffix = process.argv[3] || '';
+  const envFilePath = process.argv[4];
 
   if (!bundleId) {
     console.error('Error: No bundle ID provided');
-    console.log('Usage: node medplum.js [bundle-id]');
-    console.log('Example: node medplum.js auto-compiled-bundle');
+    console.log('Usage: node medplum.js [bundle-id] [suffix] [env-file-path]');
     process.exit(1);
   }
 
-  processBundleFile(bundleId);
+  processBundleFile(bundleId, suffix, envFilePath);
 }
 
 // Execute the main function

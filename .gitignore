@@ -6,6 +6,7 @@ input-cache
 fsh-generated
 .vscode
 www
+/_updatePublisher.bat
 /_updatePublisher.sh
 /_gencontinuous.bat
 /_gencontinuous.sh
