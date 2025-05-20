@@ -4,7 +4,7 @@ InstanceOf: RelatedPerson
 Title: "Related Person - Ellie Frederickson"
 Description: "Related person information for Ellie Frederickson, spouse and portal proxy"
 
-* identifier[0].system = "http://example.org/fhir/relatedperson-identifier"
+* identifier[0].system = "http://shift.github.io/demo/relatedperson-identifier"
 * identifier[0].value = "RP-56789"
 
 * patient.reference = "urn:uuid:CarlFrederickson"

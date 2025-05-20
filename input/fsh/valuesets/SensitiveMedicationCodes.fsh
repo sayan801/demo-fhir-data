@@ -1,12 +1,14 @@
 // Sensitive Medication Codes ValueSet
-Instance: SensitiveMedicationCodes
+Instance: sensitive-medication-codes
 InstanceOf: ValueSet
 Usage: #definition
 Title: "ValueSet - Sensitive Medication Codes"
 Description: "Codes representing sensitive medications requiring special privacy protections"
 
-* url = "http://example.org/fhir/ValueSet/sensitive-medication-codes"
-* identifier[0].system = "http://example.org/fhir/valueset-identifier"
+* url = "http://shift.github.io/demo/ValueSet/sensitive-medication-codes"
+* version = "0.0.1"
+* name = "SensitiveMedicationCodes"
+* identifier[0].system = "http://shift.github.io/demo/valueset-identifier"
 * identifier[0].value = "VS-89014"
 
 * status = #active

@@ -7,7 +7,7 @@ const dotenv = require('dotenv');
 
 // Configuration
 const BUNDLE_DIR = './fsh-generated/resources/';
-const BOTS_HANDLERS_DIR = './bots_handlers/';
+const BOTS_HANDLERS_DIR = './src/bots_handlers/';
 
 /**
  * Replace environment variable references in a string

@@ -2,15 +2,16 @@
 # A command line tool to compile FSH files and deploy resources to a FHIR server
 
 # File paths and constants
-BUNDLE_GENERATOR="bundle-generator.js"
-MEDPLUM_SCRIPT="medplum.js"
+BUNDLE_GENERATOR="src/bundle-generator.js"
+DELETE_BUNDLE_GENERATOR="src/delete-bundle-generator.js"
+MEDPLUM_SCRIPT="src/medplum.js"
 INPUT_DIR="input"
 FSH_DIR="${INPUT_DIR}/fsh"
 BUNDLE_FSH="${FSH_DIR}/auto-bundle.fsh"
 BUNDLE_FILE="fsh-generated/resources/Bundle-auto-compiled-bundle.json"
 FSH_GENERATED_DIR="fsh-generated"
 SUSHI_CONFIG="sushi-config.yaml"
-SUSHI_CMD="sushi -s ."
+SUSHI_CMD="sushi ."
 
 # Usage messages
 USAGE_POST="Usage: ./fhir-tools.sh post SERVER_URL"
@@ -84,16 +85,14 @@ generate_bundle() {
   section "Generating Bundle"
   node ${BUNDLE_GENERATOR}
   
-  info "SUSHI will automatically generate a bundle when compiling FSH files"
-  info "The bundle will be created at: ${BUNDLE_FILE}"
+  info "Auto-bundle FSH file generated at: ${BUNDLE_FSH}"
+  info "Run sushi to compile this into a FHIR JSON bundle"
   
-  run_sushi
-  
-  # Check if the bundle was created
-  if [ -f "${BUNDLE_FILE}" ]; then
-    success "Bundle generated successfully"
+  # Check if the bundle FSH file was created
+  if [ -f "${BUNDLE_FSH}" ]; then
+    success "Bundle FSH file generated successfully"
   else
-    error "Bundle generation failed"
+    error "Bundle FSH file generation failed"
     exit 1
   fi
 }
@@ -101,6 +100,13 @@ generate_bundle() {
 # Compile FSH files with Sushi
 run_sushi() {
   section "Compiling FSH Files with Sushi"
+  
+  # Check if bundle FSH file exists, generate it if needed
+  if [ ! -f "${BUNDLE_FSH}" ]; then
+    info "Auto-bundle FSH file not found, generating it first..."
+    generate_bundle
+  fi
+  
   ${SUSHI_CMD}
   if [ $? -eq 0 ]; then
     success "FSH files compiled successfully"
@@ -257,15 +263,15 @@ run_medplum() {
   section "Creating Deletion Bundle for Medplum (default)"
   local medplum_bundle_id_for_delete="${bundle_id}-medplum"
   local medplum_bundle_path_for_delete="${FSH_GENERATED_DIR}/resources/Bundle-${medplum_bundle_id_for_delete}.json"
-  if [ ! -f "delete-bundle-generator.js" ]; then
-    error "Delete bundle generator script not found at delete-bundle-generator.js"
+  if [ ! -f "${DELETE_BUNDLE_GENERATOR}" ]; then
+    error "Delete bundle generator script not found at ${DELETE_BUNDLE_GENERATOR}"
     return
   fi
   if [ ! -f "$medplum_bundle_path_for_delete" ]; then
     error "Medplum bundle file not found at $medplum_bundle_path_for_delete (expected input for deletion bundle)"
     return
   fi
-  node delete-bundle-generator.js "$medplum_bundle_id_for_delete"
+  node ${DELETE_BUNDLE_GENERATOR} "$medplum_bundle_id_for_delete"
   if [ $? -eq 0 ]; then
     success "Deletion bundle successfully created for default"
     info "Deletion bundle: ${FSH_GENERATED_DIR}/resources/Bundle-${medplum_bundle_id_for_delete}-delete.json"

@@ -3,9 +3,10 @@ Parent: Condition
 Id: sensitive-condition-profile
 Title: "Sensitive Condition Profile"
 Description: "A profile for conditions that are considered sensitive, with specific constraints on the condition code."
-* ^url = "http://example.org/fhir/StructureDefinition/sensitive-condition-profile"
+* ^url = "http://shift.github.io/demo/StructureDefinition/sensitive-condition-profile"
+* ^version = "0.0.1"
 * ^status = #active
-* ^identifier.system = "http://example.org/fhir/identifiers"
+* ^identifier.system = "http://shift.github.io/demo/identifiers"
 * ^identifier.value = "sensitive-condition-profile"
 * code 1..1
-* code from http://example.org/fhir/ValueSet/sensitive-condition-codes (extensible)
+* code from http://shift.github.io/demo/ValueSet/sensitive-condition-codes|0.0.1 (extensible)

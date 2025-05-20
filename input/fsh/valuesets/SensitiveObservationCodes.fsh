@@ -1,12 +1,14 @@
 // Sensitive Observation Codes ValueSet
-Instance: SensitiveObservationCodes
+Instance: sensitive-observation-codes
 InstanceOf: ValueSet
 Usage: #definition
 Title: "ValueSet - Sensitive Observation Codes"
 Description: "Codes representing sensitive observations requiring special privacy protections"
 
-* url = "http://example.org/fhir/ValueSet/sensitive-observation-codes"
-* identifier[0].system = "http://example.org/fhir/valueset-identifier"
+* url = "http://shift.github.io/demo/ValueSet/sensitive-observation-codes"
+* version = "0.0.1"
+* name = "SensitiveObservationCodes"
+* identifier[0].system = "http://shift.github.io/demo/valueset-identifier"
 * identifier[0].value = "VS-89013"
 
 * status = #active

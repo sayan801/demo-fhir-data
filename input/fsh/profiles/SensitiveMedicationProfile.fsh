@@ -4,9 +4,10 @@ Parent: Medication
 Id: sensitive-medication-profile
 Title: "Sensitive Medication Profile"
 Description: "A profile for medications that are considered sensitive, with specific constraints on the medication code."
-* ^url = "http://example.org/fhir/StructureDefinition/sensitive-medication-profile"
+* ^url = "http://shift.github.io/demo/StructureDefinition/sensitive-medication-profile"
+* ^version = "0.0.1"
 * ^status = #active
-* ^identifier.system = "http://example.org/fhir/identifiers"
+* ^identifier.system = "http://shift.github.io/demo/identifiers"
 * ^identifier.value = "sensitive-medication-profile"
 * code 1..1
-* code from http://example.org/fhir/ValueSet/sensitive-medication-codes (extensible)
+* code from http://shift.github.io/demo/ValueSet/sensitive-medication-codes|0.0.1 (extensible)
