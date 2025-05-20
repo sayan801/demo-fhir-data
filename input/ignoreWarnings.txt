@@ -18,9 +18,6 @@ WARNING: Condition/ex-condition-1: Condition.code.coding[0].code: Unknown Code '
 # Justification: These warnings are expected due to the size of some value sets
 The value set expansion is too large, and only a subset has been displayed
 
-# --- UCUM and CodeSystem Validation Warnings ---
-# Justification: Human readable annotations in UCUM codes are acceptable for our implementation
-UCUM Codes that contain human readable annotations like {tablet} can be misleading (e.g. they are ignored when comparing units). Best Practice is not to depend on annotations in the UCUM code, so this usage should be checked
 
 # Justification: These codes are not in the value set, but are acceptable for our implementation
 None of the codings provided are in the value set 'LOINC Diagnostic Report Codes' (http://hl7.org/fhir/ValueSet/report-codes|4.0.1), and a coding is recommended to come from this value set (codes = http://www.ama-assn.org/go/cpt#73620)

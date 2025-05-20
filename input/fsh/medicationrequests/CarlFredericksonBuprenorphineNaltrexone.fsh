@@ -20,5 +20,6 @@ Description: "Buprenorphine/Naltrexone prescription for Carl Frederickson"
 * dosageInstruction.timing.repeat.periodUnit = #d
 * dosageInstruction.route = http://snomed.info/sct#37839007 "Sublingual route"
 * dosageInstruction.doseAndRate.doseQuantity.value = 1
-* dosageInstruction.doseAndRate.doseQuantity.unit = "tablet"
-* dosageInstruction.doseAndRate.doseQuantity.system = "http://unitsofmeasure.org"
+* dosageInstruction.doseAndRate.doseQuantity.unit = "tablet/day"
+* dosageInstruction.doseAndRate.doseQuantity.system = "http://snomed.info/sct"
+* dosageInstruction.doseAndRate.doseQuantity.code = #428673006

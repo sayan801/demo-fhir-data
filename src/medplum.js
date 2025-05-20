@@ -314,6 +314,24 @@ function processBundleFile(bundleId, suffix, envFilePath) {
         }
       }
 
+      // Remove specific meta.profile
+      if (
+        entry.resource &&
+        entry.resource.meta &&
+        entry.resource.meta.profile &&
+        Array.isArray(entry.resource.meta.profile)
+      ) {
+        entry.resource.meta.profile = entry.resource.meta.profile.filter(
+          (p) => p !== 'http://hl7.org/fhir/StructureDefinition/bp'
+        );
+        if (entry.resource.meta.profile.length === 0) {
+          delete entry.resource.meta.profile;
+        }
+        if (Object.keys(entry.resource.meta).length === 0) {
+          delete entry.resource.meta;
+        }
+      }
+
       // 3. Change fullUrl to use UUID
       if (entry.fullUrl) {
         let originalFullUrl = entry.fullUrl;
