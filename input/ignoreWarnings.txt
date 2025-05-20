@@ -22,8 +22,10 @@ The value set expansion is too large, and only a subset has been displayed
 # Justification: Human readable annotations in UCUM codes are acceptable for our implementation
 UCUM Codes that contain human readable annotations like {tablet} can be misleading (e.g. they are ignored when comparing units). Best Practice is not to depend on annotations in the UCUM code, so this usage should be checked
 
-# Justification: Example data using CPT code that is out of sample value set but valid for demonstration
+# Justification: These codes are not in the value set, but are acceptable for our implementation
 None of the codings provided are in the value set 'LOINC Diagnostic Report Codes' (http://hl7.org/fhir/ValueSet/report-codes|4.0.1), and a coding is recommended to come from this value set (codes = http://www.ama-assn.org/go/cpt#73620)
+
+None of the codings provided are in the value set 'Patient relationship type' (http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype|4.0.1), and a coding is recommended to come from this value set (codes = http://terminology.hl7.org/CodeSystem/v3-RoleCode#RESPRSN)
 
 # Justification: Intentional use of mixed display formats in value sets for demo purposes
 This include has some concepts with displays and some without - check that this is what is intended

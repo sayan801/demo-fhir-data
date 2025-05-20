@@ -8,6 +8,7 @@ Description: "Related person information for Ellie Frederickson, spouse and port
 * identifier[0].value = "RP-56789"
 
 * patient.reference = "urn:uuid:CarlFrederickson"
-* relationship = http://terminology.hl7.org/CodeSystem/v3-RoleCode#WIFE "wife"
+* relationship[0] = http://terminology.hl7.org/CodeSystem/v3-RoleCode#WIFE "wife"
+* relationship[+] = http://terminology.hl7.org/CodeSystem/v3-RoleCode#RESPRSN "responsible party"
 * name.family = "Frederickson"
 * name.given = "Ellie" 
