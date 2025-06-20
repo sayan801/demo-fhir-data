@@ -2,15 +2,16 @@
 # A command line tool to compile FSH files and deploy resources to a FHIR server
 
 # File paths and constants
-BUNDLE_GENERATOR="bundle-generator.js"
-MEDPLUM_SCRIPT="medplum.js"
+BUNDLE_GENERATOR="src/bundle-generator.js"
+DELETE_BUNDLE_GENERATOR="src/delete-bundle-generator.js"
+MEDPLUM_SCRIPT="src/medplum.js"
 INPUT_DIR="input"
 FSH_DIR="${INPUT_DIR}/fsh"
 BUNDLE_FSH="${FSH_DIR}/auto-bundle.fsh"
 BUNDLE_FILE="fsh-generated/resources/Bundle-auto-compiled-bundle.json"
 FSH_GENERATED_DIR="fsh-generated"
 SUSHI_CONFIG="sushi-config.yaml"
-SUSHI_CMD="sushi -s ."
+SUSHI_CMD="sushi ."
 
 # Usage messages
 USAGE_POST="Usage: ./fhir-tools.sh post SERVER_URL"
@@ -84,16 +85,14 @@ generate_bundle() {
   section "Generating Bundle"
   node ${BUNDLE_GENERATOR}
   
-  info "SUSHI will automatically generate a bundle when compiling FSH files"
-  info "The bundle will be created at: ${BUNDLE_FILE}"
+  info "Auto-bundle FSH file generated at: ${BUNDLE_FSH}"
+  info "Run sushi to compile this into a FHIR JSON bundle"
   
-  run_sushi
-  
-  # Check if the bundle was created
-  if [ -f "${BUNDLE_FILE}" ]; then
-    success "Bundle generated successfully"
+  # Check if the bundle FSH file was created
+  if [ -f "${BUNDLE_FSH}" ]; then
+    success "Bundle FSH file generated successfully"
   else
-    error "Bundle generation failed"
+    error "Bundle FSH file generation failed"
     exit 1
   fi
 }
@@ -101,6 +100,13 @@ generate_bundle() {
 # Compile FSH files with Sushi
 run_sushi() {
   section "Compiling FSH Files with Sushi"
+  
+  # Check if bundle FSH file exists, generate it if needed
+  if [ ! -f "${BUNDLE_FSH}" ]; then
+    info "Auto-bundle FSH file not found, generating it first..."
+    generate_bundle
+  fi
+  
   ${SUSHI_CMD}
   if [ $? -eq 0 ]; then
     success "FSH files compiled successfully"
@@ -198,32 +204,25 @@ deploy() {
 # Run medplum script to modify a bundle for medplum compatibility
 run_medplum() {
   local bundle_id=$1
-  local generate_delete=${2:-"true"}  # Add parameter for generating deletion bundle, default to true
-  
-  # Default to auto-compiled-bundle if no bundle ID provided
+  # Always generate delete bundle, ignore argument
+
   if [ -z "$bundle_id" ]; then
     bundle_id="auto-compiled-bundle"
     info "No bundle ID provided, using default: $bundle_id"
   fi
-  
-  section "Modifying Bundle for Medplum Compatibility"
-  
-  # Check if the medplum script exists
+
+  section "Modifying Bundle for Medplum Compatibility (all environments)"
+
   if [ ! -f "${MEDPLUM_SCRIPT}" ]; then
     error "Medplum script not found at ${MEDPLUM_SCRIPT}"
     exit 1
   fi
-  
-  # Check if the bundle file exists
+
   bundle_path="${FSH_GENERATED_DIR}/resources/Bundle-${bundle_id}.json"
   if [ ! -f "$bundle_path" ]; then
     warning "Bundle file not found at $bundle_path"
     info "Attempting to generate bundle first..."
-    
-    # Run bundle generation
     generate_bundle
-    
-    # Check again if the file exists after generation
     if [ ! -f "$bundle_path" ]; then
       error "Failed to generate bundle. Bundle file still not found at $bundle_path"
       exit 1
@@ -231,51 +230,53 @@ run_medplum() {
       success "Bundle successfully generated"
     fi
   fi
-  
-  output_path="${FSH_GENERATED_DIR}/resources/Bundle-${bundle_id}-medplum.json"
-  info "Creating Medplum compatible bundle at: $output_path"
-  
-  # Run the medplum script on the specified bundle
-  node ${MEDPLUM_SCRIPT} "$bundle_id"
-  
-  if [ $? -eq 0 ]; then
-    success "Bundle successfully modified for Medplum compatibility"
-  else
-    error "Failed to modify bundle for Medplum compatibility"
-    exit 1
+
+  # Find all .env and .env.* files, but ignore .env.example
+  local env_files=( $(find . -maxdepth 1 -type f \( -name ".env" -o -name ".env.*" \) ! -name ".env.example" | sort) )
+  if [ ${#env_files[@]} -eq 0 ]; then
+    warning "No .env or .env.* files found. Only generating default Medplum bundle."
+    env_files=(".env")
   fi
-  
-  # Generate deletion bundle if requested
-  if [ "$generate_delete" = "true" ]; then
-    section "Creating Deletion Bundle for Medplum"
-    
-    # Check if the delete bundle generator script exists
-    if [ ! -f "delete-bundle-generator.js" ]; then
-      error "Delete bundle generator script not found at delete-bundle-generator.js"
-      exit 1
+
+  for env_file_path in "${env_files[@]}"; do
+    local env_file_name=$(basename "$env_file_path")
+    local suffix=""
+    if [[ "$env_file_name" == ".env" ]]; then
+      suffix=""
+    elif [[ "$env_file_name" == .env.* ]]; then
+      suffix="-$(echo $env_file_name | cut -d'.' -f3-)"
     fi
-    
-    # The medplum-compatible bundle should now exist
-    medplum_bundle_path="${FSH_GENERATED_DIR}/resources/Bundle-${bundle_id}-medplum.json"
-    if [ ! -f "$medplum_bundle_path" ]; then
-      error "Medplum bundle file not found at $medplum_bundle_path"
-      exit 1
-    fi
-    
-    info "Creating deletion bundle from Medplum bundle"
-    
-    # Run the delete bundle generator on the medplum bundle
-    node delete-bundle-generator.js "${bundle_id}-medplum"
-    
+    local env_display_name=${suffix#-}
+    if [ -z "$env_display_name" ]; then env_display_name="default"; fi
+    info "Processing Medplum bundle for environment: $env_display_name (using $env_file_path)"
+    node ${MEDPLUM_SCRIPT} "$bundle_id" "$suffix" "$env_file_path"
     if [ $? -eq 0 ]; then
-      success "Deletion bundle successfully created"
-      info "You now have both a transaction bundle and a deletion bundle for Medplum"
-      info "Transaction bundle: ${FSH_GENERATED_DIR}/resources/Bundle-${bundle_id}-medplum.json"
-      info "Deletion bundle: ${FSH_GENERATED_DIR}/resources/Bundle-${bundle_id}-medplum-delete.json"
+      success "Bundle successfully modified for Medplum compatibility ($env_display_name)"
+      info "Medplum Bundle: ${FSH_GENERATED_DIR}/resources/Bundle-${bundle_id}-medplum${suffix}.json"
     else
-      error "Failed to create deletion bundle"
-      exit 1
+      error "Failed to modify bundle for Medplum compatibility ($env_display_name)"
+      continue
     fi
+  done
+
+  # Create a single deletion bundle for the default Medplum bundle (no suffix)
+  section "Creating Deletion Bundle for Medplum (default)"
+  local medplum_bundle_id_for_delete="${bundle_id}-medplum"
+  local medplum_bundle_path_for_delete="${FSH_GENERATED_DIR}/resources/Bundle-${medplum_bundle_id_for_delete}.json"
+  if [ ! -f "${DELETE_BUNDLE_GENERATOR}" ]; then
+    error "Delete bundle generator script not found at ${DELETE_BUNDLE_GENERATOR}"
+    return
+  fi
+  if [ ! -f "$medplum_bundle_path_for_delete" ]; then
+    error "Medplum bundle file not found at $medplum_bundle_path_for_delete (expected input for deletion bundle)"
+    return
+  fi
+  node ${DELETE_BUNDLE_GENERATOR} "$medplum_bundle_id_for_delete"
+  if [ $? -eq 0 ]; then
+    success "Deletion bundle successfully created for default"
+    info "Deletion bundle: ${FSH_GENERATED_DIR}/resources/Bundle-${medplum_bundle_id_for_delete}-delete.json"
+  else
+    error "Failed to create deletion bundle for default"
   fi
 }
 

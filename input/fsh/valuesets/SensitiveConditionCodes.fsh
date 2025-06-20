@@ -1,12 +1,14 @@
 // Sensitive Condition Codes ValueSet
-Instance: SensitiveConditionCodes
+Instance: sensitive-condition-codes
 InstanceOf: ValueSet
 Usage: #definition
 Title: "ValueSet - Sensitive Condition Codes"
 Description: "Codes representing sensitive conditions requiring special privacy protections"
 
-* url = "http://example.org/fhir/ValueSet/sensitive-condition-codes"
-* identifier[0].system = "http://example.org/fhir/valueset-identifier"
+* url = "http://shift.github.io/demo/ValueSet/sensitive-condition-codes"
+* version = "0.0.1"
+* name = "SensitiveConditionCodes"
+* identifier[0].system = "http://shift.github.io/demo/valueset-identifier"
 * identifier[0].value = "VS-89012"
 
 * status = #active
@@ -19,7 +21,7 @@ Description: "Codes representing sensitive conditions requiring special privacy 
 //------------------------------------------------------------------------------
 
 // ICD-10 SUD Codes
-* compose.include[0].system = "http://hl7.org/fhir/sid/icd-10"
+* compose.include[0].system = "http://hl7.org/fhir/sid/icd-10-cm"
 * compose.include[0].concept[0].code = #F11.11
 * compose.include[0].concept[0].display = "Opioid abuse, in remission"
 
@@ -42,7 +44,7 @@ Description: "Codes representing sensitive conditions requiring special privacy 
 //------------------------------------------------------------------------------
 
 // ICD-10 BH Codes
-* compose.include[3].system = "http://hl7.org/fhir/sid/icd-10"
+* compose.include[3].system = "http://hl7.org/fhir/sid/icd-10-cm"
 * compose.include[3].concept[0].code = #F33.1
 * compose.include[3].concept[0].display = "Major depressive disorder, recurrent, moderate" 
 * compose.include[3].concept[1].code = #F60.5
@@ -102,7 +104,7 @@ Description: "Codes representing sensitive conditions requiring special privacy 
 * expansion.timestamp = "2025-04-30T12:00:00Z"
 * expansion.total = 13
 * expansion.offset = 0
-* expansion.contains[0].system = "http://hl7.org/fhir/sid/icd-10"
+* expansion.contains[0].system = "http://hl7.org/fhir/sid/icd-10-cm"
 * expansion.contains[0].code = #F11.11
 * expansion.contains[0].display = "Opioid abuse, in remission"
 * expansion.contains[1].system = "http://snomed.info/sct"

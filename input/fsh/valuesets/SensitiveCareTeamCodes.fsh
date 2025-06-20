@@ -1,12 +1,14 @@
 // Sensitive CareTeam Codes ValueSet
-Instance: SensitiveCareTeamCodes
+Instance: sensitive-care-team-codes
 InstanceOf: ValueSet
 Usage: #definition
 Title: "ValueSet - Sensitive CareTeam Codes"
 Description: "Codes representing sensitive care team roles requiring special privacy protections"
 
-* url = "http://example.org/fhir/ValueSet/sensitive-care-team-codes"
-* identifier[0].system = "http://example.org/fhir/valueset-identifier"
+* url = "http://shift.github.io/demo/ValueSet/sensitive-care-team-codes"
+* version = "0.0.1"
+* name = "SensitiveCareTeamCodes"
+* identifier[0].system = "http://shift.github.io/demo/valueset-identifier"
 * identifier[0].value = "VS-89015"
 
 * status = #active
@@ -20,8 +22,8 @@ Description: "Codes representing sensitive care team roles requiring special pri
 
 // SNOMED CT SUD Provider Roles
 * compose.include[0].system = "http://snomed.info/sct"
-* compose.include[0].concept[0].code = #309354004
-* compose.include[0].concept[0].display = "Addiction medicine specialist"
+* compose.include[0].concept[0].code = #17561000
+* compose.include[0].concept[0].display = "Addiction psychiatrist"
 * compose.include[0].concept[1].code = #309343006 
 * compose.include[1].concept[1].display = "Psychiatrist (occupation)"
 
@@ -42,7 +44,7 @@ Description: "Codes representing sensitive care team roles requiring special pri
 
 * compose.include[2].system = "http://loinc.org"
 * compose.include[2].concept[0].code = #LA27976-2
-* compose.include[2].concept[0].display = "Interdisciplinary team"
+* compose.include[2].concept[0].display = "Encounter-focused care team"
 
 * compose.include[3].system = "http://snomed.info/sct"
 * compose.include[3].concept[0].code = #386661006

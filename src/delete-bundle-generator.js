@@ -59,13 +59,6 @@ function createDeletionBundle(bundleId) {
     entry: [],
   };
 
-  // Add security meta tag if the source bundle had one
-  if (sourceBundle.meta && sourceBundle.meta.security) {
-    deletionBundle.meta = {
-      security: sourceBundle.meta.security,
-    };
-  }
-
   // Process entries in reverse order (to handle dependencies properly)
   // This ensures resources are deleted in the opposite order they were created
   const entries = [...sourceBundle.entry].reverse();
@@ -154,16 +147,11 @@ function createDeletionBundle(bundleId) {
 function main() {
   // Get bundle ID from command line args
   const bundleId = process.argv[2];
-
   if (!bundleId) {
     console.error('Error: No bundle ID provided');
     console.log('Usage: node delete-bundle-generator.js [bundle-id]');
-    console.log(
-      'Example: node delete-bundle-generator.js auto-compiled-bundle-medplum'
-    );
     process.exit(1);
   }
-
   createDeletionBundle(bundleId);
 }
 

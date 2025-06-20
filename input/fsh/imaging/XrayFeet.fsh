@@ -4,14 +4,12 @@ InstanceOf: DiagnosticReport
 Title: "Diagnostic Report - Bilateral Feet X-Ray"
 Description: "X-ray, bilateral feet, weightbearing, 2 views: dorsoplantar (DP) and axial for Carl Frederickson"
 
-* identifier[0].system = "http://example.org/fhir/diagnosticreport-identifier"
+* identifier[0].system = "http://shift.github.io/demo/diagnosticreport-identifier"
 * identifier[0].value = "XRAY-23456"
 
 * status = #final
 * category = http://terminology.hl7.org/CodeSystem/v2-0074#RAD "Radiology"
-* code.coding[0].system = "http://www.ama-assn.org/go/cpt"
-* code.coding[0].code = #73620
-* code.coding[0].display = "Radiologic examination, foot; 2 views"
+* code.coding[0] = http://www.ama-assn.org/go/cpt#73620 "Radiologic examination, foot; 2 views"
 * code.text = "X-ray, bilateral feet, weightbearing, 2 views: dorsoplantar (DP) and axial"
 * subject.reference = "urn:uuid:CarlFrederickson"
 * effectiveDateTime = "2022-11-15T10:30:00Z"

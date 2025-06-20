@@ -4,7 +4,133 @@
 # (And include comments like this justifying why)
 # See https://github.com/FHIR/sample-ig/blob/master/input/ignoreWarnings.txt for examples
 
-# know these things and they are not important
+# Existing suppressions
 WARNING: Immunization/ex-immunization-1: Immunization.vaccineCode: No code provided, and a code should be provided from the value set 'CVX Vaccines Administered Vaccine Set' (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.6|20210630)
 INFORMATION: Condition/ex-condition-1: Condition.category[0]: Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/condition-category|0.5.0
 WARNING: Condition/ex-condition-1: Condition.code.coding[0].code: Unknown Code '401.9' in the system 'http://hl7.org/fhir/sid/icd-9-cm' version '2015' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment
+
+
+# ============================================================
+# 1. EXPANSION AND VALIDATION WARNINGS
+# ============================================================
+
+# --- ValueSet Expansion Warnings ---
+# Justification: These warnings are expected due to the size of some value sets
+The value set expansion is too large, and only a subset has been displayed
+
+
+# Justification: These codes are not in the value set, but are acceptable for our implementation
+None of the codings provided are in the value set 'LOINC Diagnostic Report Codes' (http://hl7.org/fhir/ValueSet/report-codes|4.0.1), and a coding is recommended to come from this value set (codes = http://www.ama-assn.org/go/cpt#73620)
+
+None of the codings provided are in the value set 'Patient relationship type' (http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype|4.0.1), and a coding is recommended to come from this value set (codes = http://terminology.hl7.org/CodeSystem/v3-RoleCode#RESPRSN)
+
+# Justification: Intentional use of mixed display formats in value sets for demo purposes
+This include has some concepts with displays and some without - check that this is what is intended
+This SNOMED-CT based include has some concepts with semantic tags (FSN terms) and some without (preferred terms) - check that this is what is intended (examples for FSN: [Psychotherapist (occupation)] and examples for no FSN: [Mental health counselor])
+
+
+# ============================================================
+# 2. URL RESOLUTION WARNINGS
+# ============================================================
+
+# --- Example URL Resolution Warnings ---
+# Justification: These are placeholder test URLs that intentionally don't resolve
+URL value 'process.env.SUBSCRIPTION_ENDPOINT/fhir-subscription' does not resolve
+
+# --- Demo Domain URL Resolution Warnings ---
+# Justification: These are example URIs using the demo domain that aren't intended to resolve
+URL value 'http://shift.github.io/demo/identifiers' does not resolve
+URL value 'http://shift.github.io/demo/valueset-identifier' does not resolve
+URL value 'http://shift.github.io/demo/careteam-identifier' does not resolve
+URL value 'http://shift.github.io/demo/condition-identifier' does not resolve
+URL value 'http://shift.github.io/demo/diagnosticreport-identifier' does not resolve
+URL value 'http://shift.github.io/demo/medication-identifier' does not resolve
+URL value 'http://shift.github.io/demo/medicationrequest-identifier' does not resolve
+URL value 'http://shift.github.io/demo/observation-identifier' does not resolve
+URL value 'http://shift.github.io/demo/identifier/mrn' does not resolve
+URL value 'http://shift.github.io/demo/relatedperson-identifier' does not resolve
+
+# --- Profile URL Resolution Warnings ---
+# Justification: These profile references are defined within the IG and resolve during build time
+URL value 'SensitiveMedicationRequestProfile' does not resolve
+URL value 'SensitiveCareTeamProfile' does not resolve
+URL value 'SensitiveConditionProfile' does not resolve
+URL value 'SensitiveObservationProfile' does not resolve
+URL value 'SensitiveMedicationProfile' does not resolve
+
+
+# ============================================================
+# 3. IMPLEMENTATION GUIDE CONFIGURATION WARNINGS
+# ============================================================
+
+# --- SNOMED CT Configuration ---
+# Justification: Known SNOMED CT edition issue for non-international realm in this IG
+WARNING: IG: The IG is not for the international realm, and it uses SNOMED CT, so it should fix the SCT edition in the expansion parameters
+
+# --- Dependency Version Warnings ---
+# Justification: Using older version for compatibility with other dependencies
+The ImplementationGuide uses package hl7.fhir.us.core#5.0.1 released on 2022-06-22, but the most recent appropriate version is 7.0.0. This reference is getting old and the more recent version should be considered
+
+# --- Deprecated Extension Usage ---
+# Justification: Known deprecated extension usage that will be addressed in future updates
+The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.2.0 is deprecated
+
+
+# --- ValueSet Version Warnings ---
+# Justification: Version pinning will be addressed in a future update
+
+There are multiple different potential matches for the url 'http://terminology.hl7.org/ValueSet/v3-ActSubstanceAdminSubstitutionCode'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '3.0.0', found versions: 2.0.0, 3.0.0. Suggested fix: change the canonical reference from 'http://terminology.hl7.org/ValueSet/v3-ActSubstanceAdminSubstitutionCode' to 'http://terminology.hl7.org/ValueSet/v3-ActSubstanceAdminSubstitutionCode|3.0.0'
+There are multiple different potential matches for the url 'http://terminology.hl7.org/ValueSet/v3-SubstanceAdminSubstitutionReason'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '3.0.0', found versions: 2.0.0, 3.0.0. Suggested fix: change the canonical reference from 'http://terminology.hl7.org/ValueSet/v3-SubstanceAdminSubstitutionReason' to 'http://terminology.hl7.org/ValueSet/v3-SubstanceAdminSubstitutionReason|3.0.0'
+
+
+# ============================================================
+# 4. EXPRESSION AND VALIDATION WARNINGS
+# ============================================================
+
+# --- FHIRPath Expression Warnings ---
+# Justification: These FHIRPath expressions function correctly in runtime despite validation warning
+ctm-1: The type specified in ofType() is http://hl7.org/fhir/StructureDefinition/Practitioner which is not a possible candidate for the existing types () in the expression ofType(Practitioner).exists(). Check the paths and types to be sure this is what is intended
+
+# --- Content Format Warnings ---
+# Justification: Known whitespace issue that doesn't affect functionality
+value should not start or finish with whitespace 'participation[typeCode=RTGT] '
+
+
+# ============================================================
+# 5. UUID FORMAT WARNINGS
+# ============================================================
+
+# --- UUID Format Warnings ---
+# Justification: These UUIDs are used as logical identifiers and will be formatted correctly in production
+UUIDs must be valid and lowercase (SensitiveCareTeamProfile)
+UUIDs must be valid and lowercase (SensitiveConditionProfile)
+UUIDs must be valid and lowercase (SensitiveMedicationProfile)
+UUIDs must be valid and lowercase (SensitiveMedicationRequestProfile)
+UUIDs must be valid and lowercase (SensitiveObservationProfile)
+UUIDs must be valid and lowercase (CarlFrederickson)
+UUIDs must be valid and lowercase (CarlFredericksonBloodPressure)
+UUIDs must be valid and lowercase (CarlFredericksonBunions)
+UUIDs must be valid and lowercase (CarlFredericksonBuprenorphineNaltrexone)
+UUIDs must be valid and lowercase (CarlFredericksonCaptopril)
+UUIDs must be valid and lowercase (CarlFredericksonCareTeam)
+UUIDs must be valid and lowercase (CarlFredericksonFluoxetine)
+UUIDs must be valid and lowercase (CarlFredericksonHTN)
+UUIDs must be valid and lowercase (CarlFredericksonMDD)
+UUIDs must be valid and lowercase (CarlFredericksonOCPD)
+UUIDs must be valid and lowercase (CarlFredericksonOUD)
+UUIDs must be valid and lowercase (CarlFredericksonOUDThoughtRecord)
+UUIDs must be valid and lowercase (CarlFredericksonPHQ9)
+UUIDs must be valid and lowercase (CarlFredericksonXrayFeet)
+UUIDs must be valid and lowercase (EllieFrederickson)
+UUIDs must be valid and lowercase (MedicationBuprenorphineNaltrexone)
+UUIDs must be valid and lowercase (MedicationCaptopril)
+UUIDs must be valid and lowercase (MedicationFluoxetine)
+UUIDs must be valid and lowercase (sensitive-care-team-codes)
+UUIDs must be valid and lowercase (sensitive-condition-codes)
+UUIDs must be valid and lowercase (sensitive-medication-codes)
+UUIDs must be valid and lowercase (sensitive-medication-request-codes)
+UUIDs must be valid and lowercase (sensitive-observation-codes)
+UUIDs must be valid and lowercase (SensitiveCareTeamSubscription)
+UUIDs must be valid and lowercase (SensitiveConditionSubscription)
+UUIDs must be valid and lowercase (SensitiveMedicationRequestSubscription)
+UUIDs must be valid and lowercase (SensitiveObservationSubscription)

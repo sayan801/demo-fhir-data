@@ -7,14 +7,11 @@ Description: "Major depressive disorder, recurrent, moderate for Carl Fredericks
 * subject.reference = "urn:uuid:CarlFrederickson"
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active
 * category[0] = http://terminology.hl7.org/CodeSystem/condition-category#problem-list-item
-* category[1] = http://terminology.hl7.org/CodeSystem/condition-category#behavioral
+* category[1] = http://terminology.hl7.org/CodeSystem/condition-category#encounter-diagnosis
 
-* identifier[0].system = "http://example.org/fhir/condition-identifier"
+* identifier[0].system = "http://shift.github.io/demo/condition-identifier"
 * identifier[0].value = "MDD-12349"
 
-* code.coding[0].system = "http://hl7.org/fhir/sid/icd-10"
-* code.coding[0].code = #F33.1
-* code.coding[0].display = "Major depressive disorder, recurrent, moderate"
-* code.coding[1].system = "http://snomed.info/sct"
-* code.coding[1].code = #310496002
-* code.coding[1].display = "Major depressive disorder, recurrent, moderate"
+* code.coding[0] = http://hl7.org/fhir/sid/icd-10-cm#F33.1 "Major depressive disorder, recurrent, moderate"
+* code.coding[1] = http://snomed.info/sct#310496002 "Moderate depression"
+* code.text = "Major depressive disorder, recurrent, moderate"
