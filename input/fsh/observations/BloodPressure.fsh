@@ -10,7 +10,7 @@ Usage: #example
 
 * status = #final
 
-* identifier[0].system = "http://shift.github.io/demo/observation-identifier"
+* identifier[0].system = "http://example.com/demo/observation-identifier"
 * identifier[0].value = "BP-56783"
 
 // Category "Vital Signs"
@@ -21,9 +21,9 @@ Usage: #example
 * code.coding[1] = http://loinc.org#85354-9 "Blood pressure panel with all children optional"
 * code.text = "Mapple Vitals - Blood pressure"
 
-* subject.reference = "urn:uuid:CarlFrederickson"
+* subject = Reference(CarlFrederickson)
 * effectiveDateTime = "2023-08-15T09:30:00Z"
-* performer[0].reference = "urn:uuid:CarlFredericksonCareTeam"
+* performer[0] = Reference(CarlFredericksonCareTeam)
 
 // Add required systolic and diastolic components
 * component[0].code.coding[0] = http://loinc.org#8480-6 "Systolic blood pressure"

@@ -4,12 +4,12 @@ InstanceOf: MedicationRequest
 Title: "MedicationRequest - Captopril"
 Description: "Captopril 12.5mg PO BID prescription for Carl Frederickson"
 
-* identifier[0].system = "http://shift.github.io/demo/medicationrequest-identifier"
+* identifier[0].system = "http://example.com/demo/medicationrequest-identifier"
 * identifier[0].value = "RX-CAPTOPRIL-45603"
 
 * status = #active
 * intent = #order
-* subject.reference = "urn:uuid:CarlFrederickson"
+* subject = Reference(CarlFrederickson)
 * medicationCodeableConcept.coding[0] = http://www.nlm.nih.gov/research/umls/rxnorm#315560 "captopril 12.5 MG"
 * medicationCodeableConcept.text = "Captopril 12.5 MG Oral Tablet"
 * dosageInstruction.text = "12.5mg PO BID"

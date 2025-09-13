@@ -1,14 +1,14 @@
 // Sensitive CareTeam Codes ValueSet
+// TODO: JFM 20250913: Seems this should be a grouping valueSet of a set of valueSets for each of the specific kinds of sensitivity. Thus the specific kinds of sensitivity can be used to tag data for specific kinds of data.
 Instance: sensitive-care-team-codes
 InstanceOf: ValueSet
 Usage: #definition
 Title: "ValueSet - Sensitive CareTeam Codes"
 Description: "Codes representing sensitive care team roles requiring special privacy protections"
 
-* url = "http://shift.github.io/demo/ValueSet/sensitive-care-team-codes"
 * version = "0.0.1"
 * name = "SensitiveCareTeamCodes"
-* identifier[0].system = "http://shift.github.io/demo/valueset-identifier"
+* identifier[0].system = "http://example.com/demo/valueset-identifier"
 * identifier[0].value = "VS-89015"
 
 * status = #active

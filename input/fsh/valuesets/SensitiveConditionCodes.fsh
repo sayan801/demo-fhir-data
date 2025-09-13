@@ -5,11 +5,7 @@ Usage: #definition
 Title: "ValueSet - Sensitive Condition Codes"
 Description: "Codes representing sensitive conditions requiring special privacy protections"
 
-* url = "http://shift.github.io/demo/ValueSet/sensitive-condition-codes"
-* version = "0.0.1"
 * name = "SensitiveConditionCodes"
-* identifier[0].system = "http://shift.github.io/demo/valueset-identifier"
-* identifier[0].value = "VS-89012"
 
 * status = #active
 * experimental = false

@@ -5,11 +5,7 @@ Usage: #definition
 Title: "ValueSet - Sensitive MedicationRequest Codes"
 Description: "Codes representing sensitive medication requests requiring special privacy protections"
 
-* url = "http://shift.github.io/demo/ValueSet/sensitive-medication-request-codes"
-* version = "0.0.1"
 * name = "SensitiveMedicationRequestCodes"
-* identifier[0].system = "http://shift.github.io/demo/valueset-identifier"
-* identifier[0].value = "VS-89016"
 
 * status = #active
 * experimental = false

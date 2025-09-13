@@ -5,12 +5,12 @@ Title: "Carl Frederickson's Multi-Disciplinary Care Team"
 Description: "Comprehensive care team covering primary care, behavioral health, specialty care, and care coordination"
 Usage: #example
 
-* identifier[0].system = "http://shift.github.io/demo/careteam-identifier"
+* identifier[0].system = "http://example.org/demo/careteam-identifier"
 * identifier[0].value = "CT-34567"
 
 * status = #active
 * name = "Carl Frederickson's Care Team"
-* subject.reference = "urn:uuid:CarlFrederickson"
+* subject = Reference(CarlFrederickson)
 * period.start = "2023-01-15"
 * category = http://loinc.org#LA27976-2 "Encounter-focused care team"
 
@@ -47,7 +47,7 @@ Usage: #example
 * participant[3].member.display = "Dr. White"
 * participant[3].onBehalfOf.display = "Springfield Medical Center Addiction Treatment Program"
 * participant[3].period.start = "2022-06-30"
-* participant[3].extension[0].url = "http://shift.github.io/demo/StructureDefinition/42CFRPart2"
+* participant[3].extension[0].url = Canonical(42CFRPart2)
 * participant[3].extension[0].valueBoolean = true
 
 // OHS Podiatrist

@@ -5,7 +5,7 @@ Usage: #example
 Title: "Medication - Buprenorphine/Naltrexone"
 Description: "Buprenorphine/Naltrexone for treatment of OUD"
 
-* identifier[0].system = "http://shift.github.io/demo/medication-identifier"
+* identifier[0].system = "http://example.com/demo/medication-identifier"
 * identifier[0].value = "BUPR-NAL-78901"
 
 * code.coding[0] = http://www.nlm.nih.gov/research/umls/rxnorm#352364 "buprenorphine / naloxone"

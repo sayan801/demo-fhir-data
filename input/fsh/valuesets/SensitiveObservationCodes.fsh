@@ -5,11 +5,7 @@ Usage: #definition
 Title: "ValueSet - Sensitive Observation Codes"
 Description: "Codes representing sensitive observations requiring special privacy protections"
 
-* url = "http://shift.github.io/demo/ValueSet/sensitive-observation-codes"
-* version = "0.0.1"
 * name = "SensitiveObservationCodes"
-* identifier[0].system = "http://shift.github.io/demo/valueset-identifier"
-* identifier[0].value = "VS-89013"
 
 * status = #active
 * experimental = false

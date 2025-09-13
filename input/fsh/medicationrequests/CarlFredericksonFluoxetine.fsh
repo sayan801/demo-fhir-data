@@ -5,12 +5,12 @@ Usage: #example
 Title: "MedicationRequest - Fluoxetine"
 Description: "Fluoxetine prescription for Carl Frederickson"
 
-* identifier[0].system = "http://shift.github.io/demo/medicationrequest-identifier"
+* identifier[0].system = "http://example.com/demo/medicationrequest-identifier"
 * identifier[0].value = "RX-FLUOXETINE-45602"
 
 * status = #active
 * intent = #order
-* subject.reference = "urn:uuid:CarlFrederickson"
+* subject = Reference(CarlFrederickson)
 * medicationCodeableConcept.coding[0] = http://www.nlm.nih.gov/research/umls/rxnorm#315952 "fluoxetine 20 MG"
 * medicationCodeableConcept.text = "Fluoxetine 20 MG Oral Capsule"
 * dosageInstruction.text = "20mg PO daily"

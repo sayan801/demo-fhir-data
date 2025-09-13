@@ -4,8 +4,6 @@ Instance: CarlFrederickson
 InstanceOf: Patient
 Title: "Patient Carl Frederickson"
 Description: "Patient demographics for Carl Frederickson"
-* identifier[0].system = "http://shift.github.io/demo/identifier/mrn"
-* identifier[0].value = "12345"
 * name.family = "Frederickson"
 * name.given = "Carl"
 * birthDate = "1949-09-12"
