@@ -1,8 +1,15 @@
 # FHIR Resources Demo Project
 
-This project contains FHIR resources in FSH format for a demo patient record.
+This project contains FHIR resources in FSH format for a demo patient record. This content is automatically built into the FHIR CI build whenever the github repository is updated.
+https://build.fhir.org/ig/SHIFT-Task-Force/demo-fhir-data
 
-## Getting Started
+The ValueSets from SAMSA developed 10 years ago are also included as starter value sets for our current efforts
+
+From the IG build all of the examples can be downloaded in json, xml, or ttl format. See the [About menu](https://build.fhir.org/ig/SHIFT-Task-Force/demo-fhir-data/about.html)
+
+The IG can be built locally; if you have the [IG publisher environment](https://confluence.hl7.org/spaces/HAFWG/pages/204283403/Setup+FHIR+IG+Publisher+environment); by using the `_build` batch or script.
+
+## Alternative approach to using the FSH source
 
 1. Clone this repository:
    ```bash
@@ -15,9 +22,9 @@ This project contains FHIR resources in FSH format for a demo patient record.
    chmod +x fhir-tools.sh hapi-server.sh
    ```
 
-## Working with FHIR Resources
+### Working with FHIR Resources
 
-### Quick Start
+#### Quick Start
 
 For working with a local HAPI FHIR server instance:
 
@@ -43,7 +50,7 @@ For working with a local HAPI FHIR server instance:
    ./hapi-server.sh stop
    ```
 
-### Using FHIR Servers
+#### Using FHIR Servers
 
 For deploying to a FHIR server:
 
@@ -69,31 +76,31 @@ For deploying to a FHIR server:
    ./fhir-tools.sh post http://example.com/fhir
    ```
 
-### Verification of POST Requests
+#### Verification of POST Requests
 
 When posting resources to any FHIR server, the script automatically verifies the HTTP status code:
 - Success (2xx status codes) is clearly indicated with a success message
 - Failures are reported with the status code for troubleshooting
 
-### Cleaning Up
+#### Cleaning Up
 
 To clean all generated files:
 ```bash
 ./fhir-tools.sh clean
 ```
 
-## Available Commands
+### Available Commands
 
-### FHIR Resources Management
+#### FHIR Resources Management
 
 Run `./fhir-tools.sh help` to see all available commands:
 
-### Local HAPI Server Management
+#### Local HAPI Server Management
 
 Run `./hapi-server.sh help` to see all available commands:
 
 
-## Project Structure
+### Project Structure
 
 - `input/fsh/` - Default FSH files
 - `fsh-generated/` - Compiled FHIR resources (created by sushi)
