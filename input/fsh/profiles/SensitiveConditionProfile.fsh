@@ -1,6 +1,6 @@
 Profile: SensitiveConditionProfile
 Parent: Condition
 Id: sensitive-condition-profile
-Title: "Sensitive Condition Profile"
-Description: "A profile for conditions that are considered sensitive, with specific constraints on the condition code."
-* code from sensitive-condition-codes (required)
+Title: "Informative Sensitive Condition Profile"
+Description: "A profile for conditions that have a code from the sensitive valueset. This Profile is used here for demonstration purposes to assure that the demo data contains at least one sensitive code. The model of using Profiles for this is not recommended for implementation of a SLS, but provided here for educational purposes."
+* code from ExampleSensitiveConditionCodes (required)

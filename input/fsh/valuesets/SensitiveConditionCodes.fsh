@@ -1,138 +1,48 @@
 // Sensitive Condition Codes ValueSet
-Instance: sensitive-condition-codes
-InstanceOf: ValueSet
-Usage: #definition
-Title: "ValueSet - Sensitive Condition Codes"
-Description: "Codes representing sensitive conditions requiring special privacy protections"
-
-* name = "SensitiveConditionCodes"
-
-* status = #active
-* experimental = false
-* purpose = "Identify clinical codes that require security labeling for privacy protection"
-* date = "2023-04-06"
+ValueSet: ExampleSensitiveConditionCodes
+Title: "ValueSet - Example Sensitive Condition Codes"
+Description: "Example set of codes representing sensitive conditions requiring special privacy protections"
+* ^experimental = false
+* codes from valueset ExampleSubstanceUseConditionCodes
+* codes from valueset ExampleBehavioralHealthConditionCodes
+* codes from valueset ExampleSexualityAndReproductiveHealthConditionCodes
 
 //------------------------------------------------------------------------------
 // SUBSTANCE USE DISORDER (SUD) CODES
 //------------------------------------------------------------------------------
-
-// ICD-10 SUD Codes
-* compose.include[0].system = "http://hl7.org/fhir/sid/icd-10-cm"
-* compose.include[0].concept[0].code = #F11.11
-* compose.include[0].concept[0].display = "Opioid abuse, in remission"
-
-// SNOMED CT SUD Codes
-* compose.include[1].system = "http://snomed.info/sct"
-* compose.include[1].concept[0].code = #5602001
-* compose.include[1].concept[0].display = "Opioid abuse"
-* compose.include[1].concept[1].code = #425741009
-* compose.include[1].concept[1].display = "Buprenorphine/naloxone"
-* compose.include[1].concept[2].code = #444175001
-* compose.include[1].concept[2].display = "Cognitive behavioral therapy record"
-
-// RxNorm SUD Medication Codes
-* compose.include[2].system = "http://www.nlm.nih.gov/research/umls/rxnorm"
-* compose.include[2].concept[0].code = #352364
-* compose.include[2].concept[0].display = "Buprenorphine 8 MG / Naloxone 2 MG Sublingual Tablet"
+ValueSet: ExampleSubstanceUseConditionCodes
+Title: "ValueSet - Example Substance Use Condition Codes"
+Description: "Example set of codes representing substance use conditions requiring special privacy protections"
+* ^experimental = false
+* http://hl7.org/fhir/sid/icd-10-cm#F11.11  "Opioid abuse, in remission"
+* http://snomed.info/sct#5602001  "Opioid abuse"
+* http://snomed.info/sct#425741009  "Buprenorphine/naloxone"
+* http://snomed.info/sct#444175001  "Cognitive behavioral therapy record"
+* http://www.nlm.nih.gov/research/umls/rxnorm#352364  "Buprenorphine 8 MG / Naloxone 2 MG Sublingual Tablet"
 
 //------------------------------------------------------------------------------
 // BEHAVIORAL HEALTH (BH) CODES
 //------------------------------------------------------------------------------
-
-// ICD-10 BH Codes
-* compose.include[3].system = "http://hl7.org/fhir/sid/icd-10-cm"
-* compose.include[3].concept[0].code = #F33.1
-* compose.include[3].concept[0].display = "Major depressive disorder, recurrent, moderate" 
-* compose.include[3].concept[1].code = #F60.5
-* compose.include[3].concept[1].display = "Obsessive-compulsive personality disorder"
-* compose.include[3].concept[2].code = #F11.11
-* compose.include[3].concept[2].display = "Opioid abuse, in remission"
-// Note: F11.11 is also included in SUD section since it belongs to both categories
-
-// SNOMED CT BH Codes
-* compose.include[4].system = "http://snomed.info/sct"
-* compose.include[4].concept[0].code = #310496002
-* compose.include[4].concept[0].display = "Major depressive disorder, recurrent, moderate"
-* compose.include[4].concept[1].code = #1376001
-* compose.include[4].concept[1].display = "Obsessive-compulsive personality disorder"
-* compose.include[4].concept[2].code = #720433000
-* compose.include[4].concept[2].display = "PHQ-9 depression screening instrument"
-* compose.include[4].concept[3].code = #5602001
-* compose.include[4].concept[3].display = "Opioid abuse"
-// Note: 5602001 is also included in SUD section since it belongs to both categories
-
-// RxNorm BH Medication Codes
-* compose.include[5].system = "http://www.nlm.nih.gov/research/umls/rxnorm"
-* compose.include[5].concept[0].code = #315952
-* compose.include[5].concept[0].display = "Fluoxetine 20 MG Oral Capsule"
-* compose.include[5].concept[1].code = #352364
-* compose.include[5].concept[1].display = "Buprenorphine 8 MG / Naloxone 2 MG Sublingual Tablet"
-// Note: 352364 is also included in SUD section since it belongs to both categories
-
-// CPT BH Assessment/Procedure Codes
-* compose.include[6].system = "http://www.ama-assn.org/go/cpt"
-* compose.include[6].concept[0].code = #96127
-* compose.include[6].concept[0].display = "Brief emotional/behavioral assessment"
+ValueSet: ExampleBehavioralHealthConditionCodes
+Title: "ValueSet - Example Behavioral Health Condition Codes"
+Description: "Example set of codes representing behavioral health conditions requiring special privacy protections"
+* ^experimental = false
+* http://hl7.org/fhir/sid/icd-10-cm#F33.1  "Major depressive disorder, recurrent, moderate"
+* http://hl7.org/fhir/sid/icd-10-cm#F60.5  "Obsessive-compulsive personality disorder"
+* http://hl7.org/fhir/sid/icd-10-cm#F11.11  "Opioid abuse, in remission"
+* http://snomed.info/sct#310496002  "Major depressive disorder, recurrent, moderate"
+* http://snomed.info/sct#1376001  "Obsessive-compulsive personality disorder"
+* http://snomed.info/sct#720433000  "PHQ-9 depression screening instrument"
+* http://snomed.info/sct#5602001  "Opioid abuse"
+* http://www.nlm.nih.gov/research/umls/rxnorm#315952  "Fluoxetine 20 MG Oral Capsule"
+* http://www.nlm.nih.gov/research/umls/rxnorm#352364  "Buprenorphine 8 MG / Naloxone 2 MG Sublingual Tablet"
+* http://www.ama-assn.org/go/cpt#96127  "Brief emotional/behavioral assessment"
 
 //------------------------------------------------------------------------------
 // SEXUALITY & REPRODUCTIVE HEALTH (SEX) CODES
 //------------------------------------------------------------------------------
+ValueSet: ExampleSexualityAndReproductiveHealthConditionCodes
+Title: "ValueSet - Example Sexuality and Reproductive Health Condition Codes"
+Description: "Example set of codes representing sexuality and reproductive health conditions requiring special privacy protections"
+* ^experimental = false
 
-// ICD-10 SEX Codes
-* compose.include[7].system = "http://hl7.org/fhir/sid/icd-10"
-// ADD ICD-10 SEXUALITY/REPRODUCTIVE HEALTH CODES HERE
-
-// SNOMED CT SEX Codes
-* compose.include[8].system = "http://snomed.info/sct"
-// ADD SNOMED SEXUALITY/REPRODUCTIVE HEALTH CODES HERE
-
-// CPT SEX Procedure Codes
-* compose.include[9].system = "http://www.ama-assn.org/go/cpt"
-// ADD CPT SEXUALITY/REPRODUCTIVE HEALTH PROCEDURE CODES HERE
-
-// LOINC SEX Lab/Assessment Codes
-* compose.include[10].system = "http://loinc.org"
-// ADD LOINC SEXUALITY/REPRODUCTIVE HEALTH CODES HERE
-
-//------------------------------------------------------------------------------
-// EXPANSION
-//------------------------------------------------------------------------------
-* expansion.timestamp = "2025-04-30T12:00:00Z"
-* expansion.total = 13
-* expansion.offset = 0
-* expansion.contains[0].system = "http://hl7.org/fhir/sid/icd-10-cm"
-* expansion.contains[0].code = #F11.11
-* expansion.contains[0].display = "Opioid abuse, in remission"
-* expansion.contains[1].system = "http://snomed.info/sct"
-* expansion.contains[1].code = #5602001
-* expansion.contains[1].display = "Opioid abuse"
-* expansion.contains[2].system = "http://snomed.info/sct"
-* expansion.contains[2].code = #425741009
-* expansion.contains[2].display = "Buprenorphine/naloxone"
-* expansion.contains[3].system = "http://snomed.info/sct"
-* expansion.contains[3].code = #444175001
-* expansion.contains[3].display = "Cognitive behavioral therapy record"
-* expansion.contains[4].system = "http://www.nlm.nih.gov/research/umls/rxnorm"
-* expansion.contains[4].code = #352364
-* expansion.contains[4].display = "Buprenorphine 8 MG / Naloxone 2 MG Sublingual Tablet"
-* expansion.contains[5].system = "http://hl7.org/fhir/sid/icd-10"
-* expansion.contains[5].code = #F33.1
-* expansion.contains[5].display = "Major depressive disorder, recurrent, moderate"
-* expansion.contains[6].system = "http://hl7.org/fhir/sid/icd-10"
-* expansion.contains[6].code = #F60.5
-* expansion.contains[6].display = "Obsessive-compulsive personality disorder"
-* expansion.contains[7].system = "http://snomed.info/sct"
-* expansion.contains[7].code = #310496002
-* expansion.contains[7].display = "Major depressive disorder, recurrent, moderate"
-* expansion.contains[8].system = "http://snomed.info/sct"
-* expansion.contains[8].code = #1376001
-* expansion.contains[8].display = "Obsessive-compulsive personality disorder"
-* expansion.contains[9].system = "http://snomed.info/sct"
-* expansion.contains[9].code = #720433000
-* expansion.contains[9].display = "PHQ-9 depression screening instrument"
-* expansion.contains[10].system = "http://www.nlm.nih.gov/research/umls/rxnorm"
-* expansion.contains[10].code = #315952
-* expansion.contains[10].display = "Fluoxetine 20 MG Oral Capsule"
-* expansion.contains[11].system = "http://www.ama-assn.org/go/cpt"
-* expansion.contains[11].code = #96127
-* expansion.contains[11].display = "Brief emotional/behavioral assessment"

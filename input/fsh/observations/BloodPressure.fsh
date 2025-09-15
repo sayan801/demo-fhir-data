@@ -5,9 +5,6 @@ Title: "Mapple Vitals - Blood Pressure Measurement"
 Description: "Mapple vitals blood pressure reading for Carl Frederickson"
 Usage: #example
 
-// Declare conformance to the BP profile
-* meta.profile = "http://hl7.org/fhir/StructureDefinition/bp"
-
 * status = #final
 
 * identifier[0].system = "http://example.com/demo/observation-identifier"

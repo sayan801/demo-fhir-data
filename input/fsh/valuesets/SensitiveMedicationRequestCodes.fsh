@@ -1,65 +1,37 @@
 // Sensitive MedicationRequest Codes ValueSet
-Instance: sensitive-medication-request-codes
-InstanceOf: ValueSet
-Usage: #definition
-Title: "ValueSet - Sensitive MedicationRequest Codes"
-Description: "Codes representing sensitive medication requests requiring special privacy protections"
-
-* name = "SensitiveMedicationRequestCodes"
-
-* status = #active
-* experimental = false
-* purpose = "Identify medication request codes that require security labeling for privacy protection"
-* date = "2023-04-06"
+ValueSet: ExampleSensitiveMedicationRequestCodes
+Title: "ValueSet - Example Sensitive MedicationRequest Codes"
+Description: "Example set of codes representing sensitive medication requests requiring special privacy protections"
+* ^experimental = false
+* codes from valueset ExampleSubstanceUseMedicationRequestCodes
+* codes from valueset ExampleBehavioralHealthMedicationRequestCodes
+* codes from valueset ExampleSexualityAndReproductiveHealthMedicationRequestCodes
 
 //------------------------------------------------------------------------------
 // SUBSTANCE USE DISORDER (SUD) MEDICATION REQUEST CODES
 //------------------------------------------------------------------------------
-
-// RxNorm SUD Medication Codes
-* compose.include[0].system = "http://www.nlm.nih.gov/research/umls/rxnorm"
-* compose.include[0].concept[0].code = #352364
-* compose.include[0].concept[0].display = "Buprenorphine 8 MG / Naloxone 2 MG Sublingual Tablet"
-
-// SNOMED CT SUD Medication Codes
-* compose.include[1].system = "http://snomed.info/sct"
-* compose.include[1].concept[0].code = #425741009
-* compose.include[1].concept[0].display = "Buprenorphine/naloxone"
+ValueSet: ExampleSubstanceUseMedicationRequestCodes
+Title: "ValueSet - Example Substance Use MedicationRequest Codes"
+Description: "Example set of codes representing substance use medication requests requiring special privacy protections"
+* ^experimental = false
+* http://www.nlm.nih.gov/research/umls/rxnorm#352364  "Buprenorphine 8 MG / Naloxone 2 MG Sublingual Tablet"
+* http://snomed.info/sct#425741009  "Buprenorphine/naloxone"
 
 //------------------------------------------------------------------------------
 // BEHAVIORAL HEALTH (BH) MEDICATION REQUEST CODES
 //------------------------------------------------------------------------------
-
-// RxNorm BH Medication Codes
-* compose.include[2].system = "http://www.nlm.nih.gov/research/umls/rxnorm"
-* compose.include[2].concept[0].code = #315952
-* compose.include[2].concept[0].display = "Fluoxetine 20 MG Oral Capsule"
-
-// SNOMED CT BH Medication Codes
-* compose.include[3].system = "http://snomed.info/sct"
-* compose.include[3].concept[0].code = #372767007
-* compose.include[3].concept[0].display = "Fluoxetine (substance)"
-* compose.include[3].concept[1].code = #373265006
-* compose.include[3].concept[1].display = "Buprenorphine (substance)"
+ValueSet: ExampleBehavioralHealthMedicationRequestCodes
+Title: "ValueSet - Example Behavioral Health MedicationRequest Codes"
+Description: "Example set of codes representing behavioral health medication requests requiring special privacy protections"
+* ^experimental = false
+* http://www.nlm.nih.gov/research/umls/rxnorm#315952  "Fluoxetine 20 MG Oral Capsule"
+* http://snomed.info/sct#372767007  "Fluoxetine (substance)"
+* http://snomed.info/sct#373265006  "Fluoxetine (product)"
 
 //------------------------------------------------------------------------------
-// EXPANSION
+// SEXUALITY & REPRODUCTIVE HEALTH (SEX) CODES
 //------------------------------------------------------------------------------
-* expansion.timestamp = "2025-04-30T12:00:00Z"
-* expansion.total = 5
-* expansion.offset = 0
-* expansion.contains[0].system = "http://www.nlm.nih.gov/research/umls/rxnorm"
-* expansion.contains[0].code = #352364
-* expansion.contains[0].display = "Buprenorphine 8 MG / Naloxone 2 MG Sublingual Tablet"
-* expansion.contains[1].system = "http://snomed.info/sct"
-* expansion.contains[1].code = #425741009
-* expansion.contains[1].display = "Buprenorphine/naloxone"
-* expansion.contains[2].system = "http://www.nlm.nih.gov/research/umls/rxnorm"
-* expansion.contains[2].code = #315952
-* expansion.contains[2].display = "Fluoxetine 20 MG Oral Capsule"
-* expansion.contains[3].system = "http://snomed.info/sct"
-* expansion.contains[3].code = #372767007
-* expansion.contains[3].display = "Fluoxetine (substance)"
-* expansion.contains[4].system = "http://snomed.info/sct"
-* expansion.contains[4].code = #373265006
-* expansion.contains[4].display = "Buprenorphine (substance)"
+ValueSet: ExampleSexualityAndReproductiveHealthMedicationRequestCodes
+Title: "ValueSet - Example Sexuality and Reproductive Health MedicationRequest Codes"
+Description: "Example set of codes representing sexuality and reproductive health medication requests requiring special privacy protections"
+* ^experimental = false

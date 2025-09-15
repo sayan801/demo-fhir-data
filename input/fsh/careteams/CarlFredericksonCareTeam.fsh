@@ -1,6 +1,6 @@
 // Main Care Team for Carl Frederickson
 Instance: CarlFredericksonCareTeam
-InstanceOf: SensitiveCareTeamProfile
+InstanceOf: CareTeam
 Title: "Carl Frederickson's Multi-Disciplinary Care Team"
 Description: "Comprehensive care team covering primary care, behavioral health, specialty care, and care coordination"
 Usage: #example
