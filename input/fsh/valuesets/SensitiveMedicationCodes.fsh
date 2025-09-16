@@ -3,7 +3,7 @@ ValueSet: ExampleSensitiveMedicationCodes
 Title: "ValueSet - Example Sensitive Medication Codes"
 Description: "Example set of codes representing sensitive medications requiring special privacy protections"
 * ^experimental = false
-* codes from valueset ExampleSubstanceAbuseMedicationCodes
+* codes from valueset ExampleSubstanceUseMedicationCodes
 * codes from valueset ExampleBehavioralHealthMedicationCodes
 * codes from valueset ExampleSexualityAndReproductiveHealthMedicationCodes
 
@@ -11,9 +11,9 @@ Description: "Example set of codes representing sensitive medications requiring 
 //------------------------------------------------------------------------------
 // SUBSTANCE USE DISORDER (SUD) MEDICATION CODES
 //------------------------------------------------------------------------------
-ValueSet: ExampleSubstanceAbuseMedicationCodes
-Title: "ValueSet - Example Substance Abuse Medication Codes"
-Description: "Example set of codes representing substance abuse medications requiring special privacy protections"
+ValueSet: ExampleSubstanceUseMedicationCodes
+Title: "ValueSet - Example Substance Use Medication Codes"
+Description: "Example set of codes representing substance use medications requiring special privacy protections"
 * ^experimental = false
 * http://www.nlm.nih.gov/research/umls/rxnorm#352364  "Buprenorphine 8 MG / Naloxone 2 MG Sublingual Tablet"
 * http://snomed.info/sct#425741009  "Buprenorphine/naloxone"

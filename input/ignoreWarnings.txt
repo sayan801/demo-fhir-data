@@ -14,8 +14,4 @@ The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValue
 INFORMATION: DiagnosticReport/CarlFredericksonXrayFeet: DiagnosticReport.code: None of the codings provided are in the value set 'LOINC Diagnostic Report Codes' (http://hl7.org/fhir/ValueSet/report-codes|4.0.1), and a coding is recommended to come from this value set (codes = http://www.ama-assn.org/go/cpt#73620)
 INFORMATION: Bundle/AllOfCarlFrederickson: Bundle.entry[9].resource/*DiagnosticReport/CarlFredericksonXrayFeet*/.code: None of the codings provided are in the value set 'LOINC Diagnostic Report Codes' (http://hl7.org/fhir/ValueSet/report-codes|4.0.1), and a coding is recommended to come from this value set (codes = http://www.ama-assn.org/go/cpt#73620)
 
-# I don't understand the Subscription use
-No definition could be found for URL value 'process.env.SUBSCRIPTION_ENDPOINT/fhir-subscription'
 
-# understand that the sensitivity-condition-codes set is really big 
-The value set expansion is too large, and only a subset has been displayed
