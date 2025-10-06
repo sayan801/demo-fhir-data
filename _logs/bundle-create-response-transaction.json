@@ -1,0 +1,326 @@
+{
+    "resourceType": "Bundle",
+    "type": "transaction-response",
+    "entry": [
+        {
+            "response": {
+                "outcome": {
+                    "resourceType": "OperationOutcome",
+                    "issue": [
+                        {
+                            "severity": "error",
+                            "code": "invalid",
+                            "details": {
+                                "text": "Missing Bundle entry request method"
+                            },
+                            "expression": [
+                                "Bundle.entry[0].request.method"
+                            ]
+                        }
+                    ]
+                },
+                "status": "400"
+            }
+        },
+        {
+            "response": {
+                "outcome": {
+                    "resourceType": "OperationOutcome",
+                    "issue": [
+                        {
+                            "severity": "error",
+                            "code": "invalid",
+                            "details": {
+                                "text": "Missing Bundle entry request method"
+                            },
+                            "expression": [
+                                "Bundle.entry[1].request.method"
+                            ]
+                        }
+                    ]
+                },
+                "status": "400"
+            }
+        },
+        {
+            "response": {
+                "outcome": {
+                    "resourceType": "OperationOutcome",
+                    "issue": [
+                        {
+                            "severity": "error",
+                            "code": "invalid",
+                            "details": {
+                                "text": "Missing Bundle entry request method"
+                            },
+                            "expression": [
+                                "Bundle.entry[2].request.method"
+                            ]
+                        }
+                    ]
+                },
+                "status": "400"
+            }
+        },
+        {
+            "response": {
+                "outcome": {
+                    "resourceType": "OperationOutcome",
+                    "issue": [
+                        {
+                            "severity": "error",
+                            "code": "invalid",
+                            "details": {
+                                "text": "Missing Bundle entry request method"
+                            },
+                            "expression": [
+                                "Bundle.entry[3].request.method"
+                            ]
+                        }
+                    ]
+                },
+                "status": "400"
+            }
+        },
+        {
+            "response": {
+                "outcome": {
+                    "resourceType": "OperationOutcome",
+                    "issue": [
+                        {
+                            "severity": "error",
+                            "code": "invalid",
+                            "details": {
+                                "text": "Missing Bundle entry request method"
+                            },
+                            "expression": [
+                                "Bundle.entry[4].request.method"
+                            ]
+                        }
+                    ]
+                },
+                "status": "400"
+            }
+        },
+        {
+            "response": {
+                "outcome": {
+                    "resourceType": "OperationOutcome",
+                    "issue": [
+                        {
+                            "severity": "error",
+                            "code": "invalid",
+                            "details": {
+                                "text": "Missing Bundle entry request method"
+                            },
+                            "expression": [
+                                "Bundle.entry[5].request.method"
+                            ]
+                        }
+                    ]
+                },
+                "status": "400"
+            }
+        },
+        {
+            "response": {
+                "outcome": {
+                    "resourceType": "OperationOutcome",
+                    "issue": [
+                        {
+                            "severity": "error",
+                            "code": "invalid",
+                            "details": {
+                                "text": "Missing Bundle entry request method"
+                            },
+                            "expression": [
+                                "Bundle.entry[6].request.method"
+                            ]
+                        }
+                    ]
+                },
+                "status": "400"
+            }
+        },
+        {
+            "response": {
+                "outcome": {
+                    "resourceType": "OperationOutcome",
+                    "issue": [
+                        {
+                            "severity": "error",
+                            "code": "invalid",
+                            "details": {
+                                "text": "Missing Bundle entry request method"
+                            },
+                            "expression": [
+                                "Bundle.entry[7].request.method"
+                            ]
+                        }
+                    ]
+                },
+                "status": "400"
+            }
+        },
+        {
+            "response": {
+                "outcome": {
+                    "resourceType": "OperationOutcome",
+                    "issue": [
+                        {
+                            "severity": "error",
+                            "code": "invalid",
+                            "details": {
+                                "text": "Missing Bundle entry request method"
+                            },
+                            "expression": [
+                                "Bundle.entry[8].request.method"
+                            ]
+                        }
+                    ]
+                },
+                "status": "400"
+            }
+        },
+        {
+            "response": {
+                "outcome": {
+                    "resourceType": "OperationOutcome",
+                    "issue": [
+                        {
+                            "severity": "error",
+                            "code": "invalid",
+                            "details": {
+                                "text": "Missing Bundle entry request method"
+                            },
+                            "expression": [
+                                "Bundle.entry[9].request.method"
+                            ]
+                        }
+                    ]
+                },
+                "status": "400"
+            }
+        },
+        {
+            "response": {
+                "outcome": {
+                    "resourceType": "OperationOutcome",
+                    "issue": [
+                        {
+                            "severity": "error",
+                            "code": "invalid",
+                            "details": {
+                                "text": "Missing Bundle entry request method"
+                            },
+                            "expression": [
+                                "Bundle.entry[10].request.method"
+                            ]
+                        }
+                    ]
+                },
+                "status": "400"
+            }
+        },
+        {
+            "response": {
+                "outcome": {
+                    "resourceType": "OperationOutcome",
+                    "issue": [
+                        {
+                            "severity": "error",
+                            "code": "invalid",
+                            "details": {
+                                "text": "Missing Bundle entry request method"
+                            },
+                            "expression": [
+                                "Bundle.entry[11].request.method"
+                            ]
+                        }
+                    ]
+                },
+                "status": "400"
+            }
+        },
+        {
+            "response": {
+                "outcome": {
+                    "resourceType": "OperationOutcome",
+                    "issue": [
+                        {
+                            "severity": "error",
+                            "code": "invalid",
+                            "details": {
+                                "text": "Missing Bundle entry request method"
+                            },
+                            "expression": [
+                                "Bundle.entry[12].request.method"
+                            ]
+                        }
+                    ]
+                },
+                "status": "400"
+            }
+        },
+        {
+            "response": {
+                "outcome": {
+                    "resourceType": "OperationOutcome",
+                    "issue": [
+                        {
+                            "severity": "error",
+                            "code": "invalid",
+                            "details": {
+                                "text": "Missing Bundle entry request method"
+                            },
+                            "expression": [
+                                "Bundle.entry[13].request.method"
+                            ]
+                        }
+                    ]
+                },
+                "status": "400"
+            }
+        },
+        {
+            "response": {
+                "outcome": {
+                    "resourceType": "OperationOutcome",
+                    "issue": [
+                        {
+                            "severity": "error",
+                            "code": "invalid",
+                            "details": {
+                                "text": "Missing Bundle entry request method"
+                            },
+                            "expression": [
+                                "Bundle.entry[14].request.method"
+                            ]
+                        }
+                    ]
+                },
+                "status": "400"
+            }
+        },
+        {
+            "response": {
+                "outcome": {
+                    "resourceType": "OperationOutcome",
+                    "issue": [
+                        {
+                            "severity": "error",
+                            "code": "invalid",
+                            "details": {
+                                "text": "Missing Bundle entry request method"
+                            },
+                            "expression": [
+                                "Bundle.entry[15].request.method"
+                            ]
+                        }
+                    ]
+                },
+                "status": "400"
+            }
+        }
+    ]
+}

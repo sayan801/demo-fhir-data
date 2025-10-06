@@ -1,0 +1,27 @@
+{
+    "resourceType": "OperationOutcome",
+    "issue": [
+        {
+            "severity": "error",
+            "code": "invalid",
+            "details": {
+                "text": "Unrecognized bundle type: collection"
+            }
+        }
+    ],
+    "extension": [
+        {
+            "url": "https://medplum.com/fhir/StructureDefinition/tracing",
+            "extension": [
+                {
+                    "url": "requestId",
+                    "valueId": "d9a0b400-2e1b-4453-b0df-f13aec35ada2"
+                },
+                {
+                    "url": "traceId",
+                    "valueId": "1-68e39847-6b2dbf3121e127fe3be30b3e"
+                }
+            ]
+        }
+    ]
+}
