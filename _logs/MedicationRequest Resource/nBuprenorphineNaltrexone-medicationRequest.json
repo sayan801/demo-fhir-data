@@ -1,0 +1,70 @@
+{
+                "resourceType": "MedicationRequest",
+                "id": "CarlFredericksonBuprenorphineNaltrexone",
+                "meta": {
+                    "profile": [
+                        "http://SHIFT-Task-Force.github.io/demo-fhir-data/StructureDefinition/sensitive-medication-request-profile"
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MedicationRequest_CarlFredericksonBuprenorphineNaltrexone\"> </a><p class=\"res-header-id\"><b>Generated Narrative: MedicationRequest CarlFredericksonBuprenorphineNaltrexone</b></p><a name=\"CarlFredericksonBuprenorphineNaltrexone\"> </a><a name=\"hcCarlFredericksonBuprenorphineNaltrexone\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-sensitive-medication-request-profile.html\">Sensitive Medication Request Profile</a></p></div><p><b>identifier</b>: <code>http://example.com/demo/medicationrequest-identifier</code>/RX-BUPNALTREX-45601</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>medication</b>: <span title=\"Codes:{http://www.nlm.nih.gov/research/umls/rxnorm 352364}, {http://snomed.info/sct 425741009}\">Buprenorphine / Naltrexone</span></p><p><b>subject</b>: <a href=\"Patient-CarlFrederickson.html\">Carl Frederickson  Male, DoB: 1949-09-12</a></p><blockquote><p><b>dosageInstruction</b></p><p><b>text</b>: 8mg/2mg SL daily</p><p><b>timing</b>: Once per 1 day</p><p><b>route</b>: <span title=\"Codes:{http://snomed.info/sct 37839007}\">Sublingual route</span></p><h3>DoseAndRates</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Dose[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>1 tablet/day<span style=\"background: LightGoldenRodYellow\"> (Details: SNOMED CT  code428673006 = 'Tablet - unit of product usage (qualifier value)')</span></td></tr></table></blockquote></div>"
+                },
+                "identifier": [
+                    {
+                        "system": "http://example.com/demo/medicationrequest-identifier",
+                        "value": "RX-BUPNALTREX-45601"
+                    }
+                ],
+                "status": "active",
+                "intent": "order",
+                "medicationCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "352364",
+                            "display": "buprenorphine / naloxone"
+                        },
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "425741009",
+                            "display": "Product containing buprenorphine and naloxone (medicinal product)"
+                        }
+                    ],
+                    "text": "Buprenorphine / Naltrexone"
+                },
+                "subject": {
+                    "reference": "Patient/985c0565-cc4c-481f-bc81-422ad5f1d38a"
+                },
+                "dosageInstruction": [
+                    {
+                        "text": "8mg/2mg SL daily",
+                        "timing": {
+                            "repeat": {
+                                "frequency": 1,
+                                "period": 1,
+                                "periodUnit": "d"
+                            }
+                        },
+                        "route": {
+                            "coding": [
+                                {
+                                    "system": "http://snomed.info/sct",
+                                    "code": "37839007",
+                                    "display": "Sublingual route"
+                                }
+                            ]
+                        },
+                        "doseAndRate": [
+                            {
+                                "doseQuantity": {
+                                    "value": 1,
+                                    "unit": "tablet/day",
+                                    "system": "http://snomed.info/sct",
+                                    "code": "428673006"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
