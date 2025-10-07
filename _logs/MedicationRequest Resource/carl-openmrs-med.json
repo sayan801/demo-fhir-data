@@ -1,0 +1,333 @@
+{
+    "resourceType": "Bundle",
+    "id": "ee37ec18-314e-4f40-b233-592be95b5cf4",
+    "meta": {
+        "lastUpdated": "2025-10-07T14:09:13.006+00:00"
+    },
+    "type": "searchset",
+    "total": 3,
+    "link": [
+        {
+            "relation": "self",
+            "url": "https://o3.openmrs.org/openmrs/ws/fhir2/R4/MedicationRequest?patient=0709789c-6ff2-4240-9a8d-efdc9926e869"
+        }
+    ],
+    "entry": [
+        {
+            "fullUrl": "https://o3.openmrs.org/openmrs/ws/fhir2/R4/MedicationRequest/bf389e88-22c4-44df-99fe-f30c3e1b6d29",
+            "resource": {
+                "resourceType": "MedicationRequest",
+                "id": "bf389e88-22c4-44df-99fe-f30c3e1b6d29",
+                "meta": {
+                    "versionId": "1759838300000",
+                    "lastUpdated": "2025-10-07T11:58:20.000+00:00"
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table class=\"hapiPropertyTable\"><tbody><tr><td>Id:</td><td>bf389e88-22c4-44df-99fe-f30c3e1b6d29</td></tr><tr><td>Status:</td><td>CANCELLED</td></tr><tr><td>Intent:</td><td>ORDER</td></tr><tr><td>Priority:</td><td>ROUTINE</td></tr><tr><td>Medication:</td><td><a href=\"http://localhost:8080/openmrs/ws/fhir2/R4/Medication/2f76266a-a841-4147-9401-c6b8409b8ccc\">Fluconazole Co 150mg</a></td></tr><tr><td>Subject:</td><td><a href=\"http://localhost:8080/openmrs/ws/fhir2/R4/Patient/0709789c-6ff2-4240-9a8d-efdc9926e869\">Carl Frederickson (OpenMRS ID: 100024L)</a></td></tr><tr><td>Encounter:</td><td><a href=\"http://localhost:8080/openmrs/ws/fhir2/R4/Encounter/200ef448-21bf-482b-9a29-1820a63bcd1d\">Encounter/200ef448-21bf-482b-9a29-1820a63bcd1d</a></td></tr><tr><td>Authored On:</td><td>07/10/2025</td></tr><tr><td>Requester:</td><td><a href=\"http://localhost:8080/openmrs/ws/fhir2/R4/Practitioner/1967f01d-68d6-4da6-8a59-027513557186\">Super User</a></td></tr><tr><td>Note:</td><td><div/></td></tr><tr><td>Dosage Instruction:</td><td><div/></td></tr><tr><td>Dispense Requests:</td><td><table class=\"subPropertyTable\"><tbody><tr><th>-</th><th>Initial Fill</th><th>Dispense Interval</th><th>Validity Period</th><th>Number of Repeats Allowed</th><th>Quantity</th><th>Expected Supply Duration</th><th>Performer</th></tr><tr><td>*</td><td><div> Quantity: </div><div> Duration: </div></td><td/><td> 2025-10-07 11:58:20.0 - ? </td><td> 1 </td><td> 10.0 Tablet </td><td/><td><a href=\"http://localhost:8080/openmrs/ws/fhir2/R4/null\"/></td></tr></tbody></table></td></tr></tbody></table></div>"
+                },
+                "status": "cancelled",
+                "intent": "order",
+                "priority": "routine",
+                "medicationReference": {
+                    "reference": "Medication/2f76266a-a841-4147-9401-c6b8409b8ccc",
+                    "type": "Medication",
+                    "display": "Fluconazole Co 150mg"
+                },
+                "subject": {
+                    "reference": "Patient/0709789c-6ff2-4240-9a8d-efdc9926e869",
+                    "type": "Patient",
+                    "display": "Carl Frederickson (OpenMRS ID: 100024L)"
+                },
+                "encounter": {
+                    "reference": "Encounter/200ef448-21bf-482b-9a29-1820a63bcd1d",
+                    "type": "Encounter"
+                },
+                "authoredOn": "2025-10-07T11:58:20+00:00",
+                "requester": {
+                    "reference": "Practitioner/1967f01d-68d6-4da6-8a59-027513557186",
+                    "type": "Practitioner",
+                    "identifier": {
+                        "value": "admin"
+                    },
+                    "display": "Super User"
+                },
+                "dosageInstruction": [
+                    {
+                        "timing": {
+                            "repeat": {
+                                "durationUnit": "d"
+                            },
+                            "code": {
+                                "coding": [
+                                    {
+                                        "code": "160862AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                                        "display": "Once daily"
+                                    },
+                                    {
+                                        "system": "https://cielterminology.org",
+                                        "code": "160862"
+                                    },
+                                    {
+                                        "system": "http://snomed.info/sct/",
+                                        "code": "229797004"
+                                    }
+                                ],
+                                "text": "Once daily"
+                            }
+                        },
+                        "asNeededBoolean": false,
+                        "route": {
+                            "coding": [
+                                {
+                                    "code": "160240AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                                    "display": "Oral"
+                                },
+                                {
+                                    "system": "https://cielterminology.org",
+                                    "code": "160240"
+                                },
+                                {
+                                    "system": "http://snomed.info/sct/",
+                                    "code": "26643006"
+                                }
+                            ],
+                            "text": "Oral"
+                        },
+                        "doseAndRate": [
+                            {
+                                "doseQuantity": {
+                                    "value": 1.0,
+                                    "unit": "Tablet",
+                                    "code": "1513AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "dispenseRequest": {
+                    "validityPeriod": {
+                        "start": "2025-10-07T11:58:20+00:00"
+                    },
+                    "numberOfRepeatsAllowed": 1,
+                    "quantity": {
+                        "value": 10.0,
+                        "unit": "Tablet",
+                        "code": "1513AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                    }
+                }
+            }
+        },
+        {
+            "fullUrl": "https://o3.openmrs.org/openmrs/ws/fhir2/R4/MedicationRequest/2ffc4c04-a470-4234-83f9-001bc7fb124c",
+            "resource": {
+                "resourceType": "MedicationRequest",
+                "id": "2ffc4c04-a470-4234-83f9-001bc7fb124c",
+                "meta": {
+                    "versionId": "1759839331000",
+                    "lastUpdated": "2025-10-07T12:15:31.000+00:00"
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table class=\"hapiPropertyTable\"><tbody><tr><td>Id:</td><td>2ffc4c04-a470-4234-83f9-001bc7fb124c</td></tr><tr><td>Status:</td><td>ACTIVE</td></tr><tr><td>Intent:</td><td>ORDER</td></tr><tr><td>Priority:</td><td>ROUTINE</td></tr><tr><td>Medication:</td><td><a href=\"http://localhost:8080/openmrs/ws/fhir2/R4/Medication/8c855783-fc73-4b3a-a415-4ca6a2b9560e\">Captopril 12.5mg</a></td></tr><tr><td>Subject:</td><td><a href=\"http://localhost:8080/openmrs/ws/fhir2/R4/Patient/0709789c-6ff2-4240-9a8d-efdc9926e869\">Carl Frederickson (OpenMRS ID: 100024L)</a></td></tr><tr><td>Encounter:</td><td><a href=\"http://localhost:8080/openmrs/ws/fhir2/R4/Encounter/200ef448-21bf-482b-9a29-1820a63bcd1d\">Encounter/200ef448-21bf-482b-9a29-1820a63bcd1d</a></td></tr><tr><td>Authored On:</td><td>07/10/2025</td></tr><tr><td>Requester:</td><td><a href=\"http://localhost:8080/openmrs/ws/fhir2/R4/Practitioner/1967f01d-68d6-4da6-8a59-027513557186\">Super User</a></td></tr><tr><td>Note:</td><td><div/></td></tr><tr><td>Dosage Instruction:</td><td><div/></td></tr><tr><td>Dispense Requests:</td><td><table class=\"subPropertyTable\"><tbody><tr><th>-</th><th>Initial Fill</th><th>Dispense Interval</th><th>Validity Period</th><th>Number of Repeats Allowed</th><th>Quantity</th><th>Expected Supply Duration</th><th>Performer</th></tr><tr><td>*</td><td><div> Quantity: </div><div> Duration: </div></td><td/><td> 2025-10-07 12:15:31.0 - ? </td><td> 5 </td><td> 180.0 Tablet </td><td/><td><a href=\"http://localhost:8080/openmrs/ws/fhir2/R4/null\"/></td></tr></tbody></table></td></tr></tbody></table></div>"
+                },
+                "status": "active",
+                "intent": "order",
+                "priority": "routine",
+                "medicationReference": {
+                    "reference": "Medication/8c855783-fc73-4b3a-a415-4ca6a2b9560e",
+                    "type": "Medication",
+                    "display": "Captopril 12.5mg"
+                },
+                "subject": {
+                    "reference": "Patient/0709789c-6ff2-4240-9a8d-efdc9926e869",
+                    "type": "Patient",
+                    "display": "Carl Frederickson (OpenMRS ID: 100024L)"
+                },
+                "encounter": {
+                    "reference": "Encounter/200ef448-21bf-482b-9a29-1820a63bcd1d",
+                    "type": "Encounter"
+                },
+                "authoredOn": "2025-10-07T12:15:31+00:00",
+                "requester": {
+                    "reference": "Practitioner/1967f01d-68d6-4da6-8a59-027513557186",
+                    "type": "Practitioner",
+                    "identifier": {
+                        "value": "admin"
+                    },
+                    "display": "Super User"
+                },
+                "dosageInstruction": [
+                    {
+                        "timing": {
+                            "repeat": {
+                                "durationUnit": "d"
+                            },
+                            "code": {
+                                "coding": [
+                                    {
+                                        "code": "160858AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                                        "display": "Twice daily"
+                                    },
+                                    {
+                                        "system": "https://cielterminology.org",
+                                        "code": "160858"
+                                    },
+                                    {
+                                        "system": "http://snomed.info/sct/",
+                                        "code": "229799001"
+                                    }
+                                ],
+                                "text": "Twice daily"
+                            }
+                        },
+                        "asNeededBoolean": false,
+                        "route": {
+                            "coding": [
+                                {
+                                    "code": "160240AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                                    "display": "Oral"
+                                },
+                                {
+                                    "system": "https://cielterminology.org",
+                                    "code": "160240"
+                                },
+                                {
+                                    "system": "http://snomed.info/sct/",
+                                    "code": "26643006"
+                                }
+                            ],
+                            "text": "Oral"
+                        },
+                        "doseAndRate": [
+                            {
+                                "doseQuantity": {
+                                    "value": 1.0,
+                                    "unit": "Tablet",
+                                    "code": "1513AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "dispenseRequest": {
+                    "validityPeriod": {
+                        "start": "2025-10-07T12:15:31+00:00"
+                    },
+                    "numberOfRepeatsAllowed": 5,
+                    "quantity": {
+                        "value": 180.0,
+                        "unit": "Tablet",
+                        "code": "1513AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                    }
+                }
+            }
+        },
+        {
+            "fullUrl": "https://o3.openmrs.org/openmrs/ws/fhir2/R4/MedicationRequest/8039f117-0336-404a-ad1a-0a636beab4f5",
+            "resource": {
+                "resourceType": "MedicationRequest",
+                "id": "8039f117-0336-404a-ad1a-0a636beab4f5",
+                "meta": {
+                    "versionId": "1759839830000",
+                    "lastUpdated": "2025-10-07T12:23:50.000+00:00"
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table class=\"hapiPropertyTable\"><tbody><tr><td>Id:</td><td>8039f117-0336-404a-ad1a-0a636beab4f5</td></tr><tr><td>Status:</td><td>ACTIVE</td></tr><tr><td>Intent:</td><td>ORDER</td></tr><tr><td>Priority:</td><td>ROUTINE</td></tr><tr><td>Medication:</td><td><a href=\"http://localhost:8080/openmrs/ws/fhir2/R4/Medication/86eb6be4-a312-4b93-86c2-0fb786d04cec\">Fluoxetine</a></td></tr><tr><td>Subject:</td><td><a href=\"http://localhost:8080/openmrs/ws/fhir2/R4/Patient/0709789c-6ff2-4240-9a8d-efdc9926e869\">Carl Frederickson (OpenMRS ID: 100024L)</a></td></tr><tr><td>Encounter:</td><td><a href=\"http://localhost:8080/openmrs/ws/fhir2/R4/Encounter/200ef448-21bf-482b-9a29-1820a63bcd1d\">Encounter/200ef448-21bf-482b-9a29-1820a63bcd1d</a></td></tr><tr><td>Authored On:</td><td>07/10/2025</td></tr><tr><td>Requester:</td><td><a href=\"http://localhost:8080/openmrs/ws/fhir2/R4/Practitioner/1967f01d-68d6-4da6-8a59-027513557186\">Super User</a></td></tr><tr><td>Note:</td><td><div/></td></tr><tr><td>Dosage Instruction:</td><td><div/></td></tr><tr><td>Dispense Requests:</td><td><table class=\"subPropertyTable\"><tbody><tr><th>-</th><th>Initial Fill</th><th>Dispense Interval</th><th>Validity Period</th><th>Number of Repeats Allowed</th><th>Quantity</th><th>Expected Supply Duration</th><th>Performer</th></tr><tr><td>*</td><td><div> Quantity: </div><div> Duration: </div></td><td/><td> 2025-10-07 12:23:50.0 - ? </td><td> 5 </td><td> 30.0 Tablet </td><td/><td><a href=\"http://localhost:8080/openmrs/ws/fhir2/R4/null\"/></td></tr></tbody></table></td></tr></tbody></table></div>"
+                },
+                "status": "active",
+                "intent": "order",
+                "priority": "routine",
+                "medicationReference": {
+                    "reference": "Medication/86eb6be4-a312-4b93-86c2-0fb786d04cec",
+                    "type": "Medication",
+                    "display": "Fluoxetine"
+                },
+                "subject": {
+                    "reference": "Patient/0709789c-6ff2-4240-9a8d-efdc9926e869",
+                    "type": "Patient",
+                    "display": "Carl Frederickson (OpenMRS ID: 100024L)"
+                },
+                "encounter": {
+                    "reference": "Encounter/200ef448-21bf-482b-9a29-1820a63bcd1d",
+                    "type": "Encounter"
+                },
+                "authoredOn": "2025-10-07T12:23:50+00:00",
+                "requester": {
+                    "reference": "Practitioner/1967f01d-68d6-4da6-8a59-027513557186",
+                    "type": "Practitioner",
+                    "identifier": {
+                        "value": "admin"
+                    },
+                    "display": "Super User"
+                },
+                "dosageInstruction": [
+                    {
+                        "timing": {
+                            "repeat": {
+                                "duration": 30,
+                                "durationUnit": "d"
+                            },
+                            "code": {
+                                "coding": [
+                                    {
+                                        "code": "160862AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                                        "display": "Once daily"
+                                    },
+                                    {
+                                        "system": "https://cielterminology.org",
+                                        "code": "160862"
+                                    },
+                                    {
+                                        "system": "http://snomed.info/sct/",
+                                        "code": "229797004"
+                                    }
+                                ],
+                                "text": "Once daily"
+                            }
+                        },
+                        "asNeededBoolean": false,
+                        "route": {
+                            "coding": [
+                                {
+                                    "code": "160240AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                                    "display": "Oral"
+                                },
+                                {
+                                    "system": "https://cielterminology.org",
+                                    "code": "160240"
+                                },
+                                {
+                                    "system": "http://snomed.info/sct/",
+                                    "code": "26643006"
+                                }
+                            ],
+                            "text": "Oral"
+                        },
+                        "doseAndRate": [
+                            {
+                                "doseQuantity": {
+                                    "value": 20.0,
+                                    "unit": "Milligram",
+                                    "code": "161553AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "dispenseRequest": {
+                    "validityPeriod": {
+                        "start": "2025-10-07T12:23:50+00:00"
+                    },
+                    "numberOfRepeatsAllowed": 5,
+                    "quantity": {
+                        "value": 30.0,
+                        "unit": "Tablet",
+                        "code": "1513AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                    }
+                }
+            }
+        }
+    ]
+}
