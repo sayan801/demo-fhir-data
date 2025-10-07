@@ -1,0 +1,48 @@
+{
+    "resourceType": "Patient",
+    "id": "CarlFrederickson",
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_CarlFrederickson\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Patient CarlFrederickson</b></p><a name=\"CarlFrederickson\"> </a><a name=\"hcCarlFrederickson\"> </a><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Carl Frederickson  Male, DoB: 1949-09-12</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Known Marital status of Patient\">Marital Status:</td><td colspan=\"3\"><span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-MaritalStatus M}\">Married</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Nominated Contact: Emergency Contact\">Emergency Contact:</td><td colspan=\"3\"><ul><li>Ellie Frederickson </li></ul></td></tr></table></div>"
+    },
+    "name": [
+        {
+            "family": "Frederickson",
+            "given": [
+                "Carl"
+            ]
+        }
+    ],
+    "gender": "male",
+    "birthDate": "1949-09-12",
+    "maritalStatus": {
+        "coding": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+                "code": "M",
+                "display": "Married"
+            }
+        ]
+    },
+    "contact": [
+        {
+            "relationship": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+                            "code": "C",
+                            "display": "Emergency Contact"
+                        }
+                    ]
+                }
+            ],
+            "name": {
+                "family": "Frederickson",
+                "given": [
+                    "Ellie"
+                ]
+            }
+        }
+    ]
+}

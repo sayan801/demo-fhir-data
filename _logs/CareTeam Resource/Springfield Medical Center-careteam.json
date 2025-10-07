@@ -1,0 +1,246 @@
+{
+    "resourceType": "CareTeam",
+    "id": "CarlFredericksonCareTeam",
+    "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CareTeam_CarlFredericksonCareTeam\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CareTeam CarlFredericksonCareTeam</b></p><a name=\"CarlFredericksonCareTeam\"> </a><a name=\"hcCarlFredericksonCareTeam\"> </a><p><b>identifier</b>: <code>http://example.org/demo/careteam-identifier</code>/CT-34567</p><p><b>status</b>: Active</p><p><b>category</b>: <span title=\"Codes:{http://loinc.org LA27976-2}\">Encounter-focused care team</span></p><p><b>name</b>: Carl Frederickson's Care Team</p><p><b>subject</b>: <a href=\"Patient-CarlFrederickson.html\">Carl Frederickson  Male, DoB: 1949-09-12</a></p><p><b>period</b>: 2023-01-15 --&gt; (ongoing)</p><blockquote><p><b>participant</b></p><p><b>role</b>: <span title=\"Codes:{http://snomed.info/sct 446050000}\">Primary care provider</span></p><p><b>member</b>: Dr. Hibbert</p><p><b>onBehalfOf</b>: Springfield Medical Center</p><p><b>period</b>: 2020-03-15 --&gt; (ongoing)</p></blockquote><blockquote><p><b>participant</b></p><p><b>role</b>: <span title=\"Codes:{http://snomed.info/sct 309343006}\">Psychiatrist</span></p><p><b>member</b>: Dr. Funke</p><p><b>onBehalfOf</b>: Springfield Medical Center</p><p><b>period</b>: 2022-09-08 --&gt; (ongoing)</p></blockquote><blockquote><p><b>participant</b></p><p><b>role</b>: <span title=\"Codes:{http://snomed.info/sct 66288003}\">Psychotherapist</span></p><p><b>member</b>: Lucy van Pelt</p><p><b>onBehalfOf</b>: Springfield Medical Center</p><p><b>period</b>: 2022-10-12 --&gt; (ongoing)</p></blockquote><blockquote><p><b>participant</b></p><p><b>42 CFR Part 2 Extension</b>: true</p><p><b>role</b>: <span title=\"Codes:{http://snomed.info/sct 309343006}\">Psychiatrist</span></p><p><b>member</b>: Dr. White</p><p><b>onBehalfOf</b>: Springfield Medical Center Addiction Treatment Program</p><p><b>period</b>: 2022-06-30 --&gt; (ongoing)</p></blockquote><blockquote><p><b>participant</b></p><p><b>role</b>: <span title=\"Codes:{http://snomed.info/sct 159034004}\">Podiatrist</span></p><p><b>member</b>: Dr. Sasquatch</p><p><b>onBehalfOf</b>: Orthopedic Health Services</p><p><b>period</b>: 2023-02-25 --&gt; (ongoing)</p></blockquote><blockquote><p><b>participant</b></p><p><b>role</b>: <span title=\"Codes:{http://snomed.info/sct 158970007}\">Anesthesiologist</span></p><p><b>member</b>: Dr. Aurora</p><p><b>onBehalfOf</b>: Orthopedic Health Services</p><p><b>period</b>: 2023-05-15 --&gt; (ongoing)</p></blockquote><blockquote><p><b>participant</b></p><p><b>role</b>: <span title=\"Codes:{http://snomed.info/sct 66862007}\">Radiologist</span></p><p><b>member</b>: Dr. Banner</p><p><b>onBehalfOf</b>: Regional Advanced Diagnostic Services</p><p><b>period</b>: 2023-03-10 --&gt; (ongoing)</p></blockquote><blockquote><p><b>participant</b></p><p><b>role</b>: <span title=\"Codes:{http://snomed.info/sct 224546007}\">ICN - Infection control nurse</span></p><p><b>member</b>: ACO Care Manager</p><p><b>onBehalfOf</b>: Springfield ACO</p><p><b>period</b>: 2022-01-01 --&gt; (ongoing)</p></blockquote><p><b>reasonCode</b>: <span title=\"Codes:{http://snomed.info/sct 386661006}\">Multidisciplinary care</span></p><p><b>managingOrganization</b>: Springfield Medical Center</p><p><b>note</b>: By Dr. Hibbert @2023-05-10 14:00:00+0000</p><blockquote><div><p>Monthly care coordination meetings scheduled to coordinate care across behavioral health, primary care, and specialty services. Substance use treatment protected under 42 CFR Part 2.</p>\n</div></blockquote></div>"
+    },
+    "identifier": [
+        {
+            "system": "http://example.org/demo/careteam-identifier",
+            "value": "CT-34567"
+        }
+    ],
+    "status": "active",
+    "category": [
+        {
+            "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "LA27976-2",
+                    "display": "Encounter-focused care team"
+                }
+            ]
+        }
+    ],
+    "name": "Carl Frederickson's Care Team",
+    "subject": {
+        "reference": "Patient/985c0565-cc4c-481f-bc81-422ad5f1d38a"
+    },
+    "period": {
+        "start": "2023-01-15"
+    },
+    "participant": [
+        {
+            "role": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "446050000",
+                            "display": "Primary care physician"
+                        }
+                    ],
+                    "text": "Primary care provider"
+                }
+            ],
+            "member": {
+                "display": "Dr. Hibbert"
+            },
+            "onBehalfOf": {
+                "display": "Springfield Medical Center"
+            },
+            "period": {
+                "start": "2020-03-15"
+            }
+        },
+        {
+            "role": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "309343006",
+                            "display": "Physician"
+                        }
+                    ],
+                    "text": "Psychiatrist"
+                }
+            ],
+            "member": {
+                "display": "Dr. Funke"
+            },
+            "onBehalfOf": {
+                "display": "Springfield Medical Center"
+            },
+            "period": {
+                "start": "2022-09-08"
+            }
+        },
+        {
+            "role": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "66288003",
+                            "display": "Skin of infraclavicular region"
+                        }
+                    ],
+                    "text": "Psychotherapist"
+                }
+            ],
+            "member": {
+                "display": "Lucy van Pelt"
+            },
+            "onBehalfOf": {
+                "display": "Springfield Medical Center"
+            },
+            "period": {
+                "start": "2022-10-12"
+            }
+        },
+        {
+            "extension": [
+                {
+                    "url": "http://SHIFT-Task-Force.github.io/demo-fhir-data/StructureDefinition/42CFRPart2",
+                    "valueBoolean": true
+                }
+            ],
+            "role": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "309343006",
+                            "display": "Physician"
+                        }
+                    ],
+                    "text": "Psychiatrist"
+                }
+            ],
+            "member": {
+                "display": "Dr. White"
+            },
+            "onBehalfOf": {
+                "display": "Springfield Medical Center Addiction Treatment Program"
+            },
+            "period": {
+                "start": "2022-06-30"
+            }
+        },
+        {
+            "role": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "159034004",
+                            "display": "Podiatrist"
+                        }
+                    ]
+                }
+            ],
+            "member": {
+                "display": "Dr. Sasquatch"
+            },
+            "onBehalfOf": {
+                "display": "Orthopedic Health Services"
+            },
+            "period": {
+                "start": "2023-02-25"
+            }
+        },
+        {
+            "role": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "158970007",
+                            "display": "Anaesthetist"
+                        }
+                    ],
+                    "text": "Anesthesiologist"
+                }
+            ],
+            "member": {
+                "display": "Dr. Aurora"
+            },
+            "onBehalfOf": {
+                "display": "Orthopedic Health Services"
+            },
+            "period": {
+                "start": "2023-05-15"
+            }
+        },
+        {
+            "role": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "66862007",
+                            "display": "Radiologist"
+                        }
+                    ]
+                }
+            ],
+            "member": {
+                "display": "Dr. Banner"
+            },
+            "onBehalfOf": {
+                "display": "Regional Advanced Diagnostic Services"
+            },
+            "period": {
+                "start": "2023-03-10"
+            }
+        },
+        {
+            "role": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "224546007",
+                            "display": "ICN - Infection control nurse"
+                        }
+                    ]
+                }
+            ],
+            "member": {
+                "display": "ACO Care Manager"
+            },
+            "onBehalfOf": {
+                "display": "Springfield ACO"
+            },
+            "period": {
+                "start": "2022-01-01"
+            }
+        }
+    ],
+    "reasonCode": [
+        {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "386661006",
+                    "display": "Fever (finding)"
+                }
+            ],
+            "text": "Multidisciplinary care"
+        }
+    ],
+    "managingOrganization": [
+        {
+            "display": "Springfield Medical Center"
+        }
+    ],
+    "note": [
+        {
+            "authorString": "Dr. Hibbert",
+            "time": "2023-05-10T14:00:00Z",
+            "text": "Monthly care coordination meetings scheduled to coordinate care across behavioral health, primary care, and specialty services. Substance use treatment protected under 42 CFR Part 2."
+        }
+    ]
+}

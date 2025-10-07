@@ -1,0 +1,47 @@
+{
+    "resourceType": "DiagnosticReport",
+    "id": "CarlFredericksonXrayFeet",
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_CarlFredericksonXrayFeet\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport CarlFredericksonXrayFeet</b></p><a name=\"CarlFredericksonXrayFeet\"> </a><a name=\"hcCarlFredericksonXrayFeet\"> </a><h2><span title=\"Codes:{http://www.ama-assn.org/go/cpt 73620}\">X-ray, bilateral feet, weightbearing, 2 views: dorsoplantar (DP) and axial</span> (<span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v2-0074 RAD}\">Radiology</span>) </h2><table class=\"grid\"><tr><td>Subject</td><td>Carl Frederickson  Male, DoB: 1949-09-12</td></tr><tr><td>When For</td><td>2022-11-15 10:30:00+0000</td></tr><tr><td>Reported</td><td>2022-11-15 14:45:00+0000</td></tr><tr><td>Performer</td><td> Dr. Robert Smith, Radiologist</td></tr><tr><td>Identifier</td><td> <code>http://example.com/demo/diagnosticreport-identifier</code>/XRAY-23456</td></tr></table><p><b>Report Details</b></p><p>Bilateral bunions with hallux valgus deformity, moderate degenerative changes in the first metatarsophalangeal joint bilaterally, more pronounced on the right.</p></div>"
+    },
+    "identifier": [
+        {
+            "system": "http://example.com/demo/diagnosticreport-identifier",
+            "value": "XRAY-23456"
+        }
+    ],
+    "status": "final",
+    "category": [
+        {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                    "code": "RAD",
+                    "display": "Radiology"
+                }
+            ]
+        }
+    ],
+    "code": {
+        "coding": [
+            {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "73620",
+                "display": "Radiologic examination, foot; 2 views"
+            }
+        ],
+        "text": "X-ray, bilateral feet, weightbearing, 2 views: dorsoplantar (DP) and axial"
+    },
+    "subject": {
+        "reference": "Patient/985c0565-cc4c-481f-bc81-422ad5f1d38a"
+    },
+    "effectiveDateTime": "2022-11-15T10:30:00Z",
+    "issued": "2022-11-15T14:45:00Z",
+    "performer": [
+        {
+            "display": "Dr. Robert Smith, Radiologist"
+        }
+    ],
+    "conclusion": "Bilateral bunions with hallux valgus deformity, moderate degenerative changes in the first metatarsophalangeal joint bilaterally, more pronounced on the right."
+}
