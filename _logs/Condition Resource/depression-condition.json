@@ -1,0 +1,56 @@
+{
+    "fullUrl": "https://o3.openmrs.org/openmrs/ws/fhir2/R4/Condition/72c4d27c-0d7b-4909-aff6-9ba416601de3",
+    "resource": {
+        "resourceType": "Condition",
+        "id": "72c4d27c-0d7b-4909-aff6-9ba416601de3",
+        "meta": {
+            "versionId": "1759837062000",
+            "lastUpdated": "2025-10-07T11:37:42.000+00:00"
+        },
+        "text": {
+            "status": "generated",
+            "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table class=\"hapiPropertyTable\"><tbody><tr><td>Id:</td><td>72c4d27c-0d7b-4909-aff6-9ba416601de3</td></tr><tr><td>Clinical Status:</td><td> active </td></tr><tr><td>Code:</td><td>Depression</td></tr><tr><td>Subject:</td><td><a href=\"http://localhost:8080/openmrs/ws/fhir2/R4/Patient/0709789c-6ff2-4240-9a8d-efdc9926e869\">Carl Frederickson (OpenMRS ID: 100024L)</a></td></tr><tr><td>Onset:</td><td> 30 September 2016 18:30:00 </td></tr><tr><td>Recorded Date:</td><td>07/10/2025</td></tr><tr><td>Recorder:</td><td><a href=\"http://localhost:8080/openmrs/ws/fhir2/R4/Practitioner/82f18b44-6814-11e8-923f-e9a88dcb533f\">Super User</a></td></tr></tbody></table></div>"
+        },
+        "clinicalStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                    "code": "active"
+                }
+            ]
+        },
+        "code": {
+            "coding": [
+                {
+                    "code": "119537AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "display": "Depression"
+                },
+                {
+                    "system": "https://cielterminology.org",
+                    "code": "119537"
+                },
+                {
+                    "system": "http://snomed.info/sct/",
+                    "code": "35489007"
+                },
+                {
+                    "system": "http://fhir.org/guides/who/anc-cds/CodeSystem/anc-custom-codes",
+                    "code": "ANC.B5.DE27"
+                }
+            ],
+            "text": "Depression"
+        },
+        "subject": {
+            "reference": "Patient/0709789c-6ff2-4240-9a8d-efdc9926e869",
+            "type": "Patient",
+            "display": "Carl Frederickson (OpenMRS ID: 100024L)"
+        },
+        "onsetDateTime": "2016-09-30T18:30:00+00:00",
+        "recordedDate": "2025-10-07T11:37:42+00:00",
+        "recorder": {
+            "reference": "Practitioner/82f18b44-6814-11e8-923f-e9a88dcb533f",
+            "type": "Practitioner",
+            "display": "Super User"
+        }
+    }
+}

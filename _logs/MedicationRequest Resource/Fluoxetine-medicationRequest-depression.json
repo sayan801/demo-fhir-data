@@ -23,13 +23,13 @@
             {
                 "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
                 "code": "315952",
-                "display": "fluoxetine 20 MG"
+                "display": "     20 MG"
             }
         ],
         "text": "Fluoxetine 20 MG Oral Capsule"
     },
     "subject": {
-        "reference": "Patient/985c0565-cc4c-481f-bc81-422ad5f1d38a"
+        "reference": "Patient/{{openMRSPatientId}}"
     },
     "dosageInstruction": [
         {

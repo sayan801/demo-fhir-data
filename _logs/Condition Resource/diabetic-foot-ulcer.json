@@ -1,0 +1,52 @@
+{
+    "fullUrl": "https://o3.openmrs.org/openmrs/ws/fhir2/R4/Condition/41e91406-d857-4727-8018-e3d1b040be41",
+    "resource": {
+        "resourceType": "Condition",
+        "id": "41e91406-d857-4727-8018-e3d1b040be41",
+        "meta": {
+            "versionId": "1759837425000",
+            "lastUpdated": "2025-10-07T11:43:45.000+00:00"
+        },
+        "text": {
+            "status": "generated",
+            "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table class=\"hapiPropertyTable\"><tbody><tr><td>Id:</td><td>41e91406-d857-4727-8018-e3d1b040be41</td></tr><tr><td>Clinical Status:</td><td> active </td></tr><tr><td>Code:</td><td>Diabetic foot ulcer</td></tr><tr><td>Subject:</td><td><a href=\"http://localhost:8080/openmrs/ws/fhir2/R4/Patient/0709789c-6ff2-4240-9a8d-efdc9926e869\">Carl Frederickson (OpenMRS ID: 100024L)</a></td></tr><tr><td>Onset:</td><td> 07 May 2025 18:30:00 </td></tr><tr><td>Recorded Date:</td><td>07/10/2025</td></tr><tr><td>Recorder:</td><td><a href=\"http://localhost:8080/openmrs/ws/fhir2/R4/Practitioner/82f18b44-6814-11e8-923f-e9a88dcb533f\">Super User</a></td></tr></tbody></table></div>"
+        },
+        "clinicalStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                    "code": "active"
+                }
+            ]
+        },
+        "code": {
+            "coding": [
+                {
+                    "code": "142451AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "display": "Diabetic foot ulcer"
+                },
+                {
+                    "system": "https://cielterminology.org",
+                    "code": "142451"
+                },
+                {
+                    "system": "http://snomed.info/sct/",
+                    "code": "371087003"
+                }
+            ],
+            "text": "Diabetic foot ulcer"
+        },
+        "subject": {
+            "reference": "Patient/0709789c-6ff2-4240-9a8d-efdc9926e869",
+            "type": "Patient",
+            "display": "Carl Frederickson (OpenMRS ID: 100024L)"
+        },
+        "onsetDateTime": "2025-05-07T18:30:00+00:00",
+        "recordedDate": "2025-10-07T11:43:45+00:00",
+        "recorder": {
+            "reference": "Practitioner/82f18b44-6814-11e8-923f-e9a88dcb533f",
+            "type": "Practitioner",
+            "display": "Super User"
+        }
+    }
+}

@@ -1,0 +1,51 @@
+{
+    "resourceType": "Patient",
+    "id": "0709789c-6ff2-4240-9a8d-efdc9926e869",
+    "meta": {
+        "versionId": "1759835534000",
+        "lastUpdated": "2025-10-07T11:12:14.000+00:00"
+    },
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table class=\"hapiPropertyTable\"><tbody><tr><td>Id:</td><td>0709789c-6ff2-4240-9a8d-efdc9926e869</td></tr><tr><td>Identifier:</td><td><div>100024L</div></td></tr><tr><td>Active:</td><td>true</td></tr><tr><td>Name:</td><td> Carl <b>FREDERICKSON </b></td></tr><tr><td>Gender:</td><td>MALE</td></tr><tr><td>Birth Date:</td><td>12/09/1949</td></tr><tr><td>Deceased:</td><td>false</td></tr></tbody></table></div>"
+    },
+    "identifier": [
+        {
+            "id": "49948db3-273b-44e1-b7d9-6276289be084",
+            "extension": [
+                {
+                    "url": "http://fhir.openmrs.org/ext/patient/identifier#location",
+                    "valueReference": {
+                        "reference": "Location/184ac7d9-225a-41f8-bac7-c87b1327e1b0",
+                        "type": "Location",
+                        "display": "Ward 1"
+                    }
+                }
+            ],
+            "use": "official",
+            "type": {
+                "coding": [
+                    {
+                        "code": "05a29f94-c0ed-11e2-94be-8c13b969e334"
+                    }
+                ],
+                "text": "OpenMRS ID"
+            },
+            "value": "100024L"
+        }
+    ],
+    "active": true,
+    "name": [
+        {
+            "id": "5b4d5ec6-d29a-4824-8443-6fb08dd05739",
+            "text": "Carl Frederickson",
+            "family": "Frederickson",
+            "given": [
+                "Carl"
+            ]
+        }
+    ],
+    "gender": "male",
+    "birthDate": "1949-09-12",
+    "deceasedBoolean": false
+}

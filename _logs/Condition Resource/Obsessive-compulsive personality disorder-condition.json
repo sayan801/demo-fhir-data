@@ -1,6 +1,6 @@
 {
     "resourceType": "Condition",
-    "id": "CarlFredericksonOCPD",
+    "id": "52a598f0-f298-47c0-8029-340c2aff6540",
     "meta": {
         "profile": [
             "http://SHIFT-Task-Force.github.io/demo-fhir-data/StructureDefinition/sensitive-condition-profile"
@@ -45,11 +45,6 @@
     "code": {
         "coding": [
             {
-                "system": "http://hl7.org/fhir/sid/icd-10-cm",
-                "code": "F60.5",
-                "display": "Obsessive-compulsive personality disorder"
-            },
-            {
                 "system": "http://snomed.info/sct",
                 "code": "1376001",
                 "display": "Obsessive compulsive personality disorder"
@@ -58,6 +53,6 @@
         "text": "Obsessive-compulsive personality disorder"
     },
     "subject": {
-        "reference": "Patient/985c0565-cc4c-481f-bc81-422ad5f1d38a"
+        "reference": "Patient/{{openMRSPatientId}}"
     }
 }

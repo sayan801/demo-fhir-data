@@ -58,7 +58,7 @@
         "text": "Opioid abuse, in remission"
     },
     "subject": {
-        "reference": "Patient/985c0565-cc4c-481f-bc81-422ad5f1d38a"
+        "reference": "Patient/{{openMRSPatientId}}"
     },
     "recordedDate": "2025-04-06"
-}
+}               
