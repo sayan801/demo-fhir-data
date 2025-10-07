@@ -1,0 +1,266 @@
+{
+    "resourceType": "Bundle",
+    "id": "AllOfCarlFrederickson",
+    "type": "transaction",
+    "entry": [
+        
+        {
+            "fullUrl": "urn:uuid:CarlFredericksonBunions",
+            "request": {
+                "method": "POST",
+                "url": "Condition"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "CarlFredericksonBunions",
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Condition_CarlFredericksonBunions\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Condition CarlFredericksonBunions</b></p><a name=\"CarlFredericksonBunions\"> </a><a name=\"hcCarlFredericksonBunions\"> </a><p><b>identifier</b>: <code>http://example.com/demo/condition-identifier</code>/BUNIONS-12347</p><p><b>clinicalStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-clinical active}\">Active</span></p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-category problem-list-item}\">Problem List Item</span></p><p><b>code</b>: <span title=\"Codes:{http://hl7.org/fhir/sid/icd-10-cm M20.10}, {http://snomed.info/sct 415692008}\">Bunions, bilateral</span></p><p><b>subject</b>: <a href=\"Patient-CarlFrederickson.html\">Carl Frederickson  Male, DoB: 1949-09-12</a></p></div>"
+                },
+                "identifier": [
+                    {
+                        "system": "http://example.com/demo/condition-identifier",
+                        "value": "BUNIONS-12347"
+                    }
+                ],
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "active"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "problem-list-item"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "M20.10",
+                            "display": "Hallux valgus (acquired), unspecified foot"
+                        },
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "415692008",
+                            "display": "Swelling of first metatarsophalangeal joint of hallux (disorder)"
+                        }
+                    ],
+                    "text": "Bunions, bilateral"
+                },
+                "subject": {
+                    "reference": "Patient/985c0565-cc4c-481f-bc81-422ad5f1d38a"
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:CarlFredericksonHTN",
+            "request": {
+                "method": "POST",
+                "url": "Condition"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "CarlFredericksonHTN",
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Condition_CarlFredericksonHTN\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Condition CarlFredericksonHTN</b></p><a name=\"CarlFredericksonHTN\"> </a><a name=\"hcCarlFredericksonHTN\"> </a><p><b>identifier</b>: <code>http://example.com/demo/condition-identifier</code>/HTN-12346</p><p><b>clinicalStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-clinical active}\">Active</span></p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-category problem-list-item}\">Problem List Item</span></p><p><b>code</b>: <span title=\"Codes:{http://hl7.org/fhir/sid/icd-10 I10}, {http://snomed.info/sct 59621000}\">Essential hypertension</span></p><p><b>subject</b>: <a href=\"Patient-CarlFrederickson.html\">Carl Frederickson  Male, DoB: 1949-09-12</a></p></div>"
+                },
+                "identifier": [
+                    {
+                        "system": "http://example.com/demo/condition-identifier",
+                        "value": "HTN-12346"
+                    }
+                ],
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "active"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "problem-list-item"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10",
+                            "code": "I10",
+                            "display": "Essential (primary) hypertension"
+                        },
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "59621000",
+                            "display": "Essential hypertension (disorder)"
+                        }
+                    ],
+                    "text": "Essential hypertension"
+                },
+                "subject": {
+                    "reference": "Patient/985c0565-cc4c-481f-bc81-422ad5f1d38a"
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:CarlFredericksonBuprenorphineNaltrexone",
+            "request": {
+                "method": "POST",
+                "url": "MedicationRequest"
+            },
+            "resource": {
+                "resourceType": "MedicationRequest",
+                "id": "CarlFredericksonBuprenorphineNaltrexone",
+                "meta": {
+                    "profile": [
+                        "http://SHIFT-Task-Force.github.io/demo-fhir-data/StructureDefinition/sensitive-medication-request-profile"
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MedicationRequest_CarlFredericksonBuprenorphineNaltrexone\"> </a><p class=\"res-header-id\"><b>Generated Narrative: MedicationRequest CarlFredericksonBuprenorphineNaltrexone</b></p><a name=\"CarlFredericksonBuprenorphineNaltrexone\"> </a><a name=\"hcCarlFredericksonBuprenorphineNaltrexone\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-sensitive-medication-request-profile.html\">Sensitive Medication Request Profile</a></p></div><p><b>identifier</b>: <code>http://example.com/demo/medicationrequest-identifier</code>/RX-BUPNALTREX-45601</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>medication</b>: <span title=\"Codes:{http://www.nlm.nih.gov/research/umls/rxnorm 352364}, {http://snomed.info/sct 425741009}\">Buprenorphine / Naltrexone</span></p><p><b>subject</b>: <a href=\"Patient-CarlFrederickson.html\">Carl Frederickson  Male, DoB: 1949-09-12</a></p><blockquote><p><b>dosageInstruction</b></p><p><b>text</b>: 8mg/2mg SL daily</p><p><b>timing</b>: Once per 1 day</p><p><b>route</b>: <span title=\"Codes:{http://snomed.info/sct 37839007}\">Sublingual route</span></p><h3>DoseAndRates</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Dose[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>1 tablet/day<span style=\"background: LightGoldenRodYellow\"> (Details: SNOMED CT  code428673006 = 'Tablet - unit of product usage (qualifier value)')</span></td></tr></table></blockquote></div>"
+                },
+                "identifier": [
+                    {
+                        "system": "http://example.com/demo/medicationrequest-identifier",
+                        "value": "RX-BUPNALTREX-45601"
+                    }
+                ],
+                "status": "active",
+                "intent": "order",
+                "medicationCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "352364",
+                            "display": "buprenorphine / naloxone"
+                        },
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "425741009",
+                            "display": "Product containing buprenorphine and naloxone (medicinal product)"
+                        }
+                    ],
+                    "text": "Buprenorphine / Naltrexone"
+                },
+                "subject": {
+                    "reference": "Patient/985c0565-cc4c-481f-bc81-422ad5f1d38a"
+                },
+                "dosageInstruction": [
+                    {
+                        "text": "8mg/2mg SL daily",
+                        "timing": {
+                            "repeat": {
+                                "frequency": 1,
+                                "period": 1,
+                                "periodUnit": "d"
+                            }
+                        },
+                        "route": {
+                            "coding": [
+                                {
+                                    "system": "http://snomed.info/sct",
+                                    "code": "37839007",
+                                    "display": "Sublingual route"
+                                }
+                            ]
+                        },
+                        "doseAndRate": [
+                            {
+                                "doseQuantity": {
+                                    "value": 1,
+                                    "unit": "tablet/day",
+                                    "system": "http://snomed.info/sct",
+                                    "code": "428673006"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:CarlFredericksonCaptopril",
+            "request": {
+                "method": "POST",
+                "url": "MedicationRequest"
+            },
+            "resource": {
+                "resourceType": "MedicationRequest",
+                "id": "CarlFredericksonCaptopril",
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MedicationRequest_CarlFredericksonCaptopril\"> </a><p class=\"res-header-id\"><b>Generated Narrative: MedicationRequest CarlFredericksonCaptopril</b></p><a name=\"CarlFredericksonCaptopril\"> </a><a name=\"hcCarlFredericksonCaptopril\"> </a><p><b>identifier</b>: <code>http://example.com/demo/medicationrequest-identifier</code>/RX-CAPTOPRIL-45603</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>medication</b>: <span title=\"Codes:{http://www.nlm.nih.gov/research/umls/rxnorm 315560}\">Captopril 12.5 MG Oral Tablet</span></p><p><b>subject</b>: <a href=\"Patient-CarlFrederickson.html\">Carl Frederickson  Male, DoB: 1949-09-12</a></p><blockquote><p><b>dosageInstruction</b></p><p><b>text</b>: 12.5mg PO BID</p><p><b>timing</b>: 2 per 1 day</p><p><b>route</b>: <span title=\"Codes:{http://snomed.info/sct 26643006}\">Oral route</span></p><h3>DoseAndRates</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Dose[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>12.5 mg<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codemg = 'mg')</span></td></tr></table></blockquote></div>"
+                },
+                "identifier": [
+                    {
+                        "system": "http://example.com/demo/medicationrequest-identifier",
+                        "value": "RX-CAPTOPRIL-45603"
+                    }
+                ],
+                "status": "active",
+                "intent": "order",
+                "medicationCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "315560",
+                            "display": "captopril 12.5 MG"
+                        }
+                    ],
+                    "text": "Captopril 12.5 MG Oral Tablet"
+                },
+                "subject": {
+                    "reference": "Patient/985c0565-cc4c-481f-bc81-422ad5f1d38a"
+                },
+                "dosageInstruction": [
+                    {
+                        "text": "12.5mg PO BID",
+                        "timing": {
+                            "repeat": {
+                                "frequency": 2,
+                                "period": 1,
+                                "periodUnit": "d"
+                            }
+                        },
+                        "route": {
+                            "coding": [
+                                {
+                                    "system": "http://snomed.info/sct",
+                                    "code": "26643006",
+                                    "display": "Oral route"
+                                }
+                            ]
+                        },
+                        "doseAndRate": [
+                            {
+                                "doseQuantity": {
+                                    "value": 12.5,
+                                    "unit": "mg",
+                                    "system": "http://unitsofmeasure.org",
+                                    "code": "mg"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}
