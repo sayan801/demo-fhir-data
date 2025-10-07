@@ -1,0 +1,39 @@
+{
+    "resourceType": "Observation",
+    "id": "CarlFredericksonOUDThoughtRecord",
+    "meta": {
+        "profile": [
+            "http://SHIFT-Task-Force.github.io/demo-fhir-data/StructureDefinition/sensitive-observation-profile"
+        ]
+    },
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_CarlFredericksonOUDThoughtRecord\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation CarlFredericksonOUDThoughtRecord</b></p><a name=\"CarlFredericksonOUDThoughtRecord\"> </a><a name=\"hcCarlFredericksonOUDThoughtRecord\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-sensitive-observation-profile.html\">Sensitive Observation Profile</a></p></div><p><b>identifier</b>: <code>http://example.com/demo/observation-identifier</code>/OUDTR-56782</p><p><b>status</b>: Final</p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 444175001}\">Mapple CBT Tool - OUD self-help thought record</span></p><p><b>subject</b>: <a href=\"Patient-CarlFrederickson.html\">Carl Frederickson  Male, DoB: 1949-09-12</a></p><p><b>effective</b>: 2023-08-05 14:45:00+0000</p><p><b>performer</b>: <a href=\"Patient-CarlFrederickson.html\">Carl Frederickson  Male, DoB: 1949-09-12</a></p></div>"
+    },
+    "identifier": [
+        {
+            "system": "http://example.com/demo/observation-identifier",
+            "value": "OUDTR-56782"
+        }
+    ],
+    "status": "final",
+    "code": {
+        "coding": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "444175001",
+                "display": "Guided self-help cognitive behavioral therapy (regime/therapy)"
+            }
+        ],
+        "text": "Mapple CBT Tool - OUD self-help thought record"
+    },
+    "subject": {
+        "reference": "Patient/985c0565-cc4c-481f-bc81-422ad5f1d38a"
+    },
+    "effectiveDateTime": "2023-08-05T14:45:00Z",
+    "performer": [
+        {
+            "reference": "Patient/985c0565-cc4c-481f-bc81-422ad5f1d38a"
+        }
+    ]
+}

@@ -1,60 +1,60 @@
 {
-                "resourceType": "MedicationRequest",
-                "id": "CarlFredericksonCaptopril",
-                "text": {
-                    "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MedicationRequest_CarlFredericksonCaptopril\"> </a><p class=\"res-header-id\"><b>Generated Narrative: MedicationRequest CarlFredericksonCaptopril</b></p><a name=\"CarlFredericksonCaptopril\"> </a><a name=\"hcCarlFredericksonCaptopril\"> </a><p><b>identifier</b>: <code>http://example.com/demo/medicationrequest-identifier</code>/RX-CAPTOPRIL-45603</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>medication</b>: <span title=\"Codes:{http://www.nlm.nih.gov/research/umls/rxnorm 315560}\">Captopril 12.5 MG Oral Tablet</span></p><p><b>subject</b>: <a href=\"Patient-CarlFrederickson.html\">Carl Frederickson  Male, DoB: 1949-09-12</a></p><blockquote><p><b>dosageInstruction</b></p><p><b>text</b>: 12.5mg PO BID</p><p><b>timing</b>: 2 per 1 day</p><p><b>route</b>: <span title=\"Codes:{http://snomed.info/sct 26643006}\">Oral route</span></p><h3>DoseAndRates</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Dose[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>12.5 mg<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codemg = 'mg')</span></td></tr></table></blockquote></div>"
-                },
-                "identifier": [
+    "resourceType": "MedicationRequest",
+    "id": "CarlFredericksonCaptopril",
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MedicationRequest_CarlFredericksonCaptopril\"> </a><p class=\"res-header-id\"><b>Generated Narrative: MedicationRequest CarlFredericksonCaptopril</b></p><a name=\"CarlFredericksonCaptopril\"> </a><a name=\"hcCarlFredericksonCaptopril\"> </a><p><b>identifier</b>: <code>http://example.com/demo/medicationrequest-identifier</code>/RX-CAPTOPRIL-45603</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>medication</b>: <span title=\"Codes:{http://www.nlm.nih.gov/research/umls/rxnorm 315560}\">Captopril 12.5 MG Oral Tablet</span></p><p><b>subject</b>: <a href=\"Patient-CarlFrederickson.html\">Carl Frederickson  Male, DoB: 1949-09-12</a></p><blockquote><p><b>dosageInstruction</b></p><p><b>text</b>: 12.5mg PO BID</p><p><b>timing</b>: 2 per 1 day</p><p><b>route</b>: <span title=\"Codes:{http://snomed.info/sct 26643006}\">Oral route</span></p><h3>DoseAndRates</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Dose[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>12.5 mg<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codemg = 'mg')</span></td></tr></table></blockquote></div>"
+    },
+    "identifier": [
+        {
+            "system": "http://example.com/demo/medicationrequest-identifier",
+            "value": "RX-CAPTOPRIL-45603"
+        }
+    ],
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+        "coding": [
+            {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "315560",
+                "display": "captopril 12.5 MG"
+            }
+        ],
+        "text": "Captopril 12.5 MG Oral Tablet"
+    },
+    "subject": {
+        "reference": "Patient/985c0565-cc4c-481f-bc81-422ad5f1d38a"
+    },
+    "dosageInstruction": [
+        {
+            "text": "12.5mg PO BID",
+            "timing": {
+                "repeat": {
+                    "frequency": 2,
+                    "period": 1,
+                    "periodUnit": "d"
+                }
+            },
+            "route": {
+                "coding": [
                     {
-                        "system": "http://example.com/demo/medicationrequest-identifier",
-                        "value": "RX-CAPTOPRIL-45603"
-                    }
-                ],
-                "status": "active",
-                "intent": "order",
-                "medicationCodeableConcept": {
-                    "coding": [
-                        {
-                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                            "code": "315560",
-                            "display": "captopril 12.5 MG"
-                        }
-                    ],
-                    "text": "Captopril 12.5 MG Oral Tablet"
-                },
-                "subject": {
-                    "reference": "Patient/985c0565-cc4c-481f-bc81-422ad5f1d38a"
-                },
-                "dosageInstruction": [
-                    {
-                        "text": "12.5mg PO BID",
-                        "timing": {
-                            "repeat": {
-                                "frequency": 2,
-                                "period": 1,
-                                "periodUnit": "d"
-                            }
-                        },
-                        "route": {
-                            "coding": [
-                                {
-                                    "system": "http://snomed.info/sct",
-                                    "code": "26643006",
-                                    "display": "Oral route"
-                                }
-                            ]
-                        },
-                        "doseAndRate": [
-                            {
-                                "doseQuantity": {
-                                    "value": 12.5,
-                                    "unit": "mg",
-                                    "system": "http://unitsofmeasure.org",
-                                    "code": "mg"
-                                }
-                            }
-                        ]
+                        "system": "http://snomed.info/sct",
+                        "code": "26643006",
+                        "display": "Oral route"
                     }
                 ]
-            }
+            },
+            "doseAndRate": [
+                {
+                    "doseQuantity": {
+                        "value": 12.5,
+                        "unit": "mg",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "mg"
+                    }
+                }
+            ]
+        }
+    ]
+}

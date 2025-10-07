@@ -1,0 +1,39 @@
+{
+    "resourceType": "Observation",
+    "id": "CarlFredericksonPHQ9A",
+    "meta": {
+        "profile": [
+            "http://SHIFT-Task-Force.github.io/demo-fhir-data/StructureDefinition/sensitive-observation-profile"
+        ]
+    },
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_CarlFredericksonPHQ9A\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation CarlFredericksonPHQ9A</b></p><a name=\"CarlFredericksonPHQ9A\"> </a><a name=\"hcCarlFredericksonPHQ9A\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-sensitive-observation-profile.html\">Sensitive Observation Profile</a></p></div><p><b>identifier</b>: <code>http://example.com/demo/observation-identifier</code>/PHQ9-56781_A</p><p><b>status</b>: Final</p><p><b>code</b>: <span title=\"Codes:{http://www.ama-assn.org/go/cpt 96127}\">Brief emotional/behavioral assessment (eg, depression inventory, attention-deficit/hyperactivity disorder [ADHD] scale), with scoring and documentation, per standardized instrument</span></p><p><b>subject</b>: <a href=\"Patient-CarlFrederickson.html\">Carl Frederickson  Male, DoB: 1949-09-12</a></p><p><b>effective</b>: 2023-08-12 14:30:00+0000</p><p><b>performer</b>: Lucy van Pelt</p><p><b>value</b>: Brief emotional/behavioral assessment - CPT 96127 (not billed)</p></div>"
+    },
+    "identifier": [
+        {
+            "system": "http://example.com/demo/observation-identifier",
+            "value": "PHQ9-56781_A"
+        }
+    ],
+    "status": "final",
+    "code": {
+        "coding": [
+            {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "96127",
+                "display": "Brief emotional/behavioral assessment (eg, depression inventory, attention-deficit/hyperactivity disorder [ADHD] scale), with scoring and documentation, per standardized instrument"
+            }
+        ]
+    },
+    "subject": {
+        "reference": "Patient/985c0565-cc4c-481f-bc81-422ad5f1d38a"
+    },
+    "effectiveDateTime": "2023-08-12T14:30:00Z",
+    "performer": [
+        {
+            "display": "Lucy van Pelt"
+        }
+    ],
+    "valueString": "Brief emotional/behavioral assessment - CPT 96127 (not billed)"
+}
