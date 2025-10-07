@@ -1,0 +1,50 @@
+{
+    "resourceType": "Condition",
+    "id": "CarlFredericksonBunions",
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Condition_CarlFredericksonBunions\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Condition CarlFredericksonBunions</b></p><a name=\"CarlFredericksonBunions\"> </a><a name=\"hcCarlFredericksonBunions\"> </a><p><b>identifier</b>: <code>http://example.com/demo/condition-identifier</code>/BUNIONS-12347</p><p><b>clinicalStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-clinical active}\">Active</span></p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-category problem-list-item}\">Problem List Item</span></p><p><b>code</b>: <span title=\"Codes:{http://hl7.org/fhir/sid/icd-10-cm M20.10}, {http://snomed.info/sct 415692008}\">Bunions, bilateral</span></p><p><b>subject</b>: <a href=\"Patient-CarlFrederickson.html\">Carl Frederickson  Male, DoB: 1949-09-12</a></p></div>"
+    },
+    "identifier": [
+        {
+            "system": "http://example.com/demo/condition-identifier",
+            "value": "BUNIONS-12347"
+        }
+    ],
+    "clinicalStatus": {
+        "coding": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "code": "active"
+            }
+        ]
+    },
+    "category": [
+        {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                    "code": "problem-list-item"
+                }
+            ]
+        }
+    ],
+    "code": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "M20.10",
+                "display": "Hallux valgus (acquired), unspecified foot"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "415692008",
+                "display": "Swelling of first metatarsophalangeal joint of hallux (disorder)"
+            }
+        ],
+        "text": "Bunions, bilateral"
+    },
+    "subject": {
+        "reference": "Patient/985c0565-cc4c-481f-bc81-422ad5f1d38a"
+    }
+}
