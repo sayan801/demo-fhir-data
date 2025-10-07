@@ -1,0 +1,50 @@
+{
+    "resourceType": "Condition",
+    "id": "CarlFredericksonHTN",
+    "text": {
+      "status": "generated",
+      "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Condition_CarlFredericksonHTN\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Condition CarlFredericksonHTN</b></p><a name=\"CarlFredericksonHTN\"> </a><a name=\"hcCarlFredericksonHTN\"> </a><p><b>identifier</b>: <code>http://example.com/demo/condition-identifier</code>/HTN-12346</p><p><b>clinicalStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-clinical active}\">Active</span></p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-category problem-list-item}\">Problem List Item</span></p><p><b>code</b>: <span title=\"Codes:{http://hl7.org/fhir/sid/icd-10 I10}, {http://snomed.info/sct 59621000}\">Essential hypertension</span></p><p><b>subject</b>: <a href=\"Patient-CarlFrederickson.html\">Carl Frederickson  Male, DoB: 1949-09-12</a></p></div>"
+    },
+    "identifier": [
+      {
+        "system": "http://example.com/demo/condition-identifier",
+        "value": "HTN-12346"
+      }
+    ],
+    "clinicalStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active"
+        }
+      ]
+    },
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+            "code": "problem-list-item"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10",
+          "code": "I10",
+          "display": "Essential (primary) hypertension"
+        },
+        {
+          "system": "http://snomed.info/sct",
+          "code": "59621000",
+          "display": "Essential hypertension (disorder)"
+        }
+      ],
+      "text": "Essential hypertension"
+    },
+    "subject": {
+      "reference": "Patient/985c0565-cc4c-481f-bc81-422ad5f1d38a"
+    }
+  }
