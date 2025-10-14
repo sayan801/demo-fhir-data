@@ -1,0 +1,23 @@
+## openMRS Resource Types
+
+Condition, 
+Group, 
+Immunization, 
+Task, 
+MedicationRequest, 
+MedicationDispense, 
+Patient, 
+DiagnosticReport, 
+Flag, 
+RelatedPerson, 
+ServiceRequest, 
+Practitioner, 
+AllergyIntolerance, 
+EpisodeOfCare, 
+Observation, 
+Medication, 
+Encounter, 
+ValueSet, 
+Person, 
+OperationDefinition, 
+Location

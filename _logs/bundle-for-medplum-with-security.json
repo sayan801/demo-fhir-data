@@ -1,23 +1,32 @@
 {
     "resourceType": "Bundle",
-    "id": "AllOfCarlFrederickson",
     "type": "transaction",
     "entry": [
         {
-            "fullUrl": "urn:uuid:CarlFrederickson",
+            "response": {
+                "outcome": {
+                    "resourceType": "OperationOutcome",
+                    "id": "created",
+                    "issue": [
+                        {
+                            "severity": "information",
+                            "code": "informational",
+                            "details": {
+                                "text": "Created"
+                            }
+                        }
+                    ]
+                },
+                "status": "201",
+                "location": "Patient/8415fe29-f4e0-46b3-89c4-e2c269686313"
+            },
             "request": {
                 "method": "POST",
                 "url": "Patient"
             },
             "resource": {
                 "resourceType": "Patient",
-                "id": "CarlFrederickson",
-                "identifier": [
-                    {
-                        "system": "http://shift.github.io/demo/identifier/mrn",
-                        "value": "12345"
-                    }
-                ],
+                "id": "8415fe29-f4e0-46b3-89c4-e2c269686313",
                 "text": {
                     "status": "generated",
                     "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_CarlFrederickson\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Patient CarlFrederickson</b></p><a name=\"CarlFrederickson\"> </a><a name=\"hcCarlFrederickson\"> </a><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Carl Frederickson  Male, DoB: 1949-09-12</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Known Marital status of Patient\">Marital Status:</td><td colspan=\"3\"><span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-MaritalStatus M}\">Married</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Nominated Contact: Emergency Contact\">Emergency Contact:</td><td colspan=\"3\"><ul><li>Ellie Frederickson </li></ul></td></tr></table></div>"
@@ -61,18 +70,40 @@
                             ]
                         }
                     }
-                ]
+                ],
+                "meta": {
+                    "versionId": "9874b41b-22e7-4454-bac8-ccb384554aaf",
+                    "lastUpdated": "2025-10-10T11:23:14.806Z",
+                    "security": []
+                }
+                
             }
         },
         {
-            "fullUrl": "urn:uuid:CarlFredericksonBunions",
+            "response": {
+                "outcome": {
+                    "resourceType": "OperationOutcome",
+                    "id": "created",
+                    "issue": [
+                        {
+                            "severity": "information",
+                            "code": "informational",
+                            "details": {
+                                "text": "Created"
+                            }
+                        }
+                    ]
+                },
+                "status": "201",
+                "location": "Condition/c9a3414f-13b7-4583-ad53-47a09ba12274"
+            },
             "request": {
                 "method": "POST",
                 "url": "Condition"
             },
             "resource": {
                 "resourceType": "Condition",
-                "id": "CarlFredericksonBunions",
+                "id": "c9a3414f-13b7-4583-ad53-47a09ba12274",
                 "text": {
                     "status": "generated",
                     "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Condition_CarlFredericksonBunions\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Condition CarlFredericksonBunions</b></p><a name=\"CarlFredericksonBunions\"> </a><a name=\"hcCarlFredericksonBunions\"> </a><p><b>identifier</b>: <code>http://example.com/demo/condition-identifier</code>/BUNIONS-12347</p><p><b>clinicalStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-clinical active}\">Active</span></p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-category problem-list-item}\">Problem List Item</span></p><p><b>code</b>: <span title=\"Codes:{http://hl7.org/fhir/sid/icd-10-cm M20.10}, {http://snomed.info/sct 415692008}\">Bunions, bilateral</span></p><p><b>subject</b>: <a href=\"Patient-CarlFrederickson.html\">Carl Frederickson  Male, DoB: 1949-09-12</a></p></div>"
@@ -118,18 +149,40 @@
                 },
                 "subject": {
                     "reference": "Patient/985c0565-cc4c-481f-bc81-422ad5f1d38a"
+                },
+                "meta": {
+                    "versionId": "0082006c-9675-4ecd-8afd-391dd8abb08f",
+                    "lastUpdated": "2025-10-10T11:23:14.833Z",
+                    "security": []
                 }
+                
             }
         },
         {
-            "fullUrl": "urn:uuid:CarlFredericksonHTN",
+            "response": {
+                "outcome": {
+                    "resourceType": "OperationOutcome",
+                    "id": "created",
+                    "issue": [
+                        {
+                            "severity": "information",
+                            "code": "informational",
+                            "details": {
+                                "text": "Created"
+                            }
+                        }
+                    ]
+                },
+                "status": "201",
+                "location": "Condition/09870cee-a0d2-4dbc-8790-3a6ea7d620ca"
+            },
             "request": {
                 "method": "POST",
                 "url": "Condition"
             },
             "resource": {
                 "resourceType": "Condition",
-                "id": "CarlFredericksonHTN",
+                "id": "09870cee-a0d2-4dbc-8790-3a6ea7d620ca",
                 "text": {
                     "status": "generated",
                     "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Condition_CarlFredericksonHTN\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Condition CarlFredericksonHTN</b></p><a name=\"CarlFredericksonHTN\"> </a><a name=\"hcCarlFredericksonHTN\"> </a><p><b>identifier</b>: <code>http://example.com/demo/condition-identifier</code>/HTN-12346</p><p><b>clinicalStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-clinical active}\">Active</span></p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-category problem-list-item}\">Problem List Item</span></p><p><b>code</b>: <span title=\"Codes:{http://hl7.org/fhir/sid/icd-10 I10}, {http://snomed.info/sct 59621000}\">Essential hypertension</span></p><p><b>subject</b>: <a href=\"Patient-CarlFrederickson.html\">Carl Frederickson  Male, DoB: 1949-09-12</a></p></div>"
@@ -175,21 +228,83 @@
                 },
                 "subject": {
                     "reference": "Patient/985c0565-cc4c-481f-bc81-422ad5f1d38a"
+                },
+                "meta": {
+                    "versionId": "aaa2256d-192a-4dad-b659-bbfbac5b7c78",
+                    "lastUpdated": "2025-10-10T11:23:14.874Z",
+                    "security": []
                 }
+                
             }
         },
         {
-            "fullUrl": "urn:uuid:CarlFredericksonBuprenorphineNaltrexone",
+            "response": {
+                "outcome": {
+                    "resourceType": "OperationOutcome",
+                    "id": "created",
+                    "issue": [
+                        {
+                            "severity": "information",
+                            "code": "informational",
+                            "details": {
+                                "text": "Created"
+                            }
+                        }
+                    ]
+                },
+                "status": "201",
+                "location": "MedicationRequest/904b6d38-84ec-4cbe-99bc-99c2e6bcfb00"
+            },
             "request": {
                 "method": "POST",
                 "url": "MedicationRequest"
             },
             "resource": {
                 "resourceType": "MedicationRequest",
-                "id": "CarlFredericksonBuprenorphineNaltrexone",
+                "id": "904b6d38-84ec-4cbe-99bc-99c2e6bcfb00",
                 "meta": {
                     "profile": [
                         "http://SHIFT-Task-Force.github.io/demo-fhir-data/StructureDefinition/sensitive-medication-request-profile"
+                    ],
+                    "versionId": "817b082e-a0af-404c-b926-b6dc27398309",
+                    "lastUpdated": "2025-10-10T11:23:14.903Z",
+                    "security": [
+                        {
+                            "system": "local_code_group",
+                            "code": "opioid_medication",
+                            "display": "Opioid-related medications"
+                        },
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                            "code": "SUD",
+                            "display": "Substance use disorder information sensitivity"
+                        },
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                            "code": "OPIOIDUD",
+                            "display": "Opioid use disorder information sensitivity"
+                        },
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v3-Confidentiality",
+                            "code": "R",
+                            "display": "Restricted",
+                            "extension": [
+                                {
+                                    "url": "http://hl7.org/fhir/uv/security-label-ds4p/StructureDefinition/extension-sec-label-basis",
+                                    "valueCoding": {
+                                        "code": "42CFRPart2",
+                                        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                                        "display": "42 CFR Part2"
+                                    }
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/uv/security-label-ds4p/StructureDefinition/extension-sec-label-classifier",
+                                    "valueReference": {
+                                        "display": "LEAP+ Security Labeling Service"
+                                    }
+                                }
+                            ]
+                        }
                     ]
                 },
                 "text": {
@@ -253,17 +368,34 @@
                         ]
                     }
                 ]
+                
             }
         },
         {
-            "fullUrl": "urn:uuid:CarlFredericksonCaptopril",
+            "response": {
+                "outcome": {
+                    "resourceType": "OperationOutcome",
+                    "id": "created",
+                    "issue": [
+                        {
+                            "severity": "information",
+                            "code": "informational",
+                            "details": {
+                                "text": "Created"
+                            }
+                        }
+                    ]
+                },
+                "status": "201",
+                "location": "MedicationRequest/f624cf6c-ab95-4319-9641-719df365567d"
+            },
             "request": {
                 "method": "POST",
                 "url": "MedicationRequest"
             },
             "resource": {
                 "resourceType": "MedicationRequest",
-                "id": "CarlFredericksonCaptopril",
+                "id": "f624cf6c-ab95-4319-9641-719df365567d",
                 "text": {
                     "status": "generated",
                     "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MedicationRequest_CarlFredericksonCaptopril\"> </a><p class=\"res-header-id\"><b>Generated Narrative: MedicationRequest CarlFredericksonCaptopril</b></p><a name=\"CarlFredericksonCaptopril\"> </a><a name=\"hcCarlFredericksonCaptopril\"> </a><p><b>identifier</b>: <code>http://example.com/demo/medicationrequest-identifier</code>/RX-CAPTOPRIL-45603</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>medication</b>: <span title=\"Codes:{http://www.nlm.nih.gov/research/umls/rxnorm 315560}\">Captopril 12.5 MG Oral Tablet</span></p><p><b>subject</b>: <a href=\"Patient-CarlFrederickson.html\">Carl Frederickson  Male, DoB: 1949-09-12</a></p><blockquote><p><b>dosageInstruction</b></p><p><b>text</b>: 12.5mg PO BID</p><p><b>timing</b>: 2 per 1 day</p><p><b>route</b>: <span title=\"Codes:{http://snomed.info/sct 26643006}\">Oral route</span></p><h3>DoseAndRates</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Dose[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>12.5 mg<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codemg = 'mg')</span></td></tr></table></blockquote></div>"
@@ -319,7 +451,13 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "meta": {
+                    "versionId": "e01a641d-abd1-4b56-bf28-e988544b4fad",
+                    "lastUpdated": "2025-10-10T11:23:14.936Z",
+                    "security": []
+                }
+                
             }
         }
     ]

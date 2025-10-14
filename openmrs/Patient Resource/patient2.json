@@ -1,0 +1,85 @@
+{
+    "resourceType": "Patient",
+    "identifier": [
+        {
+            "extension": [
+                {
+                    "url": "http://fhir.openmrs.org/ext/patient/identifier#location",
+                    "valueReference": {
+                        "reference": "Location/44c3efb0-2583-4c80-a79e-1f756a03c0a1",
+                        "type": "Location",
+                        "display": "Outpatient Clinic"
+                    }
+                }
+            ],
+            "use": "official",
+            "type": {
+                "coding": [
+                    {
+                        "code": "05a29f94-c0ed-11e2-94be-8c13b969e334"
+                    }
+                ],
+                "text": "OpenMRS ID"
+            },
+            "value": "10001W3"
+        },
+        {
+            "use": "secondary",
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                        "code": "SSN",
+                        "display": "Social Security Number"
+                    }
+                ],
+                "text": "SSN"
+            },
+            "system": "http://openmrs.org/ms/ssn",
+            "value": "123-45-6789"
+        }
+    ],
+    "active": true,
+    "name": [
+        {
+            "text": "Carl Frederickson",
+            "family": "Frederickson",
+            "given": [
+                "Carl"
+            ]
+        }
+    ],
+    "gender": "male",
+    "birthDate": "1949-09-12",
+    "deceasedBoolean": false,
+    "maritalStatus": {
+        "coding": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+                "code": "M",
+                "display": "Married"
+            }
+        ]
+    },
+    "contact": [
+        {
+            "relationship": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+                            "code": "C",
+                            "display": "Emergency Contact"
+                        }
+                    ]
+                }
+            ],
+            "name": {
+                "family": "Frederickson",
+                "given": [
+                    "Ellie"
+                ]
+            }
+        }
+    ]
+}

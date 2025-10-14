@@ -1,0 +1,124 @@
+{
+    "resourceType": "Observation",
+    "id": "26a83f8e-e2dc-485b-b483-9b7c7dd71350",
+    "meta": {
+        "versionId": "1760451097000",
+        "lastUpdated": "2025-10-14T14:11:37.000+00:00"
+    },
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table class=\"hapiPropertyTable\"><tbody><tr><td>Id:</td><td>26a83f8e-e2dc-485b-b483-9b7c7dd71350</td></tr><tr><td>Status:</td><td>FINAL</td></tr><tr><td>Category:</td><td> Exam </td></tr><tr><td>Code:</td><td>Diastolic blood pressure</td></tr><tr><td>Subject:</td><td><a href=\"http://localhost:8080/openmrs/ws/fhir2/R4/Patient/f96d1119-e941-441c-8ee0-f359381e9b33\">Carl Frederickson (OpenMRS ID: 100021U)</a></td></tr><tr><td>Encounter:</td><td><a href=\"http://localhost:8080/openmrs/ws/fhir2/R4/Encounter/f82572e5-84ba-499c-aee6-fedef404686b\">Encounter/f82572e5-84ba-499c-aee6-fedef404686b</a></td></tr><tr><td>Effective:</td><td> 14 October 2025 14:11:37 </td></tr><tr><td>Issued:</td><td>14/10/2025 02:11:37 PM</td></tr><tr><td>Value:</td><td>65 mmHg </td></tr><tr><td>Interpretation:</td><td> Normal </td></tr><tr><td>Reference Ranges:</td><td><table class=\"subPropertyTable\"><tbody><tr><th>-</th><th>Low</th><th>High</th><th>Type</th><th>Applies To</th><th>Age</th></tr><tr><td>1</td><td>60 </td><td>80 </td><td> normal </td><td/><td> - </td></tr><tr><td>2</td><td>50 </td><td>110 </td><td> treatment </td><td/><td> - </td></tr><tr><td>3</td><td>0 </td><td>150 </td><td> absolute </td><td/><td> - </td></tr></tbody></table></td></tr></tbody></table></div>"
+    },
+    "status": "final",
+    "category": [
+        {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                    "code": "exam",
+                    "display": "Exam"
+                }
+            ]
+        }
+    ],
+    "code": {
+        "coding": [
+            {
+                "code": "5086AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "display": "Diastolic blood pressure"
+            },
+            {
+                "system": "http://loinc.org",
+                "code": "35094-2"
+            },
+            {
+                "system": "https://cielterminology.org",
+                "code": "5086"
+            },
+            {
+                "system": "http://snomed.info/sct/",
+                "code": "271650006"
+            }
+        ],
+        "text": "Diastolic blood pressure"
+    },
+    "subject": {
+        "reference": "Patient/f96d1119-e941-441c-8ee0-f359381e9b33",
+        "type": "Patient",
+        "display": "Carl Frederickson (OpenMRS ID: 100021U)"
+    },
+    "encounter": {
+        "reference": "Encounter/f82572e5-84ba-499c-aee6-fedef404686b",
+        "type": "Encounter"
+    },
+    "effectiveDateTime": "2025-10-14T14:11:37+00:00",
+    "issued": "2025-10-14T14:11:37.000+00:00",
+    "valueQuantity": {
+        "value": 65,
+        "unit": "mmHg",
+        "system": "http://unitsofmeasure.org",
+        "code": "mmHg"
+    },
+    "interpretation": [
+        {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                    "code": "N",
+                    "display": "Normal"
+                }
+            ],
+            "text": "Normal"
+        }
+    ],
+    "referenceRange": [
+        {
+            "low": {
+                "value": 60
+            },
+            "high": {
+                "value": 80
+            },
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/referencerange-meaning",
+                        "code": "normal"
+                    }
+                ]
+            }
+        },
+        {
+            "low": {
+                "value": 50
+            },
+            "high": {
+                "value": 110
+            },
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/referencerange-meaning",
+                        "code": "treatment"
+                    }
+                ]
+            }
+        },
+        {
+            "low": {
+                "value": 0
+            },
+            "high": {
+                "value": 150
+            },
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://fhir.openmrs.org/ext/obs/reference-range",
+                        "code": "absolute"
+                    }
+                ]
+            }
+        }
+    ]
+}

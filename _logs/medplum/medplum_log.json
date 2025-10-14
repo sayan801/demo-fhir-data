@@ -1,0 +1,11 @@
+{
+    "level": "WARN",
+    "timestamp": "2025-10-10T11:23:14.908Z",
+    "msg": "Unknown profile referenced",
+    "resource": "MedicationRequest/904b6d38-84ec-4cbe-99bc-99c2e6bcfb00",
+    "url": "http://SHIFT-Task-Force.github.io/demo-fhir-data/StructureDefinition/sensitive-medication-request-profile",
+    "projectId": "c5b5bfe4-4ae5-4fae-af7d-c3ac44e011bc",
+    "profile": "Practitioner/22710367-7853-49ad-9c3f-547bc74b4b86",
+    "requestId": "6599d10e-4004-44c2-b68e-6e323869564c",
+    "traceId": "cc475892-8c0d-4eb4-aab2-0cbb2b1c6fac"
+}

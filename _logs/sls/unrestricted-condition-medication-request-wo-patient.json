@@ -70,9 +70,7 @@
                     ],
                     "text": "Diabetic foot ulcer"
                 },
-                "subject": {
-                    "reference": "Patient/985c0565-cc4c-481f-bc81-422ad5f1d38a"
-                },
+                
                 "recordedDate": "2025-04-06"
             }
         },
@@ -127,10 +125,8 @@
                         }
                     ],
                     "text": "Essential hypertension"
-                },
-                "subject": {
-                    "reference": "Patient/985c0565-cc4c-481f-bc81-422ad5f1d38a"
                 }
+                
             }
         },
         {
@@ -164,9 +160,7 @@
                     ],
                     "text": "Captopril 12.5 MG Oral Tablet"
                 },
-                "subject": {
-                    "reference": "Patient/985c0565-cc4c-481f-bc81-422ad5f1d38a"
-                },
+                
                 "dosageInstruction": [
                     {
                         "text": "12.5mg PO BID",
